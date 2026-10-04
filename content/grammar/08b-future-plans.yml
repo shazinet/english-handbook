@@ -1,0 +1,56 @@
+point: 8B Future plans and arrangements
+level: B2
+tags: [grammar, future]
+cards:
+  - id: 8b-01
+    text: "I {{c1::am meeting}} Ali tomorrow. We're having coffee at ten."
+    note: "Present continuous is the everyday choice for ARRANGEMENTS: the time and place are already agreed."
+
+  - id: 8b-02
+    text: "I {{c1::am going to}} start running again next week."
+    note: "be going to expresses PLANS and INTENTIONS — a decision has been made."
+
+  - id: 8b-03
+    text: "I {{c1::am going to}} ask my boss about it when I {{c2::see}} her next."
+    note: "Only an intention, no arrangement made, so the present continuous is unavailable here."
+    trap: "NOT 'I'm asking my boss about it' — nothing has been arranged with her."
+
+  - id: 8b-04
+    text: "I {{c1::will be going}} past the pharmacy later — do you need anything?"
+    note: "Future continuous for something happening anyway, rather than something you arranged."
+
+  - id: 8b-05
+    text: "Don't call between two and three — I {{c1::will be having}} a job interview."
+    note: "Future continuous for an action in progress at a given future time."
+
+  - id: 8b-06
+    text: "The last bus {{c1::leaves}} at 11:40."
+    note: "Present simple for timetabled events — transport, classes, official schedules."
+
+  - id: 8b-07
+    text: "My evening course {{c1::starts}} next Monday."
+    note: "Present simple, because it's a fixed schedule set by an institution, not by you."
+
+  - id: 8b-08
+    text: "The package is {{c1::due to}} arrive on Thursday."
+    note: "be due to = scheduled or expected. Slightly formal register."
+
+  - id: 8b-09
+    text: "Hurry up — the movie is {{c1::about to}} start!"
+    note: "be about to = imminent, within moments."
+
+  - id: 8b-10
+    text: "You'll recognize me — I {{c1::will be wearing}} a red jacket."
+    note: "Future continuous, not present continuous: wearing a suit is not an 'arrangement'."
+
+  - id: 8b-11
+    text: "I {{c1::will be seeing}} Hana at the gym tonight, so I'll ask her then."
+    note: "Future continuous stresses that it will happen anyway in the course of things."
+
+  - id: 8b-12
+    text: "The new metro line {{c1::is to}} open next spring."
+    note: "be to + base form for official plans and announcements. News-report register."
+
+  - id: 8b-13
+    text: "My sister {{c1::is having}} a baby in March."
+    note: "Present continuous for a fixed arrangement, even a large life event."

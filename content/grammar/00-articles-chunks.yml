@@ -1,0 +1,102 @@
+point: 00 Articles — fixed chunks
+level: B1
+tags: [grammar, articles, chunks, fluency]
+# These are NOT rules to reason about. Each cloze is a whole phrase you should
+# produce as one unit, the way you'd say your own phone number. If you find
+# yourself deciding the article mid-sentence, the chunk isn't automatic yet —
+# rate it Again, even when you got it right.
+#
+# Every cloze carries a HINT (the bare content word), so the card never asks you
+# to guess WHICH noun. You are only tested on the preposition and article around
+# it: seeing [work], you must produce "at work" — not "at the work".
+cards:
+  - id: chunk-01
+    text: "I usually leave {{c1::for work::work}} at eight."
+    note: "for/at/to WORK — no article, ever."
+    trap: "NOT 'the work'."
+
+  - id: chunk-02
+    text: "She's still {{c1::at work::work}} — she doesn't finish until six."
+    note: "at work = the chunk. Produce it whole."
+
+  - id: chunk-03
+    text: "My nephew goes {{c1::to school::school}} by bus."
+    note: "to school, at school — zero article when it's the institution."
+
+  - id: chunk-04
+    text: "I went {{c1::to bed::bed}} really late last night."
+    note: "go to bed — no article."
+
+  - id: chunk-05
+    text: "He's still {{c1::in bed::bed}} at eleven on a Sunday."
+    note: "in bed = asleep/resting. 'in THE bed' would mean the physical object."
+
+  - id: chunk-06
+    text: "I'm {{c1::going home::go + home}} after this call."
+    note: "go home — no article AND no preposition."
+    trap: "NOT 'going to home'."
+
+  - id: chunk-07
+    text: "I work {{c1::from home::home}} three days a week."
+    note: "from home, at home — zero article."
+
+  - id: chunk-08
+    text: "It's faster to get there {{c1::by car::car}}."
+    note: "by car, by bus, by train, by plane — all zero article."
+
+  - id: chunk-09
+    text: "It's only ten minutes {{c1::on foot::foot}}."
+    note: "on foot is the odd one out — not 'by foot'."
+
+  - id: chunk-10
+    text: "I don't like driving {{c1::at night::night}}."
+    note: "at night — zero article."
+
+  - id: chunk-11
+    text: "I'll call you {{c1::in the morning::morning}}."
+    note: "in the morning/afternoon/evening — with THE. Contrast with 'at night'."
+
+  - id: chunk-12
+    text: "The meeting is {{c1::at noon::noon}}."
+    note: "at noon, at midnight, at lunchtime — zero article."
+
+  - id: chunk-13
+    text: "What are you doing {{c1::on the weekend::weekend}}?"
+    note: "US English: ON the weekend. (British English says 'at the weekend'.)"
+
+  - id: chunk-14
+    text: "I never {{c1::have breakfast::breakfast}} before nine."
+    note: "have breakfast/lunch/dinner — zero article."
+    trap: "NOT 'have the breakfast'."
+
+  - id: chunk-15
+    text: "His mother is {{c1::in the hospital::hospital}} after her operation."
+    note: "US English keeps THE. (British English drops it: 'in hospital'.)"
+
+  - id: chunk-16
+    text: "I'll be {{c1::at the office::office}} until six."
+    note: "at THE office — unlike 'at work', this one takes the article."
+
+  - id: chunk-17
+    text: "Don't worry, we'll get there {{c1::on time::time — punctually}}."
+    note: "on time = at the arranged moment."
+
+  - id: chunk-18
+    text: "We arrived {{c1::in time::time — early enough}} to catch the last train."
+    note: "in time = early enough for something. Different from 'on time'."
+
+  - id: chunk-19
+    text: "I can't talk right now — I'm {{c1::in a meeting::meeting}}."
+    note: "in a meeting takes 'a'. Compare 'at work', which takes nothing."
+
+  - id: chunk-20
+    text: "{{c1::In general::general}}, I prefer working mornings."
+    note: "in general, in fact, in particular — fixed, zero article."
+
+  - id: chunk-21
+    text: "She's {{c1::on vacation::vacation}} until the 20th."
+    note: "on vacation, on business — zero article."
+
+  - id: chunk-22
+    text: "I saw it {{c1::on TV::TV}} last night, then read about it {{c2::on the internet::internet}}."
+    note: "on TV takes nothing; the internet takes THE. No logic to it — memorize the pair."

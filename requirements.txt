@@ -1,0 +1,5 @@
+# The anki library is installed separately by install.sh, pinned to the version
+# of the Anki desktop app on this Mac — a mismatched library can't open the
+# collection, or worse, upgrades it out from under the app.
+genanki
+pyyaml

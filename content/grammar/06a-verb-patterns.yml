@@ -1,0 +1,59 @@
+point: 6A Verb + object + infinitive or gerund
+level: B2
+tags: [grammar, verb-patterns]
+cards:
+  - id: 6a-01
+    text: "My doctor advised me {{c1::not to drink}} coffee after lunch."
+    note: "verb + object + infinitive. The negative goes BEFORE the infinitive."
+    trap: "NOT 'advised me to not drink'."
+
+  - id: 6a-02
+    text: "We expect the package {{c1::to arrive}} on Thursday."
+    note: "advise, allow, ask, cause, enable, encourage, expect, force, invite, order, persuade, remind, teach, tell, warn all take object + infinitive."
+
+  - id: 6a-03
+    text: "It took me an hour {{c1::to find}} a parking space."
+    note: "take (time) + object + infinitive."
+
+  - id: 6a-04
+    text: "We're waiting {{c1::for}} the landlord to call us back."
+    note: "After arrange, ask, plan, and wait you need FOR before the object."
+    trap: "NOT 'We're waiting the landlord to call'."
+
+  - id: 6a-05
+    text: "I've arranged {{c1::for}} the plumber to come on Monday morning."
+    note: "arrange for + object + infinitive."
+
+  - id: 6a-06
+    text: "I'd hate you {{c1::to feel}} that you can't ask me for help."
+    note: "want, like, love, hate, prefer + object + infinitive."
+    trap: "NOT 'I'd hate that you feel...'."
+
+  - id: 6a-07
+    text: "I'd like you {{c1::to call}} me when you land."
+    note: "would like + object + infinitive — the standard polite request frame."
+
+  - id: 6a-08
+    text: "Our office doesn't allow {{c1::smoking}} anywhere in the building."
+    note: "After advise, allow, encourage, recommend — if there is NO object, use the gerund."
+
+  - id: 6a-09
+    text: "I recommend {{c1::booking}} a table — it gets busy on Fridays."
+    note: "No object → gerund. With an object: 'I recommend you to visit' or 'I recommend that you visit'."
+
+  - id: 6a-10
+    text: "The landlord advised {{c1::that}} we get contents insurance."
+    note: "advise, persuade, remind, teach, tell, warn also accept a that-clause."
+
+  - id: 6a-11
+    text: "Put your feet up. Let {{c1::me do}} the dishes."
+    note: "let + object + BASE FORM, with no 'to'."
+    trap: "NOT 'Let me to do'."
+
+  - id: 6a-12
+    text: "That conversation made {{c1::me realize}} how much I miss home."
+    note: "make + object + base form. Same no-'to' rule as let."
+
+  - id: 6a-13
+    text: "The app warned me {{c1::to update}} my password."
+    note: "warn + object + infinitive."

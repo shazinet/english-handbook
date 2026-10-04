@@ -1,0 +1,63 @@
+point: 7A Permission, obligation, and necessity
+level: B2
+tags: [grammar, modals, obligation]
+cards:
+  - id: 7a-01
+    text: "I {{c1::couldn't}} use my phone during the exam, so I left it in the car."
+    note: "could / couldn't for past permission."
+
+  - id: 7a-02
+    text: "We {{c1::should have taken}} the train — it would have been faster."
+    note: "should have / ought to have + participle = a past action you regret not taking."
+
+  - id: 7a-03
+    text: "You'd {{c1::better}} pay that bill today or they'll charge you a late fee."
+    note: "had better is a warning, more urgent than should: do it, or something bad will follow soon."
+
+  - id: 7a-04
+    text: "You'd better {{c1::not}} mention the price — it's a sensitive topic."
+    note: "The negative is 'had better not'."
+    trap: "NOT 'hadn't better'."
+
+  - id: 7a-05
+    text: "You {{c1::must not}} use your phone while you're driving."
+    note: "must not = it's forbidden; there's an obligation NOT to do it."
+
+  - id: 7a-06
+    text: "You {{c1::don't have to}} bring anything — we've got plenty of food."
+    note: "don't have to = no obligation either way. Completely different from must not."
+    trap: "These two are the classic confusion: 'mustn't' forbids, 'don't have to' frees."
+
+  - id: 7a-07
+    text: "You {{c1::need to}} show your ID to pick up the package."
+    note: "need to + base form for necessity."
+
+  - id: 7a-08
+    text: "You {{c1::needn't}} bring a towel — the gym provides them."
+    note: "needn't + base form — no 'to'."
+
+  - id: 7a-09
+    text: "We {{c1::needn't have rushed}}. The movie started twenty minutes late."
+    note: "needn't have + participle = you DID it, and it turned out unnecessary."
+
+  - id: 7a-10
+    text: "The shop was open late, so I {{c1::didn't need to}} hurry."
+    note: "didn't need to = it wasn't necessary, so you probably DIDN'T do it. Contrast with needn't have."
+
+  - id: 7a-11
+    text: "You {{c1::aren't supposed to}} eat at your desk, but most people do."
+    note: "be supposed to / be meant to = the rule says otherwise, though reality may differ."
+
+  - id: 7a-12
+    text: "Visitors {{c1::are allowed to}} park here for two hours."
+    note: "be allowed to for permission."
+    trap: "'able to' is about ability, not permission — don't swap them."
+
+  - id: 7a-13
+    text: "I {{c1::shouldn't have}} said that to my sister. I feel terrible about it."
+    note: "shouldn't have + participle for regret about something you DID do."
+    trap: "NOT 'must not have lost' — mustn't never expresses regret."
+
+  - id: 7a-14
+    text: "{{c1::May}} I ask you a quick question?"
+    note: "May I...? for polite requests for permission."

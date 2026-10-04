@@ -1,0 +1,58 @@
+point: 3A get
+level: B2
+tags: [grammar, verbs, get]
+cards:
+  - id: 3a-01
+    text: "I {{c1::got}} a message from my landlord this morning."
+    note: "get + noun = receive. One of the highest-frequency verbs in everyday English."
+
+  - id: 3a-02
+    text: "Can you {{c1::get}} some milk on your way home?"
+    note: "get = buy / fetch / obtain."
+
+  - id: 3a-03
+    text: "It's too far to walk — let's {{c1::get}} a taxi."
+    note: "get = catch, for transport."
+
+  - id: 3a-04
+    text: "What time did you {{c1::get to}} the airport?"
+    note: "get to + place = arrive at."
+    trap: "No 'to' before home: 'get home', not 'get to home'."
+
+  - id: 3a-05
+    text: "Let's head back — it's {{c1::getting}} cold."
+    note: "get + adjective = become. 'It's dark' is a state; 'it's getting dark' is the change."
+
+  - id: 3a-06
+    text: "Rents in this city {{c1::get}} higher every year."
+    note: "get + comparative adjective for a gradual change."
+
+  - id: 3a-07
+    text: "It took me months to {{c1::get used to}} driving on the right."
+    note: "get used to = the process of becoming accustomed. Always followed by -ing or a noun."
+    trap: "'be used to' = already accustomed; 'get used to' = becoming so."
+
+  - id: 3a-08
+    text: "Did you hear that Tom {{c1::got promoted}}?"
+    note: "get + past participle = an informal passive, common for things that happen to people: got fired, got promoted, got hurt."
+
+  - id: 3a-09
+    text: "My bike {{c1::got stolen}} outside the station last night."
+    note: "get-passive. More conversational than 'was stolen'."
+
+  - id: 3a-10
+    text: "My passport expires soon, so I need to {{c1::get}} it {{c2::renewed}}."
+    note: "get + object + past participle = have someone do it for you. Informal alternative to 'have'."
+
+  - id: 3a-11
+    text: "We should {{c1::get}} an electrician {{c2::to check}} the wiring."
+    note: "get + object + INFINITIVE = make, tell, or persuade someone to do something."
+    trap: "Note the contrast: get something DONE (participle) vs get someone TO DO it (infinitive)."
+
+  - id: 3a-12
+    text: "I finally {{c1::got}} my landlord {{c2::to fix}} the heating."
+    note: "get + object + infinitive = persuade."
+
+  - id: 3a-13
+    text: "I'm {{c1::getting}} really nervous about the interview."
+    note: "get + adjective = become, with a gradual sense."

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Template. install_reminders.sh substitutes __PYTHON__, __REPO__ and __STATE__
+  (the learner's me/.state) and writes
+  the result to ~/Library/LaunchAgents/ — don't load this file directly.
+
+  Fires every 30 minutes from 18:00 to 23:30. That looks like overkill for four
+  notification tiers, but the tiers dedupe themselves and the frequency is the
+  point: launchd runs a missed StartCalendarInterval job once on wake, so a Mac
+  that opens at 22:40 still gets the 22:00 nudge instead of nothing at all.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.english-handbook.reminder</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <!-- Absolute interpreter path: launchd's PATH is minimal, and this is
+             the python that has the `anki` library installed (.venv). -->
+        <string>__PYTHON__</string>
+        <string>__REPO__/build/remind.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__REPO__</string>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Hour</key><integer>20</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>20</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Hour</key><integer>22</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>22</integer><key>Minute</key><integer>30</integer></dict>
+        <dict><key>Hour</key><integer>23</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>23</integer><key>Minute</key><integer>30</integer></dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>__STATE__/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>__STATE__/launchd.err.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

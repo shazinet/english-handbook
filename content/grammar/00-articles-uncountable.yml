@@ -1,0 +1,114 @@
+point: 00 Articles — uncountable nouns
+level: B1
+tags: [grammar, articles, uncountable, determiners]
+# Typical errors: "a great pasta", "a music", "a special headphones",
+# "musics". One rule behind all four — an uncountable
+# noun takes no "a" and has no plural; a pair-noun is always plural.
+#
+# Many of these ARE countable in other languages, which is why the instinct
+# transfers wrong. The set is closed, so it can simply be learned.
+cards:
+  - id: unc-01
+    text: "My roommate cooked {{c1::great pasta::pasta}} last night."
+    note: "pasta is uncountable — it can never take *a*."
+    trap: "NOT 'cooked a great pasta'."
+
+  - id: unc-02
+    text: "There was {{c1::music::music}} playing in the background."
+    note: "music is uncountable — no *a*, and no plural."
+    trap: "NOT 'a music in the background' or 'mostly about musics'."
+
+  - id: unc-03
+    text: "Can you give me {{c1::some advice::advice}}?"
+    note: "advice is uncountable."
+    trap: "NOT 'an advice', NOT 'advices'. One of the most common errors at every level."
+
+  - id: unc-04
+    text: "She gave me {{c1::a piece of advice::advice, a single one}} I'll never forget."
+    note: "To count an uncountable, use a partitive: a piece of / a bit of / an item of."
+
+  - id: unc-05
+    text: "I need {{c1::some information::information}} about the visa process."
+    note: "information is uncountable."
+    trap: "NOT 'an information', NOT 'informations'."
+
+  - id: unc-06
+    text: "The news {{c1::is}} much better today."
+    note: "news ends in -s but is uncountable and takes a SINGULAR verb."
+    trap: "NOT 'the news are'."
+
+  - id: unc-07
+    text: "We bought {{c1::some furniture::furniture}} for the new apartment."
+    note: "furniture is uncountable."
+    trap: "NOT 'furnitures'. Count it as 'a piece of furniture'."
+
+  - id: unc-08
+    text: "They provide all the {{c1::equipment::equipment}} you need."
+    note: "equipment is uncountable."
+    trap: "NOT 'equipments'."
+
+  - id: unc-09
+    text: "I've made {{c1::a lot of progress::progress}} with my English this year."
+    note: "progress is uncountable."
+    trap: "NOT 'a progress', NOT 'progresses'."
+
+  - id: unc-10
+    text: "There was {{c1::heavy traffic::traffic}} on the way to the airport."
+    note: "traffic is uncountable. Note it takes *heavy*, not *big*."
+    trap: "NOT 'a traffic'."
+
+  - id: unc-11
+    text: "I still have {{c1::a lot of work::work}} to finish before Friday."
+    note: "work is uncountable when it means labour."
+    trap: "NOT 'works'. (*works* only means artworks or a factory.)"
+
+  - id: unc-12
+    text: "Where can I leave {{c1::my luggage::luggage}}?"
+    note: "luggage is uncountable."
+    trap: "NOT 'luggages'. Count it as 'two pieces of luggage'."
+
+  - id: unc-13
+    text: "We need to buy {{c1::some software::software}} for the team."
+    note: "software is uncountable."
+    trap: "NOT 'softwares'. Same for hardware."
+
+  - id: unc-14
+    text: "Recent {{c1::research suggests::research + suggest}} that multitasking doesn't work."
+    note: "research is uncountable and takes a singular verb."
+    trap: "NOT 'researches'."
+
+  - id: unc-15
+    text: "I bought {{c1::a new pair of headphones::headphones}} last week."
+    note: "PAIR NOUNS are always plural — you buy *a pair of* them."
+    trap: "NOT 'a special headphones'. NOT 'a headphone'."
+
+  - id: unc-16
+    text: "Have you seen my glasses? I can't find {{c1::them}}."
+    note: "Pair nouns take plural agreement: glasses, scissors, jeans, pants."
+    trap: "NOT 'I can't find it'."
+
+  - id: unc-17
+    text: "Could you pass me {{c1::the scissors::scissors}}?"
+    note: "scissors is always plural, even for one object."
+
+  - id: unc-18
+    text: "She has {{c1::long hair::hair}}."
+    note: "hair is uncountable for all of it together."
+    trap: "'a hair' means one single strand — usually in your food."
+
+  - id: unc-19
+    text: "Living abroad was {{c1::an amazing experience::experience, one event}}."
+    note: "COUNTABLE here — one particular event."
+
+  - id: unc-20
+    text: "Do you have {{c1::any experience::experience, skill}} with React?"
+    note: "UNCOUNTABLE here — accumulated skill. Same word, two meanings, two behaviours."
+
+  - id: unc-21
+    text: "Would you like {{c1::a coffee::coffee, one cup}}?"
+    note: "Countable when it means a cup of it — normal in cafés."
+    trap: "But 'I don't drink coffee' (the substance in general) takes nothing."
+
+  - id: unc-22
+    text: "I'd like {{c1::two slices of bread::bread}}, please."
+    note: "bread is uncountable — count it with slices, loaves, or pieces."

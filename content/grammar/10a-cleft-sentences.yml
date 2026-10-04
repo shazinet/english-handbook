@@ -1,0 +1,64 @@
+point: 10A Cleft sentences
+level: C1
+tags: [grammar, emphasis, spoken]
+cards:
+  - id: 10a-01
+    text: "{{c1::What}} I need is a long weekend."
+    note: "What-cleft — the most common emphasis structure in spoken English. Plain version: 'I need a coffee'."
+
+  - id: 10a-02
+    text: "{{c1::What}} I don't understand is why it's so expensive."
+    note: "Works with negatives too."
+
+  - id: 10a-03
+    text: "{{c1::All}} I want is a quiet evening at home."
+    note: "All I want... = the only thing I want. Slightly stronger than What."
+
+  - id: 10a-04
+    text: "{{c1::All}} I did was ask a question!"
+    note: "After 'All I did was', the verb takes the BARE infinitive — no 'to'."
+    trap: "NOT 'All I did was to ask a question'."
+
+  - id: 10a-05
+    text: "{{c1::What happened was}} that my alarm didn't go off."
+    note: "What happened was (that)... to introduce an explanation or story."
+
+  - id: 10a-06
+    text: "{{c1::What happens is}} that you fill in a form online and they call you back."
+    note: "Present version, for describing a process."
+
+  - id: 10a-07
+    text: "The {{c1::person}} who helped me most was my landlady."
+    note: "The person who/that... focuses on a human."
+
+  - id: 10a-08
+    text: "The {{c1::thing}} that surprised me was how friendly everyone was."
+    note: "The thing that/which... focuses on an object or an idea."
+
+  - id: 10a-09
+    text: "The {{c1::place}} where we had lunch was right on the beach."
+    note: "The place where... focuses on a location."
+
+  - id: 10a-10
+    text: "The {{c1::reason}} why I left was that the commute was too long."
+    note: "The reason why... focuses on a cause. 'why' is often dropped."
+
+  - id: 10a-11
+    text: "The last {{c1::time}} I took a day off was in June."
+    note: "The first/last time... focuses on an occasion."
+
+  - id: 10a-12
+    text: "{{c1::It}} was my neighbor who found my keys."
+    note: "It-cleft — the most flexible focusing structure. It + be + focus + who/that."
+
+  - id: 10a-13
+    text: "{{c1::It}} was on Tuesday that the package finally arrived."
+    note: "It-cleft focusing on a time."
+
+  - id: 10a-14
+    text: "It was the Wi-Fi {{c1::that}} the hotel made us pay extra for."
+    note: "It-cleft focusing on an object, with the preposition stranded at the end."
+
+  - id: 10a-15
+    text: "{{c1::What}} bothered me was that nobody told us about the delay."
+    note: "What-cleft with a that-clause as the complement."

@@ -1,0 +1,65 @@
+point: V06 Expressions with time
+level: B2
+tags: [vocab, time, collocations]
+cards:
+  - id: time-01
+    text: "I {{c1::waste}} so much time scrolling on my phone."
+    note: "waste time — use it badly."
+    audio: true
+  - id: time-02
+    text: "Ordering groceries online {{c1::saves}} me a lot of time."
+    note: "save time — the opposite of waste time."
+    audio: true
+  - id: time-03
+    text: "We got to the airport early, so we walked around the shops to {{c1::kill}} time."
+    note: "kill time — fill an empty period while waiting."
+    audio: true
+  - id: time-04
+    text: "No rush — {{c1::take}} your time and finish your coffee."
+    note: "take your time — don't rush. Very common reassurance."
+    audio: true
+  - id: time-05
+    text: "After months of working weekends, I'm going to {{c1::make up for}} lost time with my kids."
+    note: "make up for lost time — compensate for opportunities missed earlier."
+    audio: true
+  - id: time-06
+    text: "It {{c1::took}} me ages to set up the new router."
+    note: "it takes someone time to do something."
+    audio: true
+  - id: time-07
+    text: "My friends {{c1::gave}} me a hard time for being late again."
+    note: "give someone a hard time — criticise or make things difficult for them."
+    audio: true
+  - id: time-08
+    text: "Can you {{c1::spare}} five minutes? I need your advice."
+    note: "spare time for someone — make it available despite being busy."
+    audio: true
+  - id: time-09
+    text: "I {{c1::ran out of}} time and couldn't finish the last question."
+    note: "run out of time — have none left."
+    audio: true
+  - id: time-10
+    text: "Commuting {{c1::takes up}} two hours of my day."
+    note: "take up time — consume it."
+    audio: true
+  - id: time-11
+    text: "I love living here, but I feel a bit lonely {{c1::at}} times."
+    note: "at times — occasionally."
+    audio: true
+  - id: time-12
+    text: "The delivery will arrive {{c1::between}} nine and twelve."
+    note: "between X and Y."
+    audio: true
+  - id: time-13
+    text: "My dad is a bit {{c1::behind}} the times — he still pays for everything with checks."
+    note: "behind the times — old-fashioned in outlook."
+    audio: true
+  - id: time-14
+    text: "I can't answer all your questions at once — one {{c1::at}} a time, please."
+    note: "one thing at a time — fixed expression."
+    audio: true
+  - id: time-15
+    text: "I'm really looking {{c1::forward to}} seeing my family next month."
+    note: "look forward to + noun or -ing. Never the base form."
+    trap: "NOT 'looking forward to see you' — it must be 'to seeing you'."
+    audio: true

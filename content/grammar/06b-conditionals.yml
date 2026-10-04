@@ -1,0 +1,78 @@
+point: 6B Conditionals
+level: B2
+tags: [grammar, conditionals]
+cards:
+  - id: 6b-01
+    text: "You won't get a seat unless you {{c1::book}} in advance."
+    note: "First conditional — a possible present or future situation. Any present tense after if/unless, any future form or modal in the other clause."
+
+  - id: 6b-02
+    text: "How would we know if the app {{c1::wasn't working}} properly?"
+    note: "Second conditional — an imagined or unlikely situation. The if-clause takes a past form (here past continuous); the result clause takes would, could or might."
+
+  - id: 6b-03
+    text: "If I {{c1::had}} a bit more money, I {{c2::could take}} a few weeks off."
+    note: "Second conditional. could and might are both available instead of would."
+
+  - id: 6b-04
+    text: "I {{c1::would have come}} to your party if I {{c2::had been}} in town."
+    note: "Third conditional — imagining a different past: if + past perfect, then would have + past participle."
+
+  - id: 6b-05
+    text: "If you {{c1::had been paying}} attention, you wouldn't have missed the exit."
+    note: "Past perfect CONTINUOUS is also available in the if clause of a third conditional."
+
+  - id: 6b-06
+    text: "If I {{c1::had known}} the store was closed, I wouldn't have driven all the way there."
+    note: "Third conditional."
+    trap: "NEVER 'would' in the if clause: NOT 'If I would have known'. This is the single most common conditional error."
+
+  - id: 6b-07
+    text: "If I {{c1::were}} you, I'd ask for a raise."
+    note: "were, not was, is fixed in the expression 'If I were you'."
+
+  - id: 6b-08
+    text: "I wouldn't be so tired now if I {{c1::had gone}} to bed earlier."
+    note: "MIXED conditional — present result (second) from a past cause (third). Recognising these is what separates C1 from B2."
+
+  - id: 6b-09
+    text: "If he {{c1::didn't}} trust you, he wouldn't have given you his keys."
+    note: "Mixed the other way round — a present condition explaining a past result."
+
+  - id: 6b-10
+    text: "You can borrow my car as long {{c1::as}} you fill up the tank."
+    note: "'as long as' (or 'so long as') means 'only if' — it stresses that the condition is required."
+
+  - id: 6b-11
+    text: "{{c1::Provided}} that the weather's good, we'll have the party in the garden."
+    note: "Provided / Providing (that) — same function as as long as."
+
+  - id: 6b-12
+    text: "They let us rent the apartment on the {{c1::condition}} that we didn't have pets."
+    note: "on condition (that) — slightly more formal than the alternatives. 'that' is often dropped in speech."
+
+  - id: 6b-13
+    text: "I'm going to the party {{c1::whether}} you come or not."
+    note: "whether + subject + verb + or not = it's true in either case."
+    trap: "Word order can also be 'whether or not you agree'. Both are correct."
+
+  - id: 6b-14
+    text: "{{c1::Even if}} it rains, the concert will go ahead."
+    note: "even if adds emphasis — the result holds despite the condition."
+
+  - id: 6b-15
+    text: "{{c1::Supposing}} you won the lottery, what's the first thing you'd buy?"
+    note: "Supposing / Suppose asks someone to imagine something. Almost always sentence-initial."
+
+  - id: 6b-16
+    text: "{{c1::Had}} I known about the delay, I would have taken a later flight."
+    note: "In a third conditional you can drop if and put had first. It sounds formal, and you'll mostly see it written."
+    trap: "'Had I known' = 'If I had known'. Note there is no 'if' left in the sentence."
+
+  - id: 6b-17
+    text: "I'll take the car tomorrow if you {{c1::aren't driving}} to work."
+    note: "First conditional with present continuous after if — 'any present tense' really does mean any."
+
+  - id: 6b-18
+    text: "If my flight {{c1::lands}} on time, I'm going to meet you for dinner."
+    note: "going to is fine in the main clause of a first conditional; it needn't be 'will'."

@@ -1,0 +1,70 @@
+point: 10B Relative clauses
+level: B2
+tags: [grammar, relative-clauses]
+cards:
+  - id: 10b-01
+    text: "He's the guy {{c1::who}} fixed our boiler."
+    note: "Defining relative clause — essential information, no commas. that also works."
+
+  - id: 10b-02
+    text: "That's the café {{c1::whose}} owner is from Lisbon."
+    note: "whose = of who / of which."
+
+  - id: 10b-03
+    text: "She's the colleague {{c1::whose}} husband works at the bank."
+    note: "whose replaces the possessive."
+    trap: "NOT 'the colleague that her husband works at the bank'."
+
+  - id: 10b-04
+    text: "Is that the jacket {{c1::you bought}} in the sale?"
+    note: "When who/which/that is the OBJECT of the relative clause, drop it entirely — 'the jacket you bought', with no pronoun at all."
+
+  - id: 10b-05
+    text: "Is this the bus {{c1::that}} goes to the airport?"
+    note: "The relative pronoun replaces the subject — you don't repeat it."
+    trap: "NOT 'the bus that IT goes to the airport'."
+
+  - id: 10b-06
+    text: "You're the only person {{c1::to whom}} I'd tell this."
+    note: "Formal: preposition + whom. Informal: 'the only person I'd tell this to', with the preposition at the end."
+
+  - id: 10b-07
+    text: "The agent with {{c1::whom}} I dealt was very helpful."
+    note: "After a preposition it must be whom, never who."
+    trap: "NOT 'with who I dealt'."
+
+  - id: 10b-08
+    text: "{{c1::What}} I love about this neighborhood is the parks."
+    note: "what = 'the thing(s) which'. It already contains its own antecedent."
+    trap: "NOT 'Which I love about it is the parks'."
+
+  - id: 10b-09
+    text: "Tell me {{c1::what}} the doctor said."
+    note: "what as a relative pronoun meaning 'the thing that'."
+
+  - id: 10b-10
+    text: "My brother{{c1::,}} who lives in Toronto{{c1::,}} is visiting next week."
+    note: "NON-defining clause — extra information, set off by commas."
+    trap: "that can NEVER introduce a non-defining clause: NOT 'My brother, that lives in Toronto'."
+
+  - id: 10b-11
+    text: "Our new office, {{c1::which}} is right next to the station, is much easier to get to."
+    note: "Non-defining clauses use who/which only, always between commas."
+
+  - id: 10b-12
+    text: "The train was cancelled, {{c1::which}} was really annoying."
+    note: "which can refer back to the WHOLE preceding clause, not just a noun."
+
+  - id: 10b-13
+    text: "He said he'd been stuck in traffic, {{c1::which}} I didn't believe for a second."
+    note: "Same whole-clause reference."
+    trap: "NOT '..., that I didn't believe'."
+
+  - id: 10b-14
+    text: "My kids won't eat {{c1::what}} I cook anymore."
+    note: "what, not that, when you mean 'the things which'."
+
+  - id: 10b-15
+    text: "They showed us three apartments, none of {{c1::which}} had a balcony."
+    note: "Quantifier + of which / of whom in non-defining clauses."
+    trap: "NOT 'none of what had a balcony'."

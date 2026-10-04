@@ -1,0 +1,127 @@
+point: 00 Word choice
+level: B2
+tags: [grammar, vocabulary, word-choice, false-friends]
+# Confusion pairs, not new words: learners know both halves already and pick
+# the wrong one. Vocabulary is often the fastest-growing error category in
+# journal corrections, and these are the pairs that come up most.
+#
+# Several are false friends (many from Spanish), where the cognate exists
+# but means something else. Those are the ones that never self-correct, because
+# nothing about them feels wrong.
+cards:
+  - id: wc-01
+    text: "The last three days were {{c1::really}} heavy — I'm still tired."
+    note: "very / really for intensity. *too* means MORE than you want, and is always negative."
+    trap: "NOT 'too heavy' or 'liked them too much'. 'Too heavy' means it exceeded what you could bear."
+
+  - id: wc-02
+    text: "The shops were beautiful — we liked them {{c1::very much}}."
+    note: "like something very much / a lot."
+    trap: "'We liked them too much' means the liking itself was a problem."
+
+  - id: wc-03
+    text: "She {{c1::told}} me the room had air conditioning."
+    note: "TELL needs a person: tell someone something."
+    trap: "NOT 'she told that the room has...'."
+
+  - id: wc-04
+    text: "She {{c1::said}} the room had air conditioning."
+    note: "SAY takes no person: say something, or say TO someone."
+    trap: "NOT 'she said me'."
+
+  - id: wc-05
+    text: "The heat {{c1::affected}} my productivity."
+    note: "AFFECT is the verb, and it's transitive. EFFECT is the noun."
+    trap: "NOT 'impacted on my productivity'. As a verb, impact takes no *on*."
+
+  - id: wc-06
+    text: "The heat had a big {{c1::effect}} on my productivity."
+    note: "the noun takes *on*: an effect on something."
+
+  - id: wc-07
+    text: "The heat {{c1::slowed down}} my recovery."
+    note: "slow down. There is no *slow up*."
+
+  - id: wc-08
+    text: "The toilet flush is {{c1::broken}} — it's been like that for weeks."
+    note: "broken / faulty for physical things."
+    trap: "NOT 'got corrupted'. *Corrupted* is only for data and files."
+
+  - id: wc-09
+    text: "Sagrada Familia is a {{c1::historic}} building."
+    note: "HISTORIC = important in history."
+    trap: "HISTORICAL = relating to the study of history. 'a historical novel'."
+
+  - id: wc-10
+    text: "Could you {{c1::lend}} me your charger?"
+    note: "LEND = give temporarily. BORROW = take temporarily."
+    trap: "'Can I borrow your charger?' — same event, opposite direction."
+
+  - id: wc-11
+    text: "Can I {{c1::borrow}} your charger until tomorrow?"
+    note: "you borrow FROM someone; they lend TO you."
+
+  - id: wc-12
+    text: "Don't forget to {{c1::bring}} your passport when you come."
+    note: "BRING = towards the speaker. TAKE = away from the speaker."
+
+  - id: wc-13
+    text: "Could you {{c1::remind}} me to call the landlady?"
+    note: "REMIND someone to do something. REMEMBER is what you do yourself."
+    trap: "NOT 'remember me to call'."
+
+  - id: wc-14
+    text: "I'm {{c1::actually}} planning to move back to Canada."
+    note: "ACTUALLY = in fact, contrary to what you might think."
+    trap: "FALSE FRIEND: Spanish *actualmente* means CURRENTLY. English *actually* never does."
+
+  - id: wc-15
+    text: "I'm {{c1::currently}} living in Berlin."
+    note: "currently / at the moment for the present time."
+
+  - id: wc-16
+    text: "About forty people {{c1::attended}} the meeting."
+    note: "ATTEND = go to an event."
+    trap: "FALSE FRIEND: Spanish *asistir a*. English *assist* means HELP."
+
+  - id: wc-17
+    text: "I didn't {{c1::realize}} how hot it would be."
+    note: "REALIZE = become aware of."
+    trap: "FALSE FRIEND: Spanish *realizar* means CARRY OUT. Use *carry out* or *do* for that."
+
+  - id: wc-18
+    text: "My landlady is very {{c1::sensitive}} — she takes everything personally."
+    note: "SENSITIVE = easily hurt or quick to feel."
+    trap: "FALSE FRIEND: Spanish *sensible*. English *sensible* means practical and reasonable."
+
+  - id: wc-19
+    text: "Taking the metro would be more {{c1::sensible}} than walking in this heat."
+    note: "SENSIBLE = showing good judgement. Compare wc-18."
+
+  - id: wc-20
+    text: "I can't {{c1::stand}} the noise from the street."
+    note: "can't stand / can't bear = can't tolerate."
+    trap: "FALSE FRIEND: Spanish *soportar*. English *support* means back or hold up."
+
+  - id: wc-21
+    text: "It's a really {{c1::steep}} climb up to the viewpoint."
+    note: "steep is an ADJECTIVE only — there is no noun *a steep*."
+    trap: "NOT 'a really high steep of the mountain'."
+
+  - id: wc-22
+    text: "{{c1::To cut a long story short::cut + story + short}}, I'm still exhausted."
+    note: "The idiom keeps *to*. The shorter 'Long story short' also works."
+
+  - id: wc-23
+    text: "It was 44 {{c1::degrees}} yesterday."
+    note: "degrees, plural, for anything above one."
+
+  - id: wc-24
+    text: "I was {{c1::so angry}} that I decided not to say anything."
+    note: "BE angry, BE tired, BE hungry — English uses *be* where Spanish, French and many other languages use *have*."
+    trap: "NOT 'when I have this much anger'."
+
+  - id: wc-m01
+    text: "I could stay {{c1::longer}}, but we're both exhausted."
+    note: "*longer* for duration; *more* is quantity — more money, more work."
+    trap: "NOT 'I could stay more'. A very common slip — more can't describe duration."

@@ -1,0 +1,118 @@
+point: 00 Collocations
+level: B2
+tags: [grammar, collocations, vocabulary]
+# A large error type with no rule behind it. A typical habit: *take* doing work
+# that belongs to *get*, *rent* or *make*.
+#
+# There is no rule here to derive. Which verb goes with which noun is arbitrary
+# and must be stored as a pair. Produce the whole phrase, never the verb alone.
+cards:
+  # --- common learner errors ----------------------------------------------
+  - id: coll-01
+    text: "She's waiting to {{c1::get}} her visa before she can travel."
+    note: "get / obtain a visa. In everyday speech it's always *get*."
+    trap: "NOT 'take the visa'. You never *take* a document."
+
+  - id: coll-02
+    text: "We're hoping to {{c1::rent}} a whole apartment near the beach."
+    note: "rent an apartment (you pay), let an apartment (you own it)."
+    trap: "NOT 'take a whole apartment'."
+
+  - id: coll-03
+    text: "I still need to {{c1::get}} a digital signature."
+    note: "get / obtain a signature."
+    trap: "NOT 'taking a digital signature'."
+
+  - id: coll-04
+    text: "I can't sign a {{c1::rental}} contract without a residence permit."
+    note: "a rental contract, or simply *a lease*. *rent* is the money you pay."
+    trap: "NOT 'a rent contract'."
+
+  - id: coll-05
+    text: "I wish my landlady would {{c1::take things more easily::take + easy}}."
+    note: "take it easy / take things easily — the idiom is fixed."
+    trap: "NOT 'took everything easier'."
+
+  # --- make vs do: the classic pair --------------------------------------
+  - id: coll-06
+    text: "I need to {{c1::make}} a decision by Friday."
+    note: "MAKE for things you create or produce: a decision, a mistake, a plan, a mess."
+    trap: "NOT 'do a decision'."
+
+  - id: coll-07
+    text: "Sorry, I {{c1::made}} a mistake on the invoice."
+    note: "make a mistake."
+
+  - id: coll-08
+    text: "I've {{c1::made}} a lot of progress with my English."
+    note: "make progress. Note *progress* is also uncountable — no *a*."
+
+  - id: coll-09
+    text: "Could you {{c1::make}} an appointment with the doctor?"
+    note: "MAKE an appointment = arrange it. HAVE an appointment = already have one booked."
+
+  - id: coll-10
+    text: "I'll {{c1::do}} the dishes if you cook."
+    note: "DO for tasks and chores: the dishes, the shopping, the laundry, homework."
+    trap: "NOT 'make the dishes'."
+
+  - id: coll-11
+    text: "Could you {{c1::do}} me a favor?"
+    note: "do someone a favor."
+
+  - id: coll-12
+    text: "She's {{c1::doing}} research on urban planning."
+    note: "do research. Also uncountable — no *a*, no plural."
+
+  # --- take / get / have -------------------------------------------------
+  - id: coll-13
+    text: "Let's {{c1::take}} a break for ten minutes."
+    note: "take a break, take a nap, take a look, take a taxi."
+
+  - id: coll-14
+    text: "I usually {{c1::take}} a shower before breakfast."
+    note: "US English: take a shower. (British English says *have a shower*.)"
+
+  - id: coll-15
+    text: "Do you mind if I {{c1::take}} a photo?"
+    note: "take a photo / take a picture."
+    trap: "NOT 'make a photo'."
+
+  - id: coll-16
+    text: "I need to {{c1::open}} a bank account once I have my TIE."
+    note: "open / close a bank account."
+    trap: "NOT 'take a bank account'."
+
+  - id: coll-17
+    text: "We need to {{c1::meet}} the deadline or the client will pull out."
+    note: "meet a deadline. You also *miss* one."
+    trap: "NOT 'reach the deadline'."
+
+  - id: coll-18
+    text: "You have to {{c1::pay}} attention to the small print."
+    note: "pay attention — one of the few non-money uses of *pay*."
+
+  - id: coll-19
+    text: "I'd better {{c1::get}} in touch with the landlord today."
+    note: "get in touch with someone; keep in touch; lose touch."
+
+  - id: coll-20
+    text: "They're going to {{c1::get}} married in September."
+    note: "get married, get divorced, get engaged."
+    trap: "NOT 'make married'."
+
+  - id: coll-21
+    text: "I had to {{c1::apply}} for residency as soon as I arrived."
+    note: "apply FOR a job, a visa, residency, a grant."
+
+  - id: coll-22
+    text: "We should {{c1::book}} the flights before the prices go up."
+    note: "book a flight, a table, a room. *reserve* is the formal alternative."
+
+  - id: coll-23
+    text: "Let me {{c1::have}} a look at the contract before you sign."
+    note: "have a look, have a go, have a chat — informal and very common."
+
+  - id: coll-24
+    text: "He never {{c1::keeps}} his promises."
+    note: "keep a promise, keep a secret, keep an appointment. You *break* all three."

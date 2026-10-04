@@ -1,0 +1,64 @@
+point: 1A have — auxiliary or main verb
+level: B2
+tags: [grammar, verbs, have]
+cards:
+  - id: 1a-01
+    text: "{{c1::Do}} you have a charger I could borrow?"
+    note: "have as a MAIN verb needs do/does to form questions and negatives."
+    trap: "NOT 'Have you a charger?' — that sounds old-fashioned today."
+
+  - id: 1a-02
+    text: "My boss {{c1::doesn't have}} a car — she cycles to work."
+    note: "Main-verb have, negative with don't/doesn't."
+
+  - id: 1a-03
+    text: "We {{c1::are having}} a lot of trouble with our landlord at the moment."
+    note: "have + object for an ACTION or experience is dynamic, so it takes continuous forms."
+
+  - id: 1a-04
+    text: "My son {{c1::has}} a high temperature today, so he's staying home."
+    note: "have for sicknesses and relationships is stative — no continuous."
+    trap: "NOT 'My son is having a high temperature'."
+
+  - id: 1a-05
+    text: "How long {{c1::have}} you {{c1::had}} that laptop? It looks brand new."
+    note: "Possession is stative, so the present perfect SIMPLE is required."
+    trap: "NOT 'have you been having that laptop'."
+
+  - id: 1a-06
+    text: "We're going to {{c1::have}} the bathroom {{c2::retiled}} in the spring."
+    note: "have + object + past participle = you arrange for someone else to do it."
+
+  - id: 1a-07
+    text: "Where did you have your car {{c1::serviced}}?"
+    note: "Same causative structure. The past participle goes AFTER the object."
+
+  - id: 1a-08
+    text: "Do we {{c1::have to}} dress up for the office party, or is it casual?"
+    note: "have to = obligation. It behaves like an ordinary verb, so questions use do."
+
+  - id: 1a-09
+    text: "Sorry, I {{c1::haven't got}} any change for the parking meter."
+    note: "have got as an AUXILIARY — questions by inversion, negatives with haven't."
+
+  - id: 1a-10
+    text: "How many cousins {{c1::have}} you got?"
+    note: "have got inverts with the subject; no 'do' anywhere."
+
+  - id: 1a-11
+    text: "I've {{c1::got to}} run — my train leaves in ten minutes."
+    note: "have got to = have to. Informal, very common in speech."
+
+  - id: 1a-12
+    text: "{{c1::Does}} your sister have to work this weekend?"
+    note: "have to always takes do/does in questions."
+    trap: "NOT 'Has your sister to work this weekend?'"
+
+  - id: 1a-13
+    text: "We {{c1::had}} a really old car when I was a kid."
+    note: "have got has no past form — use plain had."
+    trap: "NOT 'We had got a really old car'."
+
+  - id: 1a-14
+    text: "You shouldn't move in until you've {{c1::had}} the locks {{c2::changed}}."
+    note: "Causative have inside a perfect tense."

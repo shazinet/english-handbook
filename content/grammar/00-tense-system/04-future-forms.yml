@@ -1,0 +1,75 @@
+point: 00 Future forms
+level: B1
+tags: [grammar, tense-system, future]
+cards:
+  - id: fut-01
+    text: "I {{c1::am meeting}} Sarah at six tomorrow."
+    note: "Present continuous for something already fixed with another person. In everyday speech it's the default for future plans like this."
+
+  - id: fut-02
+    text: "We {{c1::are going to}} redesign the whole site next quarter."
+    note: "going to for an intention decided before the moment of speaking."
+
+  - id: fut-03
+    text: "That bag looks heavy — I {{c1::will}} carry it for you."
+    note: "will for a decision made at the moment of speaking, and for offers."
+    trap: "NOT 'I am going to carry it' — you only just decided."
+
+  - id: fut-04
+    text: "Look at those clouds. It {{c1::is going to}} rain."
+    note: "going to for a prediction based on present evidence you can point at."
+
+  - id: fut-05
+    text: "I think she {{c1::will}} probably say no."
+    note: "will for a prediction based on opinion or belief, often with think/probably/sure."
+
+  - id: fut-06
+    text: "The conference {{c1::starts}} on the 14th."
+    note: "Present simple for scheduled events — timetables, programmes, official dates."
+
+  - id: fut-07
+    text: "By next June I {{c1::will have finished}} the course."
+    note: "Future perfect — complete before a point in the future. 'by' is the signal."
+
+  - id: fut-08
+    text: "This time next week I {{c1::will be lying}} on a beach."
+    note: "Future continuous — in progress at a specific future moment."
+
+  - id: fut-09
+    text: "Don't call at eight — I {{c1::will be driving}}."
+    note: "Future continuous is also the polite way to explain unavailability."
+
+  - id: fut-10
+    text: "I'll call you when I {{c1::get}} home."
+    note: "After when/as soon as/until/before/after, use the present, never will."
+    trap: "NOT 'when I will get home'. This is one of the most persistent errors at C1."
+
+  - id: fut-11
+    text: "We'll start as soon as everyone {{c1::has arrived}}."
+    note: "Present perfect after 'as soon as' to stress completion. Still no 'will'."
+
+  - id: fut-12
+    text: "The train {{c1::is about to}} leave — hurry up!"
+    note: "be about to = on the point of happening, within moments."
+
+  - id: fut-13
+    text: "I {{c1::was going to}} call you, but I ran out of time."
+    note: "was going to = a past intention that didn't happen."
+
+  - id: fut-14
+    text: "She {{c1::is due to}} arrive at four."
+    note: "be due to = scheduled or expected, slightly formal."
+
+  - id: fut-15
+    text: "{{c1::Shall}} we get a coffee?"
+    note: "shall with I/we for suggestions and offers. Common in questions, rare elsewhere."
+
+  - id: fut-16
+    text: "If it {{c1::rains}}, we'll take a taxi."
+    note: "First conditional: present tense after if, will in the other clause."
+    trap: "NOT 'If it will rain'. Same rule as after when/as soon as."
+
+  - id: fut-m01
+    text: "{{c1::This time next month}} I'll be living in a different apartment."
+    note: "Fixed word order — 'this time' comes FIRST, then the period."
+    trap: "NOT 'Next month this time'."

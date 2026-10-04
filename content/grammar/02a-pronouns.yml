@@ -1,0 +1,61 @@
+point: 2A Pronouns
+level: B2
+tags: [grammar, pronouns]
+cards:
+  - id: 2a-01
+    text: "{{c1::You}} save a lot of money if you cook at home instead of eating out."
+    note: "you for people in general — the normal, natural choice in speech."
+
+  - id: 2a-02
+    text: "{{c1::One}} should always read a contract carefully before signing it."
+    note: "one + third person singular also means people in general, but it is much more formal and rare in speech."
+
+  - id: 2a-03
+    text: "{{c1::They}} say the cheapest day to book flights is Tuesday."
+    note: "Informal they = people in general."
+
+  - id: 2a-04
+    text: "{{c1::They}}'re raising the price of public transport again next year."
+    note: "they can also mean the authorities or the government."
+
+  - id: 2a-05
+    text: "If a customer complains, {{c1::they}} usually just want someone to listen."
+    note: "they/them/their for one person of unknown gender — standard, not a mistake."
+
+  - id: 2a-06
+    text: "Somebody left {{c1::their}} umbrella in the meeting room."
+    note: "Singular their after an indefinite person."
+
+  - id: 2a-07
+    text: "Help {{c1::yourself}} to coffee — the kitchen's just over there."
+    note: "Reflexive when subject and object are the same person. 'Help yourself' = take what you want."
+
+  - id: 2a-08
+    text: "I {{c1::showered}}, grabbed a coffee, and left for work."
+    note: "English does NOT use reflexives with wash, shave, dress, and similar verbs, unlike many other languages."
+    trap: "NOT 'showered myself' in the ordinary sense."
+
+  - id: 2a-09
+    text: "We built the website {{c1::ourselves}} — no agency, no freelancers."
+    note: "Reflexive for emphasis — we did it, nobody else."
+
+  - id: 2a-10
+    text: "I actually like traveling by {{c1::myself}}; I can plan everything my way."
+    note: "by + reflexive = alone."
+
+  - id: 2a-11
+    text: "My neighbors and I help {{c1::each other}} with the kids."
+    note: "RECIPROCAL — each other / one another, for a mutual action between two parties."
+    trap: "'They help themselves' means each person helps him- or herself. A very different meaning."
+
+  - id: 2a-12
+    text: "Did you two enjoy {{c1::yourselves}} at the wedding?"
+    note: "enjoy always takes a reflexive when there is no other object."
+
+  - id: 2a-13
+    text: "My manager gets so angry in meetings — he just can't control {{c1::himself}}."
+    note: "Reflexive object."
+
+  - id: 2a-14
+    text: "In a new job, {{c1::one's}} first few weeks are always the hardest."
+    note: "one's as a formal possessive adjective."

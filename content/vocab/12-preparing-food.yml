@@ -1,0 +1,84 @@
+point: V12 Preparing food
+level: B2
+tags: [vocab, food, cooking]
+cards:
+  - id: food-01
+    text: "Can you {{c1::chop}} the onions while I start the rice?"
+    note: "chop — cut into small pieces with a knife."
+    audio: true
+  - id: food-02
+    text: "The kids want {{c1::scrambled}} eggs for breakfast."
+    note: "scrambled eggs — stirred while cooking."
+    audio: true
+  - id: food-03
+    text: "I'd like the salmon {{c1::poached}}, not fried, please."
+    note: "poach — cook gently in simmering water, no shell, no oil."
+    audio: true
+  - id: food-04
+    text: "I'll make some {{c1::mashed}} potatoes to go with the sausages."
+    note: "mash — crush into a soft mixture."
+    audio: true
+  - id: food-05
+    text: "Sprinkle some {{c1::grated}} cheese on top before it goes in the oven."
+    note: "grate — shred into thin strips against a grater."
+    audio: true
+  - id: food-06
+    text: "We're having {{c1::roast}} chicken for dinner tonight."
+    note: "roast — cook in an oven with fat. Also 'roasted'."
+    audio: true
+  - id: food-07
+    text: "I'll have the {{c1::grilled}} vegetables with the steak."
+    note: "grill — cook with direct heat from above or below."
+    audio: true
+  - id: food-08
+    text: "I try not to eat too much {{c1::deep-fried}} food."
+    note: "deep-fry — cook submerged in hot oil."
+    audio: true
+  - id: food-09
+    text: "I usually have {{c1::steamed}} rice with curry."
+    note: "steam — cook over boiling water without touching it."
+    audio: true
+  - id: food-10
+    text: "Can I get {{c1::whipped}} cream on my hot chocolate?"
+    note: "whip — beat until thick and airy."
+    audio: true
+  - id: food-11
+    text: "Brush the bread with {{c1::melted}} butter."
+    note: "melt — turn solid into liquid with heat."
+    audio: true
+  - id: food-12
+    text: "Add a few {{c1::sliced}} tomatoes to the sandwich."
+    note: "slice — cut into thin flat pieces."
+    audio: true
+  - id: food-13
+    text: "I need half a kilo of {{c1::ground}} beef for the burgers."
+    note: "ground beef (US) / minced beef (UK)."
+    audio: true
+  - id: food-14
+    text: "My mom makes amazing {{c1::stuffed}} peppers."
+    note: "stuff — fill with a mixture before cooking."
+    audio: true
+  - id: food-15
+    text: "Rinse the beans in a {{c1::colander}}."
+    note: "colander — the bowl with holes for draining."
+    audio: true
+  - id: food-16
+    text: "Don't cut the meat on the counter — use a {{c1::chopping board}}."
+    note: "chopping board (UK) / cutting board (US)."
+    audio: true
+  - id: food-17
+    text: "Fry the eggs in a {{c1::frying pan}} with a little oil."
+    note: "frying pan — shallow and flat. A saucepan is deep with a handle."
+    audio: true
+  - id: food-18
+    text: "Shall I put the {{c1::kettle}} on?"
+    note: "put the kettle on — a completely fixed everyday expression."
+    audio: true
+  - id: food-19
+    text: "Use a {{c1::whisk}} to mix the batter until it's smooth."
+    note: "whisk — the wire tool for beating air into food."
+    audio: true
+  - id: food-20
+    text: "Pour the soup through a {{c1::sieve}} to get rid of the lumps."
+    note: "sieve — fine mesh for separating or sifting."
+    audio: true

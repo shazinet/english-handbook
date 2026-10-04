@@ -1,0 +1,68 @@
+point: V03 Phrases with get
+level: B2
+tags: [vocab, get, phrasal-verbs]
+cards:
+  - id: getv-01
+    text: "I get the {{c1::impression}} that she doesn't like her new job."
+    note: "get the impression — sense something without being told."
+    audio: true
+  - id: getv-02
+    text: "I got {{c1::a shock}} when I saw the electricity bill."
+    note: "get a shock — be surprised, usually unpleasantly."
+    audio: true
+  - id: getv-03
+    text: "If you get {{c1::the chance}}, try the street food downtown."
+    note: "get the chance to — have the opportunity."
+    audio: true
+  - id: getv-04
+    text: "Sorry, I don't get {{c1::the joke}} — can you explain it?"
+    note: "get the joke — understand it."
+    audio: true
+  - id: getv-05
+    text: "It takes time to get {{c1::to know}} people in a new city."
+    note: "get to know someone — become familiar with them over time."
+    audio: true
+  - id: getv-06
+    text: "I've been trying to get {{c1::a hold of}} the landlord all week."
+    note: "get a hold of someone — manage to contact them."
+    audio: true
+  - id: getv-07
+    text: "We need to get {{c1::rid of}} some furniture before we move."
+    note: "get rid of — dispose of, remove."
+    audio: true
+  - id: getv-08
+    text: "She ate my lunch, so I got {{c1::back at}} her by hiding her coffee."
+    note: "get back at someone — take revenge."
+    audio: true
+  - id: getv-09
+    text: "My son got {{c1::into trouble with}} his teacher for using his phone in class."
+    note: "get into trouble with — end up in difficulty because of someone's authority."
+    audio: true
+  - id: getv-10
+    text: "Let's get {{c1::together}} for dinner next week."
+    note: "get together — meet socially."
+    audio: true
+  - id: getv-11
+    text: "It took me ages to get {{c1::over}} that cold."
+    note: "get over something — recover from it."
+    audio: true
+  - id: getv-12
+    text: "Stop chatting and let's get {{c1::on with}} the meeting."
+    note: "get on with something — continue or make progress with it."
+    audio: true
+  - id: getv-13
+    text: "I've tried to explain, but I just can't get {{c1::through to}} him."
+    note: "get through to someone — make them understand or reach them emotionally."
+    audio: true
+  - id: getv-14
+    text: "The easiest way to get {{c1::around}} the city is by bike."
+    note: "get around — travel from place to place within an area."
+    audio: true
+  - id: getv-15
+    text: "How did you get {{c1::into}} photography?"
+    note: "get into something — begin a career or activity in it."
+    audio: true
+  - id: getv-16
+    text: "Can you move your car? It's in {{c1::the way}}."
+    note: "be in the way / get out of the way — blocking or no longer blocking."
+    audio: true

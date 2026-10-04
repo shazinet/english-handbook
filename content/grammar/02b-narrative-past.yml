@@ -1,0 +1,61 @@
+point: 2B Narrative tenses and past habits
+level: B2
+tags: [grammar, past, narrative]
+cards:
+  - id: 2b-01
+    text: "It was a Friday evening, and we {{c1::were having}} dinner with some friends."
+    note: "Past continuous SETS THE SCENE at the start of a story."
+
+  - id: 2b-02
+    text: "Suddenly the lights {{c1::went}} out and someone {{c1::screamed}}."
+    note: "Simple past carries the MAIN ACTIONS of the narrative."
+
+  - id: 2b-03
+    text: "I was alone at home because my partner {{c1::had gone}} to a conference."
+    note: "Past perfect for the EARLIER past — background that precedes the main events."
+
+  - id: 2b-04
+    text: "I was exhausted because I {{c1::had been working}} on the presentation all night."
+    note: "Past perfect continuous for an earlier activity with duration."
+
+  - id: 2b-05
+    text: "When I got to the café, Sara {{c1::was waiting}} at a table by the window."
+    note: "The longer background action takes the continuous; the interrupting one takes the simple past."
+
+  - id: 2b-06
+    text: "His face was red, and I could tell he {{c1::had been running}}."
+    note: "Past perfect continuous explains evidence that was still visible at that past moment."
+
+  - id: 2b-07
+    text: "When I was a student, I {{c1::used to work}} in a bar on weekends."
+    note: "used to + base form for repeated past actions that no longer happen."
+
+  - id: 2b-08
+    text: "We {{c1::used to live}} in a tiny apartment near the station."
+    note: "used to also covers past STATES that have changed."
+    trap: "would cannot do this: NOT 'We would live in a tiny apartment'."
+
+  - id: 2b-09
+    text: "Every Sunday my dad {{c1::would make}} pancakes, and we'd eat them in front of the TV."
+    note: "would + base form for repeated past actions, typical of storytelling."
+
+  - id: 2b-10
+    text: "I didn't {{c1::use to}} like coffee, but now I drink three cups a day."
+    note: "Negative and question forms drop the -d: didn't use to, did you use to."
+
+  - id: 2b-11
+    text: "At my old job, my boss {{c1::was always changing}} deadlines at the last minute."
+    note: "always + past continuous for a repeated past action, usually an irritating one."
+
+  - id: 2b-12
+    text: "I {{c1::used to go}} to the gym."
+    note: "would needs a time reference to work; used to doesn't."
+    trap: "NOT 'I would go to the gym' on its own. 'Every morning I would go to the gym' is fine."
+
+  - id: 2b-13
+    text: "When I got back to my car, I saw that someone {{c1::had scratched}} the door."
+    note: "The scratching happened before the seeing → past perfect."
+
+  - id: 2b-14
+    text: "At the time, I {{c1::was staying}} with a friend, and we often cooked together."
+    note: "Past continuous for a temporary past situation; simple past for the repeated action."

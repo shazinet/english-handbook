@@ -1,0 +1,60 @@
+point: 4A Speculation and deduction
+level: B2
+tags: [grammar, modals, deduction]
+cards:
+  - id: 4a-01
+    text: "Your neighbors {{c1::must be}} rich — they have three cars."
+    note: "must + base form = you are almost certain something IS true now."
+
+  - id: 4a-02
+    text: "You {{c1::must have heard}} the news — everyone's talking about it!"
+    note: "must have + past participle = almost certain about the PAST."
+
+  - id: 4a-03
+    text: "I {{c1::must have left}} my wallet at the restaurant."
+    note: "Deduction about the past always takes must HAVE + participle."
+    trap: "NOT 'I must leave my wallet' — that expresses obligation, not deduction."
+
+  - id: 4a-04
+    text: "That {{c1::can't be}} Jake — he's in Tokyo this week."
+    note: "can't = almost certain something is NOT true."
+
+  - id: 4a-05
+    text: "She {{c1::can't have finished}} the report already — she only started an hour ago."
+    note: "can't have / couldn't have + participle for near-certainty about the past."
+    trap: "Never use 'mustn't' for deduction. 'She mustn't have finished' is wrong."
+
+  - id: 4a-06
+    text: "Maria isn't answering. She {{c1::might be}} in a meeting."
+    note: "may / might / could + base form = it's possible."
+
+  - id: 4a-07
+    text: "Do you think the courier {{c1::could have left}} it with a neighbor?"
+    note: "may/might/could have + participle for past possibility."
+
+  - id: 4a-08
+    text: "She {{c1::might not have seen}} my email yet."
+    note: "may not / might not have = possibly didn't."
+    trap: "'couldn't have seen' is much stronger — it means almost certainly didn't."
+
+  - id: 4a-09
+    text: "If we leave now, we {{c1::should}} get there before the rain."
+    note: "should / ought to for what you expect to happen if all goes normally."
+
+  - id: 4a-10
+    text: "I ordered it ten days ago. It {{c1::should have arrived}} by now."
+    note: "should have + participle = you expected it, and it apparently hasn't happened."
+
+  - id: 4a-11
+    text: "The meeting runs until five, so she {{c1::isn't likely to}} reply before then."
+    note: "be likely to + infinitive. This is the correct structure."
+    trap: "NOT 'she won't likely reply'. 'likely' is an adjective, not an adverb."
+
+  - id: 4a-12
+    text: "Don't lend him money — you're {{c1::bound to}} regret it."
+    note: "be bound to = certain to happen."
+
+  - id: 4a-13
+    text: "The lights are still on — they {{c1::must}} still {{c1::be}} working."
+    note: "must + be + -ing for a deduction about something in progress right now."
+    trap: "NOT 'they must still work' — that sounds like obligation."

@@ -1,0 +1,66 @@
+point: 9B Compound and possessive nouns
+level: C1
+tags: [grammar, nouns, possessives]
+cards:
+  - id: 9b-01
+    text: "Can I borrow my {{c1::sister's}} charger?"
+    note: "'s when something belongs to a particular person."
+
+  - id: 9b-02
+    text: "We're staying at my {{c1::parents'}} place this weekend."
+    note: "Plural nouns ending in s take the apostrophe AFTER the s."
+
+  - id: 9b-03
+    text: "The {{c1::women's}} changing room is on the left."
+    note: "Irregular plurals not ending in s (children, people, men) take 's."
+
+  - id: 9b-04
+    text: "That's Sam and {{c1::Leila's}} new apartment."
+    note: "With two joint owners, only the SECOND name takes 's."
+
+  - id: 9b-05
+    text: "I have an appointment at the {{c1::dentist's}} at four."
+    note: "'s alone can mean someone's home or business — 'the doctor's', 'my mother's'."
+
+  - id: 9b-06
+    text: "It's only about an {{c1::hour's}} drive from here."
+    note: "Time expressions take 's: yesterday's news, a week's holiday."
+
+  - id: 9b-07
+    text: "What's the {{c1::name of}} that restaurant we went to?"
+    note: "Use 'of', not 's, for things and abstract nouns."
+    trap: "With places and things, 'the name of the X' is usually more natural than 'the X's name'."
+
+  - id: 9b-08
+    text: "The cost {{c1::of}} living here keeps going up."
+    note: "Abstract noun → of."
+
+  - id: 9b-09
+    text: "She's the daughter {{c1::of}} the couple who own the bakery."
+    note: "Use of when the possessor is a long phrase."
+    trap: "NOT 'the couple who own the bakery's daughter'."
+
+  - id: 9b-10
+    text: "Javier is a colleague of my {{c1::husband's}}."
+    note: "a friend/colleague of + noun + 's = one of my husband's colleagues. The double possessive is correct."
+
+  - id: 9b-11
+    text: "Have you seen the {{c1::bottle opener}}?"
+    note: "Compound noun — the first noun acts like an adjective and stays SINGULAR."
+
+  - id: 9b-12
+    text: "We need a new {{c1::shoe}} rack for the hallway."
+    note: "Compound nouns keep the first element singular."
+    trap: "NOT 'a shoes rack'."
+
+  - id: 9b-13
+    text: "Could you grab me a {{c1::bottle of}} water?"
+    note: "A container WITH its contents takes 'of'. An empty container is a compound: 'a water bottle'."
+
+  - id: 9b-14
+    text: "There's a {{c1::bag of}} old clothes by the door for the charity shop."
+    note: "of, because the box actually contains them."
+
+  - id: 9b-15
+    text: "James{{c1::'s}} car is parked outside."
+    note: "Singular names ending in s take either James' or James's. Both are accepted."

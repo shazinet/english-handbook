@@ -1,0 +1,84 @@
+point: 00 Past simple vs present perfect
+level: B1
+tags: [grammar, tense-system, perfect-aspect]
+cards:
+  - id: perf-01
+    text: "I {{c1::have lived}} in Dublin for three years."
+    note: "Present perfect — started in the past, still true now."
+    trap: "Past simple 'I lived in Dublin for three years' means you no longer do."
+
+  - id: perf-02
+    text: "I {{c1::moved}} here in 2022."
+    note: "A finished time reference (in 2022) forces past simple."
+    trap: "NOT 'I have moved here in 2022'. A specific past time can never take present perfect."
+
+  - id: perf-03
+    text: "{{c1::Have}} you ever {{c1::been}} to Georgia?"
+    note: "Present perfect for life experience with no stated time."
+
+  - id: perf-04
+    text: "Yes, I {{c1::went}} there last summer with my cousins."
+    note: "Once you name the occasion, you switch to past simple. This pattern — perfect to open, simple to elaborate — is how the two tenses work together in real conversation."
+
+  - id: perf-05
+    text: "I {{c1::have already sent}} the invoice."
+    note: "already, just, yet, still — the classic present perfect signals."
+
+  - id: perf-06
+    text: "{{c1::Did}} you {{c1::finish}} the report yesterday?"
+    note: "yesterday is finished time → past simple."
+
+  - id: perf-07
+    text: "She {{c1::has worked}} here since 2019."
+    note: "since + starting point, with present perfect."
+
+  - id: perf-08
+    text: "I {{c1::have been waiting}} for over an hour."
+    note: "Present perfect continuous emphasises the duration of an ongoing activity."
+
+  - id: perf-09
+    text: "I {{c1::have read}} that book — you'd like it."
+    note: "Present perfect simple emphasises the completed result."
+    trap: "'I have been reading that book' = still in progress, not finished."
+
+  - id: perf-10
+    text: "How long {{c1::have}} you {{c1::known}} each other?"
+    note: "How long + present perfect. know is stative so it takes the simple, not the continuous."
+
+  - id: perf-11
+    text: "My hands are dirty because I {{c1::have been fixing}} the car."
+    note: "Continuous — the activity explains the present evidence."
+
+  - id: perf-12
+    text: "I {{c1::have fixed}} the car, so we can leave now."
+    note: "Simple — the completed result is what matters."
+
+  - id: perf-13
+    text: "This is the first time I {{c1::have tried}} Vietnamese coffee."
+    note: "After 'It's the first/second/best time...', use present perfect."
+
+  - id: perf-14
+    text: "I {{c1::have not seen}} him this week."
+    note: "this week is unfinished time → present perfect."
+    trap: "'I didn't see him last week' — last week is finished, so past simple."
+
+  - id: perf-15
+    text: "He {{c1::has lost}} his passport, so he can't travel."
+    note: "The past event has a consequence that matters now."
+
+  - id: perf-16
+    text: "He {{c1::lost}} his passport in Rome and had to go to the embassy."
+    note: "Telling the story of what happened → past simple throughout."
+
+  - id: perf-17
+    text: "I {{c1::have been trying}} to reach you all morning."
+    note: "Continuous stresses repeated effort over a period that is still open."
+
+  - id: perf-18
+    text: "We {{c1::have had}} three meetings about this already."
+    note: "Perfect + a countable result. Note the doubled 'have had' — perfectly normal."
+
+  - id: perf-m01
+    text: "The flush {{c1::has been}} broken for almost three weeks."
+    note: "A state continuing up to now takes present perfect + *for*."
+    trap: "NOT 'It's almost three weeks that it's broken'. English has no 'It's X time that...' pattern here."

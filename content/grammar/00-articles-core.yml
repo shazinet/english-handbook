@@ -1,0 +1,102 @@
+point: 00 Articles — the core system
+level: B1
+tags: [grammar, articles, determiners]
+cards:
+  - id: art-01
+    text: "I need to get {{c1::a}} visa before I travel."
+    note: "A singular countable noun can NEVER stand alone. It needs a/an, the, or a possessive."
+    trap: "This was a real error: 'harder to get visa'. If you can count it and there's one, it needs a word in front."
+
+  - id: art-02
+    text: "She's {{c1::an}} architect and her husband is {{c2::a}} teacher."
+    note: "Jobs and roles take a/an. an before a vowel SOUND."
+
+  - id: art-03
+    text: "I bought {{c1::a}} jacket yesterday. {{c2::The}} jacket was on sale."
+    note: "FIRST mention → a. SECOND mention → the. This is the single most useful article rule."
+
+  - id: art-04
+    text: "Could you close {{c1::the}} door, please?"
+    note: "the when both speakers know which one — there's only one door in the room."
+
+  - id: art-05
+    text: "{{c1::The}} sun was really strong yesterday."
+    note: "the for unique things: the sun, the moon, the sky, the government, the world."
+
+  - id: art-06
+    text: "That's {{c1::the}} best coffee I've had in months."
+    note: "the with superlatives — best, worst, most, biggest."
+
+  - id: art-07
+    text: "This is {{c1::the}} first time I've been to Japan."
+    note: "the with ordinals: the first, the second, the last, the next one."
+
+  - id: art-08
+    text: "{{c1::Life::life}} is hard sometimes."
+    note: "ZERO article for general statements with uncountable nouns. 'Life' in general takes nothing."
+    trap: "NOT 'The life is hard'. Very common error — resist adding 'the'."
+
+  - id: art-09
+    text: "I really like {{c1::music::music}}, especially jazz."
+    note: "Zero article for uncountables in general."
+    trap: "NOT 'I like the music' unless you mean specific music you both know."
+
+  - id: art-10
+    text: "{{c1::Cats::cats}} are much more independent than {{c2::dogs::dogs}}."
+    note: "Zero article with PLURALS for generalisations."
+    trap: "NOT 'The cats are more independent' — that means specific cats."
+
+  - id: art-11
+    text: "{{c1::The}} life of a freelancer is unpredictable."
+    note: "Now 'the' IS correct — 'of a freelancer' specifies WHICH life. Compare card art-08."
+
+  - id: art-12
+    text: "We're going to refactor the site by {{c1::next}} month."
+    note: "NO article before next/last + a time word."
+    trap: "NOT 'by THE next month'. It's 'next month', 'last week', 'next year'."
+
+  - id: art-13
+    text: "I saw her {{c1::last}} Tuesday, and I'm seeing her again {{c2::next}} Friday."
+    note: "Same zero-article rule with days."
+
+  - id: art-14
+    text: "The course starts {{c1::on}} September 7."
+    note: "on for a specific date. from only for a range: 'from the 5th to the 9th'."
+    trap: "NOT 'starts from September 5'."
+
+  - id: art-15
+    text: "There's {{c1::a}} problem with the invoice — {{c2::the}} problem is the currency."
+    note: "Introduce with a, refer back with the. Watch this pattern in real conversation; it's constant."
+
+  - id: art-16
+    text: "Do you play {{c1::the}} piano?"
+    note: "the with musical instruments."
+
+  - id: art-17
+    text: "I heard it on {{c1::the}} news this morning."
+    note: "the news, the radio, the internet — but ZERO with TV: 'I watched TV'."
+
+  - id: art-18
+    text: "She works as {{c1::a}} consultant for {{c2::a}} company in Madrid."
+    note: "a for something the listener can't yet identify — any consultant, some company."
+
+  - id: art-19
+    text: "It takes about {{c1::an}} hour to get there."
+    note: "an before a vowel SOUND, not a vowel letter — 'hour' starts with a silent h."
+
+  - id: art-20
+    text: "He's studying at {{c1::a}} university in Sydney."
+    note: "a, not an — 'university' starts with a /y/ consonant sound despite the vowel letter."
+
+  - id: art-21
+    text: "Would you like {{c1::some}} coffee?"
+    note: "some for an unspecified amount of an uncountable noun — the everyday alternative to no article."
+
+  - id: art-22
+    text: "I don't have {{c1::any}} plans for the weekend."
+    note: "any in negatives and questions where some would go in a statement."
+
+  - id: art-m01
+    text: "I'm glad I experienced {{c1::life::life}} in Berlin."
+    note: "An abstract noun stays bare even when a phrase follows it — life in Berlin, work in Germany."
+    trap: "NOT 'the life in Berlin'. Compare art-11, where 'the life of a freelancer' names one particular kind of life."

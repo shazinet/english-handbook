@@ -1,0 +1,77 @@
+point: V01 Personality
+level: B2
+tags: [vocab, personality]
+cards:
+  - id: pers-01
+    text: "She's really {{c1::thorough}} — she reads every line of a contract before she signs it."
+    note: "thorough — careful and complete, missing nothing."
+    audio: true
+  - id: pers-02
+    text: "Our new intern is very {{c1::resourceful}} — he always finds a way to get things done."
+    note: "resourceful — good at finding practical solutions."
+    audio: true
+  - id: pers-03
+    text: "My grandmother is ninety and still completely {{c1::self-sufficient}}."
+    note: "self-sufficient — able to manage entirely on your own."
+    audio: true
+  - id: pers-04
+    text: "In a crisis, you want someone {{c1::steady}} like Omar — he never panics."
+    note: "steady — calm, dependable, not easily shaken."
+    audio: true
+  - id: pers-05
+    text: "He's {{c1::determined}} to run a marathon this year, and he trains every morning."
+    note: "determined — refusing to give up on a goal."
+    audio: true
+  - id: pers-06
+    text: "Their son is really {{c1::bright}} — he taught himself to code at twelve."
+    note: "bright — intelligent, quick to learn."
+    audio: true
+  - id: pers-07
+    text: "Lena is the most {{c1::conscientious}} person on the team; she never misses a deadline."
+    note: "conscientious — taking care to do your work properly."
+    audio: true
+  - id: pers-08
+    text: "When I said 'great, another meeting', I was being {{c1::sarcastic}}."
+    note: "sarcastic — saying the opposite of what you mean, often mockingly."
+    audio: true
+  - id: pers-09
+    text: "The nurse was very {{c1::gentle}} with my daughter."
+    note: "gentle — kind and calm in manner."
+    audio: true
+  - id: pers-10
+    text: "Just give me a {{c1::straightforward}} answer — yes or no?"
+    note: "straightforward — honest and direct, no hidden agenda."
+    audio: true
+  - id: pers-11
+    text: "My manager was really {{c1::sympathetic}} when my father was in the hospital."
+    note: "sympathetic — showing understanding of someone's difficulty."
+    trap: "NOT the same as 'nice' — this is a false friend in several languages."
+    audio: true
+  - id: pers-12
+    text: "We didn't plan the trip at all — it was totally {{c1::spontaneous}}."
+    note: "spontaneous — done on impulse, without planning."
+    audio: true
+  - id: pers-13
+    text: "I {{c1::tend}} to eat too much when I'm stressed."
+    note: "tend to + infinitive — describing a general habit or inclination."
+    audio: true
+  - id: pers-14
+    text: "My brother loves {{c1::taking}} risks — he quit his job to start a business."
+    note: "take risks — a fixed collocation."
+    audio: true
+  - id: pers-15
+    text: "My son {{c1::refuses}} to eat anything green."
+    note: "refuse to + infinitive."
+    audio: true
+  - id: pers-16
+    text: "I was going to order the fish, but I {{c1::changed}} my mind."
+    note: "change your mind — fixed expression."
+    audio: true
+  - id: pers-17
+    text: "Don't let your landlord {{c1::take advantage of}} you — check the contract."
+    note: "take advantage of someone — exploit them unfairly."
+    audio: true
+  - id: pers-18
+    text: "He {{c1::seems}} relaxed on the surface, but deep down he's worried about the move."
+    note: "on the surface / deep down — a useful contrasting pair for describing character."
+    audio: true

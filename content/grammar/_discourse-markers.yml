@@ -1,0 +1,88 @@
+point: 1B/3B Discourse markers
+level: B2
+tags: [grammar, discourse-markers, spoken]
+cards:
+  - id: dm-01
+    text: "My flight got cancelled, {{c1::so}} I stayed another night."
+    note: "so — the everyday way to introduce a result."
+
+  - id: dm-02
+    text: "There was a metro strike. {{c1::As a result}}, half the team worked from home."
+    note: "as a result / therefore / consequently — more formal than so, usually sentence-initial."
+
+  - id: dm-03
+    text: "Costs have gone up, and the landlord has {{c1::therefore}} decided to raise the rent."
+    note: "therefore and consequently can also sit before the main verb."
+
+  - id: dm-04
+    text: "I don't call him much {{c1::because}} he never picks up."
+    note: "because / as / since introduce a reason clause. since is the most formal."
+
+  - id: dm-05
+    text: "A: Why are you leaving early? B: {{c1::Because}} I've got a dentist appointment."
+    note: "Only because can answer a Why...? question."
+    trap: "NOT 'As I've got a dentist appointment' as a standalone answer."
+
+  - id: dm-06
+    text: "We were late {{c1::because of}} the traffic."
+    note: "because of / due to / owing to are followed by a NOUN, not a clause."
+    trap: "NOT 'because of the traffic was heavy'. Use 'because the traffic was heavy'."
+
+  - id: dm-07
+    text: "The 8:15 train has been cancelled {{c1::due to}} a signal failure."
+    note: "due to and owing to — more formal than because of. Typical announcement register."
+
+  - id: dm-08
+    text: "I'm saving every month {{c1::in order to}} buy a car."
+    note: "Purpose: 'in order to' is a slightly more formal 'to'; 'so as to' works the same way."
+
+  - id: dm-09
+    text: "I left early {{c1::so as not to}} miss the last bus."
+    note: "Negative purpose: so as not to / in order not to."
+    trap: "NOT 'for not missing the last bus'."
+
+  - id: dm-10
+    text: "I'm learning Italian {{c1::so that}} I can talk to my partner's family."
+    note: "so (that) + a clause with a modal, when the purpose has its own subject."
+
+  - id: dm-11
+    text: "{{c1::Even though}} the apartment is small, we love it."
+    note: "even though / although + CLAUSE. despite / in spite of + noun or gerund."
+    trap: "NOT 'Despite the apartment is small'."
+
+  - id: dm-12
+    text: "We enjoyed the trip {{c1::in spite of}} the fact that it rained every day."
+    note: "'the fact that' lets you follow despite/in spite of with a clause."
+
+  - id: dm-13
+    text: "A: Are you from Madrid? B: {{c1::Actually}}, I'm from Valencia."
+    note: "actually / in fact / as a matter of fact introduce surprising or unexpected information."
+    trap: "In English 'actually' does NOT mean 'currently' — a common false friend."
+
+  - id: dm-14
+    text: "OK, see you at seven. {{c1::By the way}}, did you get my message about Saturday?"
+    note: "by the way / incidentally introduce something you just thought of, or change the subject."
+
+  - id: dm-15
+    text: "{{c1::Speaking of}} vacations, have you booked anything for the summer?"
+    note: "Changes direction while linking to what was just said."
+
+  - id: dm-16
+    text: "I couldn't make it to the party. {{c1::In any case}}, I didn't really know anyone there."
+    note: "in any case / anyway — what I'm about to say matters more, or returns to the main topic."
+
+  - id: dm-17
+    text: "I lost my phone. {{c1::At least}} I'd backed up all my photos."
+    note: "at least introduces a positive point after bad news, or softens a claim."
+
+  - id: dm-18
+    text: "The shop opens at nine, or {{c1::at least}} it did last year."
+    note: "at least also qualifies what you just said, making it less definite."
+
+  - id: dm-19
+    text: "{{c1::As I was saying}}, we need to pick a date soon."
+    note: "Returns to a previous subject after an interruption."
+
+  - id: dm-20
+    text: "The project went over budget. {{c1::Nevertheless}}, the client was happy with the result."
+    note: "nevertheless — contrast, formal. Where 'but' would be too casual."

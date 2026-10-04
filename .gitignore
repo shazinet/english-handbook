@@ -1,0 +1,26 @@
+# Source PDFs — copyrighted coursebook scans, kept local only.
+# build/extract.py reads them from here; they are never committed.
+resources/
+
+# Build artifacts
+build/raw/
+media/
+*.apkg
+
+# One learner's data: profile, journal, error log, own cards, level history,
+# reminder config (its ntfy topic is a credential) and reminder state. Never part
+# of the shared app — `english update` must not be able to touch it. Back it up
+# as its own private git repo (`./english setup` creates one).
+me/
+
+# Isolated Python that install.sh creates; the anki library is pinned to the
+# installed Anki app's version.
+.venv/
+
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Anki collection backups made by build/install_deck.py
+collection-backup-*.anki2

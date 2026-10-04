@@ -1,0 +1,65 @@
+point: V02 Work
+level: B2
+tags: [vocab, work]
+cards:
+  - id: work-01
+    text: "Data entry is so {{c1::monotonous}} — I type the same things all day."
+    note: "monotonous — dull because it never varies."
+    audio: true
+  - id: work-02
+    text: "Volunteering at the food bank is really {{c1::rewarding}}."
+    note: "rewarding — giving a sense of satisfaction, not money."
+    audio: true
+  - id: work-03
+    text: "Having a manager who trusts you is incredibly {{c1::motivating}}."
+    note: "motivating — making you want to work hard."
+    audio: true
+  - id: work-04
+    text: "Nursing is a physically {{c1::demanding}} job."
+    note: "demanding — requiring a lot of effort, skill, or time."
+    audio: true
+  - id: work-05
+    text: "She spoke in a calm, {{c1::authoritative}} way, and everyone listened."
+    note: "authoritative — commanding respect, sounding like you're in charge."
+    audio: true
+  - id: work-06
+    text: "You don't need formal {{c1::qualifications}} for the job — just experience."
+    note: "qualifications — degrees and certificates you hold."
+    audio: true
+  - id: work-07
+    text: "She's moved quickly up the career {{c1::ladder}} at her company."
+    note: "career ladder — the metaphor for progression through job levels."
+    audio: true
+  - id: work-08
+    text: "I spent three months job-{{c1::hunting}} after I moved here."
+    note: "job-hunting — actively searching for work."
+    audio: true
+  - id: work-09
+    text: "Don't forget to {{c1::clock}} out before you leave."
+    note: "clock in / clock out — record your arrival or departure at work."
+    audio: true
+  - id: work-10
+    text: "My daughter is doing a summer {{c1::internship}} at a law firm."
+    note: "internship — temporary work placement, often unpaid, to gain experience."
+    audio: true
+  - id: work-11
+    text: "I'm on a six-month contract, but I'm hoping it becomes {{c1::permanent}}."
+    note: "permanent vs temporary contract — the standard opposition."
+    audio: true
+  - id: work-12
+    text: "There are two open {{c1::positions}} in our marketing team."
+    note: "position — a more formal word for a job or post."
+    audio: true
+  - id: work-13
+    text: "Leading a team for the first time is a real {{c1::challenge}}."
+    note: "a challenge — difficult in a positive, motivating way."
+    audio: true
+  - id: work-14
+    text: "My cousin was {{c1::laid off}} when the factory closed."
+    note: "be laid off — lose your job because the company cuts staff, not through fault."
+    trap: "'be fired' means dismissed for a reason. Very different implication."
+    audio: true
+  - id: work-15
+    text: "Getting rejected again and again is really {{c1::demoralizing}}."
+    note: "demoralizing — destroying your confidence and motivation."
+    audio: true

@@ -1,0 +1,65 @@
+point: 9A Ellipsis
+level: C1
+tags: [grammar, ellipsis, spoken]
+cards:
+  - id: 9a-01
+    text: "I came home and {{c1::made}} dinner."
+    note: "After and/but/or you drop the repeated subject — 'took', not 'he took'."
+
+  - id: 9a-02
+    text: "He called back but {{c1::didn't leave}} a message."
+    note: "Subject dropped after but."
+
+  - id: 9a-03
+    text: "You can pay online or {{c1::pay}} at the front desk."
+    note: "Both the subject and the modal are dropped after or."
+
+  - id: 9a-04
+    text: "Turn off the lights before {{c1::you}} leave."
+    note: "After before, after, because, when and while, the subject pronoun must stay."
+    trap: "NOT 'before leave'. This is where the rule stops."
+
+  - id: 9a-05
+    text: "I hurt my back while {{c1::I}} was moving the sofa."
+    note: "while requires the subject pronoun."
+
+  - id: 9a-06
+    text: "I've never tried sushi, but my brother {{c1::has}}."
+    note: "Repeat only the auxiliary and drop the rest of the verb phrase."
+
+  - id: 9a-07
+    text: "She says she's fine, but she {{c1::isn't}}."
+    note: "With be, just repeat be."
+
+  - id: 9a-08
+    text: "My partner loved the new apartment, but I {{c1::didn't}}."
+    note: "When the verb is present or past simple, use do/does/did in the ellipsis."
+
+  - id: 9a-09
+    text: "I said I'd finish it today, but I don't think I {{c1::can}}."
+    note: "The second modal doesn't have to match the first."
+
+  - id: 9a-10
+    text: "I know you didn't call her, but you really {{c1::should have}}."
+    note: "Modal + have, with the participle left out."
+
+  - id: 9a-11
+    text: "A: You have to try the new pizza place! B: I already {{c1::have}}."
+    note: "Very common in conversation — the whole verb phrase disappears."
+
+  - id: 9a-12
+    text: "I've never been to Japan, but I'd love {{c1::to}}."
+    note: "Reduce an infinitive to bare 'to'."
+    trap: "Repeating the verb isn't wrong, but 'I'd love to' on its own is the natural reply."
+
+  - id: 9a-13
+    text: "I took the last cookie, even though my mom told me not {{c1::to}}."
+    note: "Negative infinitive ellipsis: 'not to'."
+
+  - id: 9a-14
+    text: "I'm not a morning person, but my partner {{c1::is}}."
+    note: "be repeated alone."
+
+  - id: 9a-15
+    text: "We don't eat out much now, but we {{c1::used to}}."
+    note: "used to survives on its own in ellipsis."

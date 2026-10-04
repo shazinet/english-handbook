@@ -1,0 +1,90 @@
+point: V10 Travel and tourism
+level: B2
+tags: [vocab, travel]
+cards:
+  - id: trav-01
+    text: "We {{c1::set off}} at six to beat the traffic."
+    note: "set off = start a journey."
+    audio: true
+  - id: trav-02
+    text: "We loved Lisbon so much that we {{c1::extended}} our stay by three days."
+    note: "extend a trip — finish it later than planned."
+    audio: true
+  - id: trav-03
+    text: "We're going to {{c1::go}} hiking in the mountains this weekend."
+    note: "go + -ing for activities: go camping, go sightseeing, go for a stroll."
+    audio: true
+  - id: trav-04
+    text: "My parents are going {{c1::on}} a road trip for their anniversary."
+    note: "go on + noun: go on vacation, on a trip, on a safari, on an outing."
+    trap: "Note the contrast: go camping (-ing) but go ON a trip (noun)."
+    audio: true
+  - id: trav-05
+    text: "The airline {{c1::cancelled}} our flight because of the storm."
+    note: "cancel — decide not to go at all."
+    audio: true
+  - id: trav-06
+    text: "We've had to {{c1::postpone}} the wedding until next spring."
+    note: "postpone / put off — reschedule for later, not abandon."
+    trap: "cancel = it won't happen. postpone = it happens later."
+    audio: true
+  - id: trav-07
+    text: "This weekend I just want to {{c1::chill out}} and watch movies."
+    note: "chill out — relax completely. Informal."
+    audio: true
+  - id: trav-08
+    text: "A week by the sea really helped me {{c1::recharge}} my batteries."
+    note: "recharge your batteries — recover your energy."
+    audio: true
+  - id: trav-09
+    text: "We spent the morning {{c1::wandering around}} the market."
+    note: "wander around — walk without a fixed route."
+    audio: true
+  - id: trav-10
+    text: "Let's sit outside and {{c1::soak up}} the sun for a bit."
+    note: "soak up the atmosphere / the sun — absorb and enjoy it."
+    audio: true
+  - id: trav-11
+    text: "We're hoping to {{c1::get away}} for a long weekend in May."
+    note: "get away — go somewhere for a break."
+    audio: true
+  - id: trav-12
+    text: "The sunset from the hotel balcony was {{c1::breathtaking}}."
+    note: "breathtaking — spectacularly beautiful."
+    audio: true
+  - id: trav-13
+    text: "Honestly, that famous burger place is {{c1::overrated}}."
+    note: "overrated — regarded more highly than it deserves."
+    audio: true
+  - id: trav-14
+    text: "The tour was a bit {{c1::dull}}, but the guide was nice."
+    note: "dull — boring."
+    audio: true
+  - id: trav-15
+    text: "The old town is lovely, but the main square is very {{c1::touristy}}."
+    note: "touristy — designed to attract tourists, slightly negative."
+    audio: true
+  - id: trav-16
+    text: "The new highway has {{c1::spoiled}} the view from the village."
+    note: "spoiled — changed for the worse. unspoiled is the positive opposite."
+    audio: true
+  - id: trav-17
+    text: "Our neighborhood is really {{c1::lively}} on weekends."
+    note: "lively — full of energy and activity."
+    audio: true
+  - id: trav-18
+    text: "We stayed in a little guesthouse {{c1::off the beaten track}}."
+    note: "off the beaten track = somewhere quiet that most visitors don't go."
+    audio: true
+  - id: trav-19
+    text: "The museum gets really {{c1::overcrowded}} on weekends, so go on a weekday."
+    note: "overcrowded — too many people."
+    audio: true
+  - id: trav-20
+    text: "The town has a {{c1::picturesque}} harbor full of fishing boats."
+    note: "picturesque — pretty in an old-fashioned, photogenic way."
+    audio: true
+  - id: trav-21
+    text: "The cabin is pretty {{c1::remote}} — there's no phone signal at all."
+    note: "remote — far from anywhere."
+    audio: true

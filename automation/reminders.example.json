@@ -1,0 +1,17 @@
+{
+  "journal_min_words": 30,
+  "celebrate": true,
+  "gist_id": "",
+  "gist_raw_url": "",
+  "gh_bin": "",
+  "ntfy": {
+    "server": "https://ntfy.sh",
+    "topic": ""
+  },
+  "tiers": [
+    { "at": "20:00", "priority": "default" },
+    { "at": "22:00", "priority": "high" },
+    { "at": "23:00", "priority": "high" },
+    { "at": "23:30", "priority": "urgent" }
+  ]
+}

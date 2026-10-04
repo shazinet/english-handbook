@@ -1,0 +1,62 @@
+point: 00 Past perfect and sequence
+level: B1
+tags: [grammar, tense-system, past]
+cards:
+  - id: pastp-01
+    text: "When I got to the station, the train {{c1::had already left}}."
+    note: "Past perfect for the earlier of two past events. Order of mention does not have to match order of events — the tense carries that information."
+
+  - id: pastp-02
+    text: "When I got to the station, the train {{c1::left}}."
+    note: "Past simple here means it left AFTER you arrived. Compare with the past perfect version — the tense is the only difference in meaning."
+
+  - id: pastp-03
+    text: "I didn't recognize her because she {{c1::had cut}} her hair."
+    note: "The cutting happened before the not-recognising."
+
+  - id: pastp-04
+    text: "By the time we arrived, they {{c1::had eaten}} everything."
+    note: "'By the time' + past simple almost always pairs with past perfect in the other clause."
+
+  - id: pastp-05
+    text: "She was exhausted — she {{c1::had been working}} since six that morning."
+    note: "Past perfect continuous for a duration leading up to a point in the past."
+
+  - id: pastp-06
+    text: "I {{c1::had never seen}} snow before I moved to Canada."
+    note: "never...before is a strong past perfect trigger."
+
+  - id: pastp-07
+    text: "He told me he {{c1::had lost}} his job."
+    note: "Reported speech shifts present perfect / past simple back into past perfect."
+    trap: "Direct: 'I lost my job.' Reported: 'He said he HAD lost his job.'"
+
+  - id: pastp-08
+    text: "After she {{c1::had finished}} the presentation, she sat down."
+    note: "With after/before the order is already clear, so past simple is also acceptable here. The past perfect is optional, not wrong."
+
+  - id: pastp-09
+    text: "I was cooking dinner when the power {{c1::went}} out."
+    note: "Past continuous for the background activity, past simple for the interrupting event."
+
+  - id: pastp-10
+    text: "While I {{c1::was walking}} home, I ran into an old colleague."
+    note: "while + past continuous is the standard frame for a longer background action."
+
+  - id: pastp-11
+    text: "The sun was shining and the birds {{c1::were singing}}."
+    note: "Past continuous sets a scene — this is how narratives open."
+
+  - id: pastp-12
+    text: "It {{c1::used to be}} a bakery, but now it's a phone shop."
+    note: "used to + base form for past states or habits that are no longer true."
+
+  - id: pastp-13
+    text: "I {{c1::would spend}} every summer at my grandmother's house."
+    note: "would + base form for repeated past habits in storytelling."
+    trap: "Only for repeated ACTIONS. For past states use 'used to': NOT 'I would have a car'."
+
+  - id: pastp-14
+    text: "I'm not used to {{c1::driving}} on the right."
+    note: "'be used to' + -ing means accustomed to — a completely different structure from 'used to' + base form."
+    trap: "'I used to drive' = past habit. 'I'm used to driving' = it feels normal now."

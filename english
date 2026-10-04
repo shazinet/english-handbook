@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# The one entry point: ./english <command>. Run with no arguments for the list.
+#
+# Prefers the isolated Python that install.sh builds in .venv/, where the anki
+# library is pinned to the installed Anki app's version. Falls back to python3 so
+# a checkout without .venv still runs (`./english check` needs only pyyaml).
+set -euo pipefail
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PY="$REPO/.venv/bin/python"
+[[ -x "$PY" ]] || PY="$(command -v python3)"
+exec "$PY" "$REPO/build/cli.py" "$@"

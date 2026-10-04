@@ -1,0 +1,177 @@
+point: 00 Prepositions
+level: B1
+tags: [grammar, prepositions]
+# Usually the largest error cluster. Prepositions aren't logic — they're collocations.
+# Produce the whole phrase; don't reason outwards from the preposition.
+#
+# Two halves. prep-* covers TIME AND PLACE. dep-* covers DEPENDENT prepositions,
+# which attach to a particular verb, noun or adjective — including the verbs
+# that take NO preposition at all, which is where most errors come from
+# ("exited from", "towards to", "idea on how").
+cards:
+  - id: prep-01
+    text: "I go to the gym {{c1::early in the morning::early + morning}}."
+    note: "early in the morning, or in the early morning. Both work."
+    trap: "NOT 'go to the gym early morning' — a bare noun phrase can't act as the adverbial."
+
+  - id: prep-02
+    text: "I work {{c1::on weekdays::weekdays}} and rest on the weekend."
+    note: "on for recurring days: on weekdays, on Mondays, on the weekend (US)."
+    trap: "NOT 'during the weekdays'. 'During the week' is fine; 'during the weekdays' isn't."
+
+  - id: prep-03
+    text: "{{c1::Over the next two days::the next two days}}, I'm going to clear my backlog."
+    note: "over or in for a period stretching ahead."
+    trap: "NOT 'On the next two days'. on is for a single day."
+
+  - id: prep-04
+    text: "The menu items {{c1::in the footer::footer}} are underlined on hover."
+    note: "in for a region of a page or document: in the footer, in the header, in the sidebar."
+    trap: "NOT 'on the footer'."
+
+  - id: prep-05
+    text: "The meeting is {{c1::at}} three {{c2::on}} Monday."
+    note: "at + clock time, on + day. The two most reliable rules in the whole system."
+
+  - id: prep-06
+    text: "I'll be back {{c1::in}} an hour."
+    note: "in + a period = after that much time from now."
+
+  - id: prep-07
+    text: "The report needs to be done {{c1::by}} Friday."
+    note: "by = at or before that point, deadline sense."
+
+  - id: prep-08
+    text: "We worked {{c1::until}} midnight."
+    note: "until = continuously up to that point. Contrast with by, which is a deadline."
+    trap: "'Finish it by six' (deadline) vs 'work until six' (duration)."
+
+  - id: prep-09
+    text: "She's been working here {{c1::since}} 2019."
+    note: "since + a starting point. for + a length of time."
+
+  - id: prep-10
+    text: "I've lived in Toronto {{c1::for}} three years."
+    note: "for + duration. Compare prep-09."
+
+  - id: prep-11
+    text: "He lives {{c1::in}} Chicago, {{c2::on}} Lake Street."
+    note: "in + city or country, on + street (US). At + a full address with a number."
+
+  - id: prep-12
+    text: "The office is {{c1::on}} the second floor."
+    note: "on + floor."
+
+  - id: prep-13
+    text: "I read about it {{c1::in}} the newspaper."
+    note: "in the newspaper, in a book, in a magazine — but ON the internet, ON TV."
+
+  - id: prep-14
+    text: "I'll see you {{c1::at}} the airport."
+    note: "at + a point or venue you're meeting at; in + an enclosed space you're inside."
+
+  - id: prep-15
+    text: "We got there {{c1::on time::time, punctually}} despite the traffic."
+    note: "on time = punctually. in time = early enough for something."
+
+  - id: prep-m01
+    text: "I woke up {{c1::at 5 in the morning::5 + morning}} for the beach class."
+    note: "A clock time joins the part of day with *in the*: at 5 in the morning, at 9 in the evening."
+    trap: "NOT 'at 5 morning'. The part of day needs 'in the'."
+
+  # --- dependent prepositions -------------------------------------------
+  # First: verbs and nouns that take NO preposition. English often drops a
+  # preposition where other languages expect one, and adds one where they don't.
+
+  - id: dep-01
+    text: "Once we {{c1::exited the metro station::exit + the station}}, we saw the cathedral."
+    note: "exit is transitive — it takes a direct object and no preposition."
+    trap: "NOT 'exited from the metro station'."
+
+  - id: dep-02
+    text: "I had no {{c1::idea how::idea + how}} to get to the hostel."
+    note: "idea takes no preposition before a how/where/what clause."
+    trap: "NOT 'no idea on how' or 'no idea on the destination'."
+
+  - id: dep-03
+    text: "We started walking {{c1::towards the bank::towards + the bank}}."
+    note: "towards already contains the direction — never add a second preposition."
+    trap: "NOT 'moving towards to the bank'."
+
+  - id: dep-04
+    text: "We finally {{c1::entered the building::enter + the building}}."
+    note: "enter is transitive."
+    trap: "NOT 'entered into the building' (except 'enter into an agreement')."
+
+  - id: dep-05
+    text: "We need to {{c1::discuss the budget::discuss + the budget}} before Friday."
+    note: "discuss is transitive."
+    trap: "NOT 'discuss about the budget'. A very persistent error at C1."
+
+  - id: dep-06
+    text: "Could you {{c1::answer my question::answer + my question}}?"
+    note: "answer is transitive."
+    trap: "NOT 'answer to my question'."
+
+  - id: dep-07
+    text: "Can you {{c1::explain the problem to me::explain + problem + me}}?"
+    note: "explain something TO someone — the person needs *to*."
+    trap: "NOT 'explain me the problem'."
+
+  - id: dep-08
+    text: "What time did you {{c1::arrive at::arrive + at}} the airport?"
+    note: "arrive AT a place or venue, arrive IN a city or country."
+    trap: "NOT 'arrive to'. Spanish *llegar a* transfers wrong here."
+
+  # Then: the fixed pairings worth knowing cold.
+
+  - id: dep-09
+    text: "The forms were already filled {{c1::with}} the required information."
+    note: "filled WITH what's inside. filled BY whoever did it."
+    trap: "NOT 'pre-filled by the required information'."
+
+  - id: dep-10
+    text: "It depends {{c1::on}} how much the flight costs."
+    note: "depend on / rely on — always *on*."
+
+  - id: dep-11
+    text: "I've always been interested {{c1::in}} architecture."
+    note: "interested IN something. Compare: bored WITH, tired OF."
+
+  - id: dep-12
+    text: "She's really good {{c1::at}} explaining things."
+    note: "good at / bad at / terrible at + noun or -ing."
+
+  - id: dep-13
+    text: "I'm a bit worried {{c1::about}} the deadline."
+    note: "worried about, anxious about — but afraid OF, scared OF."
+
+  - id: dep-14
+    text: "Who's responsible {{c1::for}} the redesign?"
+    note: "responsible for something; responsible TO a person."
+
+  - id: dep-15
+    text: "The course consists {{c1::of}} eight modules."
+    note: "consist of — never in the passive."
+    trap: "NOT 'is consisted of'."
+
+  - id: dep-16
+    text: "This one is quite similar {{c1::to}} the other option."
+    note: "similar TO, but different FROM."
+
+  - id: dep-17
+    text: "He apologized {{c1::for}} arriving late."
+    note: "apologize FOR the thing, TO the person."
+
+  - id: dep-18
+    text: "The delay resulted {{c1::in}} a lot of extra work."
+    note: "result IN a consequence; result FROM a cause. The two point opposite ways."
+
+  - id: dep-19
+    text: "I'm looking forward {{c1::to hearing::to + hear}} from you."
+    note: "look forward TO + noun or -ing, because *to* here is a preposition."
+    trap: "NOT 'looking forward to hear'."
+
+  - id: dep-20
+    text: "We'll have to deal {{c1::with}} it on Monday."
+    note: "deal with a problem — always *with*."

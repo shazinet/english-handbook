@@ -1,0 +1,64 @@
+point: 8A Gerunds and infinitives
+level: B2
+tags: [grammar, verb-patterns, gerunds]
+cards:
+  - id: 8a-01
+    text: "I hate {{c1::being interrupted}} when I'm on a call."
+    note: "PASSIVE gerund (being done) — the action is done to the subject."
+
+  - id: 8a-02
+    text: "Nobody likes {{c1::being shouted at}}."
+    note: "Passive gerund keeping the preposition at the end."
+
+  - id: 8a-03
+    text: "It's really hard {{c1::to get noticed}} in a big company."
+    note: "get + participle is a common informal passive infinitive."
+
+  - id: 8a-04
+    text: "This shirt needs {{c1::to be ironed}}."
+    note: "Passive infinitive: to be + past participle."
+
+  - id: 8a-05
+    text: "She apologized for {{c1::having missed}} the meeting."
+    note: "PERFECT gerund (having done) stresses the action was completed earlier."
+
+  - id: 8a-06
+    text: "{{c1::Having lived}} abroad before made the move much easier."
+    note: "Perfect gerund as the subject of a sentence."
+
+  - id: 8a-07
+    text: "By next summer, I hope {{c1::to have paid}} off my credit card."
+    note: "PERFECT infinitive for something completed before a future point."
+
+  - id: 8a-08
+    text: "I would love {{c1::to have seen}} that concert — everyone says it was amazing."
+    note: "Perfect infinitive after would like/love/hate/prefer/rather = an EARLIER action that didn't happen."
+    trap: "'I'd love to see it' = future. 'I'd love to have seen it' = it's over and I missed it."
+
+  - id: 8a-09
+    text: "I would rather {{c1::have flown}}, but the tickets were too expensive."
+    note: "would rather + perfect infinitive for a past preference that wasn't realised."
+
+  - id: 8a-10
+    text: "I'd love {{c1::to be sitting}} by a pool right now."
+    note: "CONTINUOUS infinitive — an action in progress."
+
+  - id: 8a-11
+    text: "The printer seems {{c1::to be making}} a strange noise."
+    note: "seem + continuous infinitive for something ongoing."
+
+  - id: 8a-12
+    text: "I'd prefer {{c1::to be told}} the truth, even if it hurts."
+    note: "Passive infinitive after would prefer."
+
+  - id: 8a-13
+    text: "It's no use {{c1::calling}} them — they close at five."
+    note: "It's no use / it's no good / there's no point are always followed by the gerund."
+
+  - id: 8a-14
+    text: "There's no point {{c1::arguing}} about it now."
+    note: "there's no point + gerund."
+
+  - id: 8a-15
+    text: "He denied {{c1::taking}} the last piece of cake."
+    note: "deny takes the gerund. 'having committed' is equally correct — often no real difference."

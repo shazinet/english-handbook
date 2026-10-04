@@ -1,0 +1,84 @@
+point: V09 Prefixes
+level: C1
+tags: [vocab, prefixes, word-formation]
+cards:
+  - id: pre-01
+    text: "Checking your phone during dinner is a bit {{c1::inappropriate}}."
+    note: "in- is the default negative prefix."
+    audio: true
+  - id: pre-02
+    text: "It's {{c1::illegal}} to use your phone while driving here."
+    note: "il- before words starting with L: illegal, illiterate, illogical, illegitimate."
+    audio: true
+  - id: pre-03
+    text: "It's {{c1::illogical}} to pay more for a slower service."
+    note: "il- + l-."
+    audio: true
+  - id: pre-04
+    text: "White sofas are so {{c1::impractical}} when you have kids."
+    note: "im- before M and P: impractical, impersonal, immobile, immoral."
+    audio: true
+  - id: pre-05
+    text: "Big hotels can feel a bit {{c1::impersonal}}."
+    note: "im- + p-."
+    audio: true
+  - id: pre-06
+    text: "Back up your photos — they're {{c1::irreplaceable}}."
+    note: "ir- before R: irreplaceable, irrelevant, irregular, irrational."
+    audio: true
+  - id: pre-07
+    text: "Her age is {{c1::irrelevant}} — what matters is whether she can do the job."
+    note: "ir- + r-."
+    audio: true
+  - id: pre-08
+    text: "My partner and I {{c1::disagree}} about where to go on vacation."
+    note: "dis- with verbs and some adjectives: disagree, dishonest, discontinue."
+    audio: true
+  - id: pre-09
+    text: "The salesman was {{c1::dishonest}} about the car's history."
+    note: "dis- + honest."
+    audio: true
+  - id: pre-10
+    text: "The guy at the front desk was really {{c1::unhelpful}}."
+    note: "un- is the most common negative prefix of all."
+    audio: true
+  - id: pre-11
+    text: "We've {{c1::outgrown}} this apartment — we need another bedroom."
+    note: "out- = beyond, more than. outgrow, outnumber, outlive."
+    audio: true
+  - id: pre-12
+    text: "Sorry, I {{c1::misheard}} you — did you say Tuesday or Thursday?"
+    note: "mis- = wrongly. misunderstand, mishear, misjudge, mislead."
+    audio: true
+  - id: pre-13
+    text: "After the hacking scare, I had to {{c1::reinstall}} everything on my laptop."
+    note: "re- = again, back. reinstall, rebuild, rethink."
+    audio: true
+  - id: pre-14
+    text: "I paid a little extra to {{c1::upgrade}} my room to a sea view."
+    note: "up- = to a higher level."
+    audio: true
+  - id: pre-15
+    text: "It's minor surgery, so I'll be treated as an {{c1::outpatient}}."
+    note: "out- here means not staying overnight — contrast with inpatient."
+    audio: true
+  - id: pre-16
+    text: "He's taking {{c1::multivitamins}} to get through the winter."
+    note: "multi- = many. Compare mono- = one, bi- = two."
+    audio: true
+  - id: pre-17
+    text: "My daughter answers every question in {{c1::monosyllables}} — 'yes', 'no', 'fine'."
+    note: "mono- = one."
+    audio: true
+  - id: pre-18
+    text: "Make sure your {{c1::antivirus}} software is up to date."
+    note: "anti- = against."
+    audio: true
+  - id: pre-19
+    text: "Moving abroad without a job was {{c1::ill-advised}}, looking back."
+    note: "ill- = badly. ill-advised, ill-treated, ill-equipped."
+    audio: true
+  - id: pre-20
+    text: "Nurses here are {{c1::underpaid}} and overworked."
+    note: "under- = not enough; over- = too much. A very productive pair."
+    audio: true

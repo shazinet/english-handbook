@@ -1,0 +1,73 @@
+point: V07 Money
+level: B2
+tags: [vocab, money]
+cards:
+  - id: money-01
+    text: "We're on a tight {{c1::budget}} until payday, so we're cooking at home."
+    note: "budget — money available over a period, and the plan for spending it."
+    audio: true
+  - id: money-02
+    text: "He got a research {{c1::grant}} to spend a year in Canada."
+    note: "grant — money given for a purpose, which you don't repay."
+    audio: true
+  - id: money-03
+    text: "We took out a {{c1::loan}} to pay for the new kitchen."
+    note: "loan — money a bank lends and you repay. Collocation: take out a loan."
+    audio: true
+  - id: money-04
+    text: "The accountant's {{c1::fee}} was higher than I expected."
+    note: "fee — payment for professional advice or services."
+    audio: true
+  - id: money-05
+    text: "Taxi {{c1::fares}} double after midnight."
+    note: "fare — what you pay to travel."
+    trap: "fare is for travel; fee is for services. Don't swap them."
+    audio: true
+  - id: money-06
+    text: "I got a {{c1::fine}} for riding the train without a ticket."
+    note: "fine — money you pay as a punishment."
+    audio: true
+  - id: money-07
+    text: "We'll get our {{c1::deposit}} back when we move out, if nothing's damaged."
+    note: "deposit — money paid in advance as security."
+    audio: true
+  - id: money-08
+    text: "You can pay for the laptop in twelve monthly {{c1::instalments}}."
+    note: "instalment — one of a series of regular payments."
+    audio: true
+  - id: money-09
+    text: "Would you rather get the money in a {{c1::lump sum}} or monthly?"
+    note: "lump sum — a single large payment rather than instalments."
+    audio: true
+  - id: money-10
+    text: "We spent half our {{c1::savings}} on the wedding."
+    note: "savings — money you have put aside. Always plural."
+    audio: true
+  - id: money-11
+    text: "My grandfather left me his watch in his {{c1::will}}."
+    note: "will — the legal document saying who gets your property."
+    audio: true
+  - id: money-12
+    text: "You can make a {{c1::donation}} online or at the door."
+    note: "donation — money given to help a cause."
+    audio: true
+  - id: money-13
+    text: "They're not rich, but they're fairly {{c1::well-off}}."
+    note: "well-off — comfortably rich. Common in negatives too: 'not very well-off'."
+    audio: true
+  - id: money-14
+    text: "Her new boyfriend is {{c1::loaded}} — he flies business class everywhere."
+    note: "loaded — very informal for very rich. Never before a noun."
+    audio: true
+  - id: money-15
+    text: "It's an {{c1::affluent}} area, so rents are very high."
+    note: "affluent — rather formal, rich with a high standard of living."
+    audio: true
+  - id: money-16
+    text: "Can you lend me twenty dollars? I'm {{c1::broke}} until Friday."
+    note: "broke — informal, having no money right now."
+    audio: true
+  - id: money-17
+    text: "We were pretty {{c1::hard up}} when we first moved here."
+    note: "hard up — short of money for a period."
+    audio: true

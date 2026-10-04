@@ -1,0 +1,66 @@
+point: 5B Unreal uses of past tenses
+level: C1
+tags: [grammar, unreal-past, conditionals]
+cards:
+  - id: 5b-01
+    text: "That apartment is perfect. I wish we {{c1::could}} afford the rent."
+    note: "wish + past form for something you want to be different NOW but can't change."
+
+  - id: 5b-02
+    text: "I wish you {{c1::hadn't told}} my mom about the job — I wanted to tell her myself."
+    note: "wish + PAST PERFECT for regret about something that already happened."
+
+  - id: 5b-03
+    text: "I wish I {{c1::hadn't eaten}} so much at dinner."
+    note: "Past regret. Contrast with 'I wish I had more money' — present wish, simple past."
+
+  - id: 5b-04
+    text: "If only my landlord {{c1::were}} a bit more flexible! Then we could get a cat."
+    note: "If only = wish, but more emphatic. were is preferred after wish/if only, even with he/she/it."
+
+  - id: 5b-05
+    text: "If only we {{c1::hadn't missed}} the train, we'd be at the beach by now."
+    note: "Past perfect after if only for past regret — and note the mixed present result."
+
+  - id: 5b-06
+    text: "I wish my phone {{c1::would}} stop freezing!"
+    note: "wish / if only + would + base form when something ANNOYS you and you want it to change."
+    trap: "Not for your own situation: NOT 'I wish I would be taller'. Use 'I wish I were taller'."
+
+  - id: 5b-07
+    text: "If only my neighbor {{c1::wouldn't}} play music so loud at night!"
+    note: "would for an irritating habit you want stopped."
+
+  - id: 5b-08
+    text: "I'd rather you {{c1::didn't}} smoke in the car, if that's OK."
+    note: "would rather + another person + PAST tense = what you'd prefer someone else to do."
+    trap: "NOT 'I'd rather you don't smoke'. The past tense is obligatory once the subject changes."
+
+  - id: 5b-09
+    text: "Would you rather I {{c1::came}} to your place instead?"
+    note: "Same structure in a question. The past tense here is not about past time at all."
+
+  - id: 5b-10
+    text: "I'd rather {{c1::not go}} out tonight — I'm exhausted."
+    note: "When the subject does NOT change, would rather takes the base form instead."
+
+  - id: 5b-11
+    text: "Your phone is ancient. Isn't it time you {{c1::bought}} a new one?"
+    note: "It's (high) time + subject + SIMPLE PAST — something should happen now or very soon."
+    trap: "NOT 'it's time you buy a new one'."
+
+  - id: 5b-12
+    text: "It's time the city {{c1::did}} something about the traffic."
+    note: "The past tense carries criticism — it implies they should have done it already."
+
+  - id: 5b-13
+    text: "It's late. It's time {{c1::to head}} home."
+    note: "It's time + infinitive when you don't need to name who should act."
+
+  - id: 5b-14
+    text: "I'd rather you {{c1::sent}} me the invoice by email, please."
+    note: "would rather + past for a polite request about someone else's behavior."
+
+  - id: 5b-15
+    text: "If only I {{c1::had learned}} to cook earlier, I wouldn't spend so much on takeout now."
+    note: "Past perfect for the past regret, present result in the other clause — a mixed conditional in disguise."

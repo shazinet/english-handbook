@@ -1,0 +1,80 @@
+point: 00 Present simple vs continuous
+level: A2
+tags: [grammar, tense-system, present]
+cards:
+  - id: pres-01
+    text: "I {{c1::work}} for a software company in Dublin."
+    note: "Present simple — a permanent situation or a long-term fact."
+
+  - id: pres-02
+    text: "This month I {{c1::am working}} on a new project, but normally I {{c2::do}} maintenance."
+    note: "Present continuous for a temporary arrangement; present simple for the usual state. The contrast is the point."
+
+  - id: pres-03
+    text: "Sorry, I can't talk — I {{c1::am having}} lunch with a client."
+    note: "have = an action here (having lunch), so continuous is fine."
+    trap: "But 'I have a car' (possession) can never be continuous."
+
+  - id: pres-04
+    text: "I {{c1::have}} two brothers and a sister."
+    note: "have for possession is stative — no continuous form."
+    trap: "NOT 'I am having two brothers'."
+
+  - id: pres-05
+    text: "This soup {{c1::tastes}} amazing. What's in it?"
+    note: "taste describing a quality is stative."
+    trap: "NOT 'is tasting'. But 'The chef is tasting the soup' (deliberate action) is correct."
+
+  - id: pres-06
+    text: "I {{c1::think}} you're right about the deadline."
+    note: "think = have an opinion → stative."
+    trap: "'I am thinking about moving' (the mental activity) is a different verb sense and takes continuous."
+
+  - id: pres-07
+    text: "Do you {{c1::know}} if the pharmacy is open on Sundays?"
+    note: "know is always stative. There is no 'knowing' in this sense."
+
+  - id: pres-08
+    text: "She {{c1::is being}} really difficult about the contract today."
+    note: "be + continuous = behaving that way right now, not a permanent trait."
+    trap: "'She is difficult' means it's her character. The continuous makes it temporary behavior."
+
+  - id: pres-09
+    text: "I {{c1::see}} what you mean, but I don't agree."
+    note: "see = understand → stative."
+
+  - id: pres-10
+    text: "The train {{c1::leaves}} at 7:40 tomorrow morning."
+    note: "Present simple for timetables and schedules, even about the future."
+
+  - id: pres-11
+    text: "You {{c1::are always losing}} your keys!"
+    note: "always + continuous expresses irritation at a repeated habit."
+    trap: "'You always lose your keys' is a neutral fact; the continuous adds the complaint."
+
+  - id: pres-12
+    text: "Water {{c1::boils}} at 100 degrees."
+    note: "Present simple for general truths."
+
+  - id: pres-13
+    text: "I {{c1::am living}} with my parents until I find an apartment."
+    note: "Continuous signals the situation is temporary."
+
+  - id: pres-14
+    text: "How much {{c1::does}} this {{c1::cost}}?"
+    note: "cost, weigh, owe, belong, contain, depend — all stative."
+
+  - id: pres-15
+    text: "He {{c1::is looking}} for a new job because he {{c2::hates}} his boss."
+    note: "Ongoing action (continuous) + stative feeling (simple) in one sentence."
+    trap: "hate, love, like, want, need, prefer are stative — NOT 'is hating'."
+
+  - id: pres-m01
+    text: "She checks everything, moves things around and {{c1::arranges}} whatever she likes."
+    note: "Every verb sharing a third-person subject takes -s — including the second and third in a list."
+    trap: "NOT 'moves things around and arrange'. Easy to drop the -s on the second or third verb."
+
+  - id: pres-m02
+    text: "There {{c1::is}} a lot to be done before we leave."
+    note: "*a lot* standing alone is a mass quantity and takes a singular verb."
+    trap: "NOT 'There are a lot to be done'. But 'there ARE a lot of things' is right — a plural noun follows."

@@ -252,7 +252,7 @@ def rows(d: dict) -> list[dict]:
         "sentence_length": cur.get("sentence_length"), "length_band": cur.get("length_band"),
         "length_value": cur.get("length_value"),
         "foundation_share": lm["foundation_share"], "leveled_errors": lm.get("leveled_errors"),
-        "recorded_level": rec.get("level"), "recorded_source": rec.get("source"),
+        "recorded_level": rec.get("overall"), "recorded_source": rec.get("source"),
         "recorded_date": str(rec["date"]) if rec.get("date") else None,
     })
     out += [{"section": "level_month", **{k: m[k] for k in (
@@ -304,6 +304,13 @@ def changes(old: dict | None, new: dict) -> str:
     delta("streak", old.get("today", {}).get("streak"), new["today"]["streak"])
     delta("level estimate", ((old.get("level_meter") or {}).get("current") or {}).get("label"),
           (new["level_meter"]["current"] or {}).get("label"))
+
+    def recorded(d):
+        r = (d.get("level_meter") or {}).get("recorded") or {}
+        return f"{r['overall']} ({r.get('source', '?')}, {r.get('date')})" if r.get("overall") else "none"
+
+    if (old.get("level_meter") or {}) and recorded(old) != recorded(new):
+        parts.append(f"recorded level {recorded(old)} → {recorded(new)}")
     return ", ".join(parts) or "no change since the last refresh"
 
 

@@ -7,6 +7,10 @@
                                        e.g. a phone voice memo
     ./english speak --model mlx-community/whisper-small.en-mlx
                                        a smaller, faster model (default: large-v3-turbo)
+    ./english speak --list-mics        the microphones this Mac can record from
+
+The microphone is `speech.microphone` in the profile (part of its name, e.g.
+"USB-C"), or the Mac's current input when that's empty or not plugged in.
 
 The transcript goes into me/journal/YYYY-MM-DD.md under a `## spoken` heading,
 with a `<!-- spoken: … -->` marker carrying fluency numbers (speaking time,
@@ -47,7 +51,27 @@ FILLERS = {"um", "uh", "er", "erm", "hmm", "mm", "ah", "eh"}
 PAUSE = 1.0  # seconds of silence between words that counts as a long pause
 
 
-def record(seconds: int | None) -> np.ndarray:
+def input_devices() -> list[tuple[int, str]]:
+    import sounddevice as sd
+
+    return [(i, d["name"]) for i, d in enumerate(sd.query_devices()) if d["max_input_channels"] > 0]
+
+
+def pick_microphone(wanted: str) -> int | None:
+    """The first input whose name contains `wanted`, ignoring case. None means
+    the Mac's current input: nothing asked for, or the asked-for one is unplugged.
+    The setting matters because macOS quietly switches input to earbuds when
+    they connect, and earbud mics give Whisper much worse audio."""
+    if not wanted:
+        return None
+    for index, name in input_devices():
+        if wanted.lower() in name.lower():
+            return index
+    print(f"No microphone matching “{wanted}” is connected; using the Mac's current input.")
+    return None
+
+
+def record(seconds: int | None, mic: int | None = None) -> np.ndarray:
     import sounddevice as sd
 
     chunks: list[np.ndarray] = []
@@ -57,8 +81,9 @@ def record(seconds: int | None) -> np.ndarray:
         chunks.append(indata.copy())
 
     limit = seconds or MAX_SECONDS
-    device = sd.query_devices(kind="input")["name"]
-    with sd.InputStream(samplerate=RATE, channels=1, dtype="float32", callback=callback):
+    device = sd.query_devices(mic if mic is not None else sd.default.device[0])["name"]
+    with sd.InputStream(samplerate=RATE, channels=1, dtype="float32", callback=callback,
+                        device=mic):
         if seconds:
             print(f"Recording {seconds}s from {device}… speak now.")
             stop.wait(seconds)
@@ -165,15 +190,28 @@ def main() -> int:
     ap.add_argument("--seconds", type=int, help="record for a fixed time instead of until Enter")
     ap.add_argument("--file", type=Path, help="transcribe an existing recording")
     ap.add_argument("--model", help=f"Whisper model (default {DEFAULT_MODEL})")
+    ap.add_argument("--mic", help="part of a microphone's name (default: the profile's "
+                                  "speech.microphone)")
+    ap.add_argument("--list-mics", action="store_true", help="list microphones and exit")
     ap.add_argument("--dry-run", action="store_true", help="print, don't touch the journal")
     args = ap.parse_args()
 
+    speech = load_profile().get("speech") or {}
+    if args.list_mics:
+        mic = pick_microphone(args.mic or speech.get("microphone") or "")
+        for index, name in input_devices():
+            print(f"{'→' if index == mic else ' '} {name}")
+        return 0
+
     if not args.file and not args.seconds and not sys.stdin.isatty():
         sys.exit("No terminal to press Enter in: use --seconds N, or --file.")
-    model = args.model or (load_profile().get("speech") or {}).get("model") or DEFAULT_MODEL
+    model = args.model or speech.get("model") or DEFAULT_MODEL
     now = datetime.now()
 
-    audio = load_file(args.file) if args.file else record(args.seconds)
+    if args.file:
+        audio = load_file(args.file)
+    else:
+        audio = record(args.seconds, pick_microphone(args.mic or speech.get("microphone") or ""))
     if len(audio) < RATE * 3:
         sys.exit("Under three seconds of audio: nothing to transcribe.")
     result = transcribe(audio, model)

@@ -69,6 +69,11 @@ audio:
   accent: us
   cards: marked
 
+# ./english speak. microphone: part of a mic's name (see ./english speak
+# --list-mics); empty, or not plugged in, uses the Mac's current input.
+speech:
+  microphone: ""
+
 # What content should prioritise. /check and /level revise this from evidence.
 weak_areas: []
 

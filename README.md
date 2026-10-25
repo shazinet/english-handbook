@@ -144,7 +144,9 @@ you rarely need them, because you can ask Claude to rebuild and it will.
 On days you'd rather talk, `./english speak` replaces the writing step: speak
 for two or three minutes about your day, and the transcript lands in today's
 journal for `/check`, with words per minute, long pauses and fillers tracked in
-`./english level`. It needs `./install.sh --speech` once.
+`./english level`. It needs `./install.sh --speech` once. It records from the
+Mac's current input unless `speech.microphone` in your profile names one
+(`./english speak --list-mics` shows the names).
 
 Write about your **real life**. Never try to reproduce the sentences from your
 Anki cards, because the cards already test those. The journal exists to attach

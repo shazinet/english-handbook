@@ -19,7 +19,7 @@ from datetime import date
 from paths import CEFR, PROFILE
 from progress import (
     anki_stats, current_level, efset_to_cefr, errors_per_100_by_month, load_history,
-    save_history, top_error_points,
+    save_history, top_error_points, writing_level,
 )
 
 
@@ -87,6 +87,11 @@ def show() -> None:
         print("\nErrors per 100 words written (lower is better; harder writing raises it)")
         for m in months:
             print(f"  {m['month']}  {m['rate']:>5}   ({m['errors']} errors / {m['words']} words)")
+
+    lex = writing_level()["lexical"]
+    if lex:
+        print(f"\nVocabulary, last 30 days: {round(100 * lex['above_b1'])}% of the "
+              f"{lex['types']} different words you wrote are above B1")
 
     anki = anki_stats()
     if anki["error"]:

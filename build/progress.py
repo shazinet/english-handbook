@@ -22,6 +22,7 @@ from datetime import date, timedelta
 import yaml
 
 from ankidb import DECK_PREFIX, LEGACY_PREFIX, snapshot
+from lexicon import text_profile
 from paths import CEFR, ERRORS, JOURNAL, LEVELS, content_files
 from status import body_words, entry_text
 
@@ -346,14 +347,19 @@ def _estimate(days: list[date], texts: dict[date, str], errors: Counter) -> dict
 
 def writing_level(days: int = 30) -> dict:
     """Estimate over the last `days` days of entries (widened to 90 when there
-    is too little writing), plus one estimate per month for the trend, and two
+    is too little writing), plus one estimate per month for the trend, and three
     diagnostics that don't move the number: how many recent errors are in
-    B1-or-lower topics, and Anki retention by topic level."""
+    B1-or-lower topics, Anki retention by topic level, and the share of distinct
+    words above B1 (when the word lists are fetched — see lexicon.py).
+
+    The vocabulary share stays a diagnostic on purpose: there is no published
+    scale mapping it to CEFR for one learner's journal, and an invented anchor
+    would move the estimate on guesswork."""
     texts = journal_texts()
     errors = Counter(d for d, _ in error_rows() if d in texts)
     today = date.today()
     out = {"current": None, "window_days": days, "monthly": [], "foundation_share": None,
-           "retention_by_level": [], "recorded": current_level()}
+           "retention_by_level": [], "lexical": None, "recorded": current_level()}
 
     for window in (days, 90):
         recent = sorted(d for d in texts if d >= today - timedelta(days=window))
@@ -383,6 +389,7 @@ def writing_level(days: int = 30) -> dict:
         if not personal:
             levels[data["point"]] = data.get("level")
     since = today - timedelta(days=out["window_days"])
+    out["lexical"] = text_profile([t for d, t in texts.items() if d >= since])
     leveled = [levels[p] for d, p in error_rows() if d >= since and d in texts and levels.get(p)]
     if leveled:
         basic = sum(1 for lv in leveled if CEFR.index(lv) <= CEFR.index("B1"))

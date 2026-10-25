@@ -332,6 +332,9 @@ def cmd_doctor(args: list[str]) -> int:
                         capture_output=True, text=True)
     check(ok.returncode == 0, "card files valid", (ok.stderr or ok.stdout).strip()[-300:])
 
+    check((ROOT / "data/lexicon/words.tsv").exists(), "word lists (optional)",
+          "./english vocab --fetch")
+
     loaded = subprocess.run(["launchctl", "print", f"gui/{os.getuid()}/{REMINDER_LABEL}"],
                             capture_output=True).returncode == 0
     has_topic = CONFIG.exists() and bool(json.loads(CONFIG.read_text()).get("ntfy", {}).get("topic"))
@@ -342,8 +345,8 @@ def cmd_doctor(args: list[str]) -> int:
         print(f"  {mark} {label}")
         if not ok_ and fix:
             print(f"      → {fix}")
-    # The reminders are optional, so they alone don't fail the check.
-    required = [r for r in results if r[1] != "evening reminders (optional)"]
+    # Optional parts (reminders, word lists, speech tools) don't fail the check.
+    required = [r for r in results if "(optional)" not in r[1]]
     return 0 if all(r[0] for r in required) else 1
 
 
@@ -352,6 +355,7 @@ def cmd_doctor(args: list[str]) -> int:
 PASSTHROUGH = {
     "check": ("build_anki.py", ["--check"], "validate every card file"),
     "stats": ("build_anki.py", ["--stats"], "cards per topic, and what your level leaves out"),
+    "vocab": ("lexicon.py", [], "frequent words at your level no card tests (--fetch first)"),
     "deck": ("install_deck.py", [], "import the deck into Anki (Anki must be closed)"),
     "status": ("status.py", [], "today's three checkboxes and your streak"),
     "remind": ("remind.py", [], "run the reminder once (--dry-run to preview)"),

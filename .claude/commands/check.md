@@ -20,14 +20,22 @@ Read the entry, then produce a correction table. For every error:
 1. **Quote the original** exactly as written.
 2. **Give the correction.**
 3. **Name the grammar point** using the `point:` value from the relevant file in
-   `content/` or `me/my-cards/` (e.g. "6B Conditionals", "00 Future forms"). If it maps to no
-   existing topic, say so — that's a signal the deck has a gap.
+   `content/` or `me/my-cards/` (e.g. "6B Conditionals", "00 Future forms"). A wrong
+   or unnatural word ("too much" meaning "very much", "per week" for "a week")
+   is `00 Word choice`, and a word that's wrong with its partner ("make a
+   photo") is `00 Collocations`; don't log either as a topic-less "Vocabulary".
+   If an error maps to no existing topic, say so: that's a signal the deck has a gap.
 4. **Explain in one sentence WHY**, in terms of the rule. Not "this sounds
    better" — state the rule that was broken.
 
 Then separately list **register or naturalness notes**: things that are
 grammatically correct but that a native speaker wouldn't say. Mark these clearly
 as style, not errors — conflating the two is discouraging and inaccurate.
+
+If the prompt offered **words to try** (from `/journal`), say in one line which
+ones were used and whether naturally. A word used wrongly is a genuine error,
+logged like any other wrong word (below). A word left unused is not an error, and it
+isn't logged.
 
 Be honest. If the entry is good, say it's good and don't manufacture errors to
 seem useful. If it's full of the same mistake, say that plainly — a repeated

@@ -191,7 +191,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `/journal` | none, a topic (`/journal conditionals`), or `free` | Start of your writing session |
 | `/check` | none (uses today's), or a path | Right after you finish writing |
 | `/drill` | none (picks from your errors), or a topic | Once a week |
-| `/mine` | none, or a topic to limit to | Every 2–4 weeks, **not** daily |
+| `/mine` | none, a topic to limit to, or `vocab` | Every 2–4 weeks, **not** daily |
 
 ### In Terminal
 
@@ -206,6 +206,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `./english level` | Level history and progress signals; `--efset N` records a test |
 | `./english report` | Writes and opens your shareable progress page |
 | `./english check` / `stats` | Validates card files / counts cards per topic |
+| `./english vocab` | The most frequent words at your level that no card tests (`--fetch` once first; `--word X` looks one up) |
 | `./english reminders` | Installs evening reminders; `--uninstall` removes them |
 
 ## Notes on sources
@@ -225,6 +226,23 @@ in Use* (intermediate) for the B1–B2 foundation, and Hewings, *Advanced Gramma
 in Use* for C1. Beyond that, the biggest lever for everyday English is input
 volume: podcasts and shows you'd watch anyway, mined for sentences that become
 cards.
+
+### Open data
+
+`./english vocab` and the vocabulary line in `./english level` use open word
+lists, downloaded into `data/` (gitignored) by `./install.sh` or
+`./english vocab --fetch`. They decide which words to look at, never what a
+card says. Card sentences stay original.
+
+- **NGSL 1.2 and NGSL-Spoken 1.2**: Browne, C., Culligan, B. (2013). *The New
+  General Service List*. [newgeneralservicelist.com](https://www.newgeneralservicelist.com),
+  CC BY-SA 4.0.
+- **CEFR-J Wordlist 1.5**: compiled by Yukio Tono, Tokyo University of Foreign
+  Studies, via [openlanguageprofiles/olp-en-cefrj](https://github.com/openlanguageprofiles/olp-en-cefrj).
+  Free for research and commercial use with citation.
+- **Octanove Vocabulary Profile C1/C2 1.0**: Octanove Labs, CC BY-SA 4.0 (same repository).
+- **CEFR-J Grammar Profile 20180315**: same terms as the wordlist; used only to
+  check which grammar topics the deck covers.
 
 ## License
 

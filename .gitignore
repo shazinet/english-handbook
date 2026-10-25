@@ -2,6 +2,9 @@
 # build/extract.py reads them from here; they are never committed.
 resources/
 
+# Open datasets fetched by `./english vocab --fetch` (build/lexicon.py)
+data/
+
 # Build artifacts
 build/raw/
 media/
@@ -16,6 +19,8 @@ me/
 # Isolated Python that install.sh creates; the anki library is pinned to the
 # installed Anki app's version.
 .venv/
+# Optional speech tools (Kokoro TTS, Whisper) — `./install.sh --speech`
+.venv-speech/
 
 __pycache__/
 

@@ -1,7 +1,7 @@
 ---
 description: Create today's journal entry with a prompt aimed at your current weak point
 argument-hint: [optional topic, or "free" for an unprompted entry]
-allowed-tools: Read, Write, Glob, Grep, Bash(date:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+allowed-tools: Read, Write, Glob, Grep, Bash(date:*), Bash(./english vocab:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Create today's journal entry at `me/journal/YYYY-MM-DD.md` (get the date with `date +%F`).
@@ -39,6 +39,11 @@ Produce a file with:
   form of the target structure. Describe the situation, never name the form —
   "something you've arranged with another person", not "use present continuous".
   Naming it turns production into translation.
+- If `./english vocab --tsv -n 60` works (the word lists are fetched), one line
+  offering **three words to try**: words from that list that fit today's prompt
+  and `life_context`, which the writer hasn't used yet (Grep `me/journal/`).
+  Using a word in your own sentence is the step between knowing it and owning
+  it. `/check` notes which ones were used, and whether correctly.
 - A line telling the writer to delete the prompts and write below, then run `/check`.
 
 Aim for 5–8 sentences of output. Enough to show a pattern, short enough to

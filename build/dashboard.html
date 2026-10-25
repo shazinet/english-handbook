@@ -85,8 +85,9 @@
           <li><span>Accuracy: <span data-source="level" data-field="rate" data-row="0">—</span> errors per 100 words</span><span class="v" data-source="level" data-field="accuracy_band" data-row="0">—</span></li>
           <li><span>Sentence length: <span data-source="level" data-field="sentence_length" data-row="0">—</span> words on average</span><span class="v" data-source="level" data-field="length_band" data-row="0">—</span></li>
           <li><span>Errors in B1-or-lower topics</span><span class="v" data-source="level" data-field="foundation_share" data-row="0">—</span></li>
+          <li><span>Words above B1, of <span data-source="level" data-field="lexical_types" data-row="0">—</span> different words used</span><span class="v" data-source="level" data-field="above_b1" data-row="0">—</span></li>
         </ul>
-        <p class="ep-note">Accuracy counts three times as much as sentence length. The third row doesn't change the number; it shows how much of what holds you back is foundation grammar: articles, prepositions and the basic tenses.</p>
+        <p class="ep-note">Accuracy counts three times as much as sentence length. The last two rows don't change the number. The first shows how much of what holds you back is foundation grammar: articles, prepositions and the basic tenses. The second shows how much of your vocabulary is B2 or higher, from open CEFR word lists; it's blank until <code>./english vocab --fetch</code> has run.</p>
       </div>
     </div>
     <div class="ep-chart" id="meter" data-source="level" style="min-height:96px"></div>
@@ -321,7 +322,7 @@ dash.calc('checklist', {
       const v = r ? r[el.dataset.field] : null;
       const f = el.dataset.field;
       if (f === 'retention_30') el.textContent = show(v, pct);
-      else if (f === 'foundation_share') el.textContent = show(v, (x) => d3.format('.0%')(Number(x)));
+      else if (f === 'foundation_share' || f === 'above_b1') el.textContent = show(v, (x) => d3.format('.0%')(Number(x)));
       else if (f === 'rate') el.textContent = show(v, (x) => one(Number(x)));
       else if (f === 'change') el.textContent = show(v, (x) => (Number(x) > 0 ? '+' : '') + one(Number(x)));
       else if (f === 'prev_month' || f === 'month') el.textContent = show(v, (x) => d3.utcFormat('%B')(parseDay(x + '-01')));

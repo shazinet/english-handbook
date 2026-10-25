@@ -82,6 +82,14 @@ else
     uv pip install --quiet --python .venv/bin/python -r requirements.txt anki
 fi
 
+# Open word lists for `./english vocab` and the vocabulary signal in `level`.
+# Optional: everything else works without them, so a failed download only warns.
+if [[ ! -f data/lexicon/words.tsv ]]; then
+    .venv/bin/python build/lexicon.py --fetch >/dev/null \
+        && note "word lists downloaded (NGSL, CEFR-J, Octanove)" \
+        || note "couldn't download the word lists — retry later: ./english vocab --fetch"
+fi
+
 # --- 5. Anki profile -----------------------------------------------------------------
 
 # The deck import needs a collection, which Anki only creates on first launch.

@@ -19,6 +19,10 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 MEDIA = ROOT / "media"
 APKG = ROOT / "english.apkg"
+# Open datasets fetched at install time (word lists, grammar profile). Shared,
+# not personal, but gitignored: some sources allow use but not redistribution.
+DATA = ROOT / "data"
+LEXICON = DATA / "lexicon"
 
 ME = Path(os.environ.get("ENGLISH_ME") or ROOT / "me").resolve()
 PROFILE = ME / "profile.yml"

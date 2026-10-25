@@ -1,7 +1,7 @@
 ---
 description: Turn recurring errors from me/errors.md into new cloze cards
-argument-hint: [optional grammar point to limit to]
-allowed-tools: Read, Edit, Write, Glob, Grep, Bash(./english check:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+argument-hint: [optional grammar point to limit to, or "vocab"]
+allowed-tools: Read, Edit, Write, Glob, Grep, Bash(./english check:*), Bash(./english vocab:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Read `me/errors.md` and turn my recurring errors into new cards.
@@ -28,6 +28,27 @@ already tested. Adding a near-duplicate card wastes daily reps, which is the
 scarcest resource in this whole system.
 
 If nothing meets the bar, say so and stop. An empty result is a good outcome.
+
+## Vocabulary gaps (`/mine vocab`)
+
+If $1 is `vocab`, mine words instead of errors. Run `./english vocab --tsv -n 80`:
+the most frequent words around my level that no card makes me produce, from
+the NGSL frequency lists tagged by CEFR (`--fetch` first if it says the lists
+aren't downloaded). Then pick **at most eight**:
+
+- Prefer words I'd actually need in the situations in `life_context`, and words
+  from the spoken list (`spoken_rank` filled in). Skip words that only fit news
+  or academic writing, and skip anything whose natural use is formal.
+- Check my journal with Grep. A word I already use correctly needs no card. A
+  word I keep circling around with a vaguer one ("very big" for *huge*,
+  "make a decision about" for *decide*) is the best candidate of all.
+- One card per word, cloze on the word itself (or the whole chunk it lives in:
+  `{{c1::take part}} in`), in a sentence about my real life. The note says what
+  it means in a few words and what it's used with. Never a definition-to-word card.
+
+These go in `me/my-cards/vocab-gaps.yml` with `point: V00 Everyday words`
+and ids `<handle>-vg-01`, `<handle>-vg-02`, …, continuing any numbering
+already there. Afterwards `./english vocab --word <w>` should show each one as tested.
 
 ## How to write the cards
 

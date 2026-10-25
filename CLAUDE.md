@@ -89,7 +89,7 @@ These are the rules that matter — violating them silently degrades the system.
    so the topic silently splits across an old and a new subdeck. `install_deck.py`
    warns about decks with no matching `point:`; move the cards in the Anki
    browser (scheduling survives a move) and delete the empty deck.
-   It also splits `errors.md`: `/check` and `/drill` tag each row with the
+   It also splits `errors.md`: `/check`, `/drill` and `/roleplay` tag each row with the
    `point:` value, and `/journal`, `/drill` and `/mine` pick targets by counting
    rows per point, so a renamed point resets its error history too.
    `DECK_ROOT` and `DECK_ID` in `build_anki.py` are equally permanent, because
@@ -183,7 +183,7 @@ step with the learner's data. `./english dashboard` (`build/dashboard.py`)
 writes `me/dashboard/data.json` and the flat `practice.json` the page loads;
 the page itself is `build/dashboard.html`, app code with no learner data in it.
 The artifact's link, the current data file's id and the page's hash live in
-`me/dashboard/`, and the five loop commands refresh it as their last step when
+`me/dashboard/`, and the loop commands (`/journal`, `/check`, `/drill`, `/roleplay`, `/mine`, `/level`) refresh it as their last step when
 `me/dashboard/artifact-url` exists. Anki reviews alone can't trigger a refresh;
 they appear on the next one.
 

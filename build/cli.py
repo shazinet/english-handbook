@@ -408,7 +408,7 @@ def usage() -> None:
     rows += [(n, d) for n, (_, _, d) in PASSTHROUGH.items()]
     for name, desc in rows:
         print(f"  {name:<10} {desc}")
-    print("\nIn Claude Code (run `claude` here): /level /journal /check /drill /mine")
+    print("\nIn Claude Code (run `claude` here): /level /journal /check /drill /roleplay /mine")
 
 
 def main() -> int:

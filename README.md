@@ -173,6 +173,10 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 ### Weekly
 
 - `/drill`: a conversation drill on your weakest point. Takes 10–15 min.
+- `/roleplay`: a real situation from your life (viewing a flat, an office
+  appointment, a work meeting) with a goal to win, like a lower deposit or an
+  earlier date. No corrections until the end, then a debrief with the phrases
+  you could have used.
 - One **free journal entry** with no target. `/journal` does this automatically
   once a week; it's the only way to catch structures you silently avoid.
 
@@ -196,6 +200,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `/journal` | none, a topic (`/journal conditionals`), or `free` | Start of your writing session |
 | `/check` | none (uses today's), or a path | Right after you finish writing |
 | `/drill` | none (picks from your errors), or a topic | Once a week |
+| `/roleplay` | none (picks from your life), or a situation | Once a week |
 | `/mine` | none, a topic to limit to, or `vocab` | Every 2–4 weeks, **not** daily |
 
 ### In Terminal

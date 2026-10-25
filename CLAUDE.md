@@ -199,7 +199,9 @@ phone through the evening if it doesn't (see `automation/README.md`). Two
 invariants hold it together:
 
 1. **A day is done only when all three happened** — reps cleared *and* a journal
-   entry with real writing in it *and* `/check` run. Loosening this to "any one
+   entry with real writing in it *and* `/check` run. A `## spoken` transcript
+   from `./english speak` counts as the writing: it's the same production,
+   spoken. Loosening this to "any one
    of them" makes the streak meaningless, which makes the reminders ignorable.
 2. **`/check` must keep appending `<!-- checked: … -->`** to the journal file it
    corrects, on every entry including flawless ones. That marker is the only

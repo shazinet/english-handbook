@@ -32,6 +32,17 @@ Then separately list **register or naturalness notes**: things that are
 grammatically correct but that a native speaker wouldn't say. Mark these clearly
 as style, not errors — conflating the two is discouraging and inaccurate.
 
+If the entry has a `## spoken` section, that part is a Whisper transcript of the
+learner speaking (`./english speak`), so correct it as speech. Punctuation,
+capitals and spelling are Whisper's, not the speaker's, so never log them.
+Fillers ("um"), restarts and self-corrections are normal speech, not errors.
+Grammar, word choice and prepositions are logged exactly as for writing. Whisper
+sometimes smooths an error away, so a clean transcript is weaker evidence than
+a clean written entry. After the table, give a natural spoken version of two or
+three of the speaker's sentences to say aloud (the corrected meaning, the way a
+native speaker would put it in conversation), and one line on the fluency
+numbers in the `<!-- spoken: … -->` marker if they stand out.
+
 If the prompt offered **words to try** (from `/journal`), say in one line which
 ones were used and whether naturally. A word used wrongly is a genuine error,
 logged like any other wrong word (below). A word left unused is not an error, and it

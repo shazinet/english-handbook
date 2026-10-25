@@ -5,6 +5,7 @@ kokoro
 soundfile
 sounddevice
 mlx-whisper
+pyyaml
 # misaki (Kokoro's phonemiser) fetches its spaCy model with pip on first use.
 pip
 # preshed 3.0.14 breaks spaCy's tokenizer ("OverflowError: Python int too large").

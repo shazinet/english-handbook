@@ -19,7 +19,7 @@ from datetime import date
 from paths import CEFR, PROFILE
 from progress import (
     anki_stats, current_level, efset_to_cefr, errors_per_100_by_month, load_history,
-    save_history, top_error_points, writing_level,
+    save_history, speaking_sessions, top_error_points, writing_level,
 )
 
 
@@ -92,6 +92,13 @@ def show() -> None:
     if lex:
         print(f"\nVocabulary, last 30 days: {round(100 * lex['above_b1'])}% of the "
               f"{lex['types']} different words you wrote are above B1")
+
+    talks = speaking_sessions()
+    if talks:
+        print("\nSpeaking (./english speak): words/min, long pauses and fillers per minute")
+        for t in talks[-5:]:
+            print(f"  {t['date']}  {t['wpm']:>4} wpm  {t['pauses_per_min']:>4} pauses  "
+                  f"{t['fillers_per_min']:>4} fillers   ({t['seconds']}s)")
 
     anki = anki_stats()
     if anki["error"]:

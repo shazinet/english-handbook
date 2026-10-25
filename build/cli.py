@@ -378,6 +378,16 @@ def cmd_build(args: list[str]) -> int:
     return run_script("audio.py") or run_script("build_anki.py", *args)
 
 
+def cmd_speak(args: list[str]) -> int:
+    """speak.py needs Whisper and a microphone library, which live in .venv-speech."""
+    from paths import SPEECH_PYTHON
+    if not SPEECH_PYTHON.exists():
+        print("Speaking needs the optional speech tools. Install them with:\n"
+              "  ./install.sh --speech")
+        return 1
+    return subprocess.call([str(SPEECH_PYTHON), str(BUILD / "speak.py"), *args], cwd=ROOT)
+
+
 def cmd_reminders(args: list[str]) -> int:
     return subprocess.call([str(ROOT / "automation/install_reminders.sh"), *args])
 
@@ -387,6 +397,7 @@ COMMANDS = {
     "update": (cmd_update, "get the newest app version and apply it"),
     "doctor": (cmd_doctor, "check the whole install and how to fix it"),
     "build": (cmd_build, "generate audio and build english.apkg"),
+    "speak": (cmd_speak, "record yourself; the transcript joins today's journal"),
     "reminders": (cmd_reminders, "install evening reminders (--uninstall)"),
 }
 

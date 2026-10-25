@@ -139,6 +139,11 @@ you rarely need them, because you can ask Claude to rebuild and it will.
 | — | **Anki** | Press `Y` to sync, so your phone matches |
 | 20:00 → | **Your phone** | If any of the above is still undone, a reminder arrives (optional, see below) |
 
+On days you'd rather talk, `./english speak` replaces the writing step: speak
+for two or three minutes about your day, and the transcript lands in today's
+journal for `/check`, with words per minute, long pauses and fillers tracked in
+`./english level`. It needs `./install.sh --speech` once.
+
 Write about your **real life**. Never try to reproduce the sentences from your
 Anki cards, because the cards already test those. The journal exists to attach
 each structure to content it wasn't learned with, which is what makes it
@@ -201,6 +206,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `./english update` | Gets the newest app version and applies it |
 | `./english doctor` | Checks the whole install and says how to fix problems |
 | `./english status` | Today's three checkboxes, the streak, and time left |
+| `./english speak` | Talk instead of writing: records you, transcribes on this Mac, adds it to today's journal for `/check` (`--file memo.m4a` for a phone recording) |
 | `./english build` | Generates audio and builds the deck file |
 | `./install.sh --speech` | Optional: Kokoro voices for card audio and Whisper for `speak` (~1.5 GB) |
 | `./english deck` | Imports it into Anki. **Anki must be closed**, and synced first |

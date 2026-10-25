@@ -1,0 +1,75 @@
+point: 00 Word form
+level: B1
+tags: [grammar, word-form]
+# Authored, not from the book. The right word in the wrong form: a noun where
+# an adjective belongs, a country where a nationality belongs, worth used as a
+# verb. The meaning usually survives, which is why these slips last so long.
+cards:
+  - id: wf-01
+    text: "It's a really {{c1::steep}} climb, so take it slowly."
+    note: "steep is an adjective. For the slope itself, say 'the steep part' or 'the slope'."
+    trap: "NOT 'the steep of the hill'. steep has no noun form."
+
+  - id: wf-02
+    text: "Don't take a taxi, it {{c1::isn't}} worth the money."
+    note: "worth is an adjective, so it goes with be: it's worth it, it isn't worth the money."
+    trap: "NOT 'it doesn't worth'."
+
+  - id: wf-03
+    text: "The old town is {{c1::worth}} visiting if you have a free afternoon."
+    note: "be worth + -ing: worth visiting, worth trying, worth asking."
+
+  - id: wf-04
+    text: "We had dinner at a {{c1::Spanish}} restaurant near the station."
+    note: "Before a noun, use the nationality adjective, not the country: a Spanish restaurant, Italian food."
+    trap: "NOT 'a Spain restaurant'."
+
+  - id: wf-05
+    text: "I had to renew my passport at the {{c1::French}} embassy."
+    note: "Nationality adjective + noun again: the French embassy, the German border, the Turkish airline."
+    trap: "NOT 'the France embassy'."
+
+  - id: wf-06
+    text: "I was so {{c1::angry}} that I couldn't sleep."
+    note: "Feelings are usually be + adjective in English: be angry, be afraid, be hungry, be bored."
+    trap: "'I had so much anger' is correct but sounds dramatic; everyday English uses the adjective."
+
+  - id: wf-07
+    text: "Thanks for being so {{c1::patient}} with me."
+    note: "patience is the noun, patient the adjective. After be/so, you need the adjective."
+
+  - id: wf-08
+    text: "Making the {{c1::decision}} was harder than I expected."
+    note: "decide is the verb, decision the noun. After 'the', you need the noun."
+
+  - id: wf-09
+    text: "She speaks English really {{c1::fluently}}."
+    note: "An adverb (-ly) describes the verb: speaks fluently. The adjective describes a noun: a fluent speaker."
+    trap: "NOT 'speaks really fluent'."
+
+  - id: wf-10
+    text: "I'm really {{c1::interested}} in the job they advertised."
+    note: "-ed adjectives say how you feel: interested, bored, tired, confused."
+    trap: "NOT 'I'm interesting in'. That would mean you are fascinating."
+
+  - id: wf-11
+    text: "The training was so {{c1::boring}} that half of us checked our phones."
+    note: "-ing adjectives describe what causes the feeling: a boring meeting, a confusing form."
+
+  - id: wf-12
+    text: "There's a big {{c1::difference}} between renting and buying."
+    note: "different is the adjective, difference the noun. After 'a big', you need the noun."
+
+  - id: wf-13
+    text: "I'm still waiting for {{c1::confirmation}} of my appointment."
+    note: "confirm is the verb, confirmation the noun. After a preposition (for, of), use the noun."
+
+  - id: wf-14
+    text: "{{c1::Unfortunately}}, the flat had already been rented."
+    note: "A comment on the whole sentence takes the adverb: unfortunately, luckily, honestly."
+    trap: "NOT 'Unfortunate, the flat…'."
+
+  - id: wf-15
+    text: "I'm a bit worried about the {{c1::safety}} of the area at night."
+    note: "safe is the adjective, safety the noun. After 'the … of', you need the noun."
+    trap: "NOT 'the safe of the area'."

@@ -97,12 +97,12 @@ out until you get closer.
 
 ## What's in it
 
-**729 cards across 43 topics**, each tagged with a CEFR level, in an Anki deck
+**744 cards across 44 topics**, each tagged with a CEFR level, in an Anki deck
 called **English Practice**:
 
 | | |
 |---|---|
-| `00 …` (17 topics) | Tenses, articles, prepositions, collocations, the passive, reported speech, questions, quantifiers, comparatives, too/enough/so/such, agreement: the foundation, **authored, not from the book** |
+| `00 …` (18 topics) | Tenses, articles, prepositions, collocations, the passive, reported speech, questions, quantifiers, comparatives, too/enough/so/such, agreement, word form: the foundation, **authored, not from the book** |
 | `1A`–`10B` (17 topics) | The AEF 5 grammar bank |
 | `V01`–`V12` (9 topics) | The AEF 5 vocabulary bank, with audio |
 

@@ -160,7 +160,7 @@ journal. Never push that old history to the public remote.
 book is a C1 reference summary that assumes the core tense system and never
 teaches it. That gap is the whole reason this module exists. The other `00-*`
 topics fill the same kind of gap (articles, prepositions, the passive, reported
-speech, questions, quantifiers, comparatives, too/enough/so/such, agreement),
+speech, questions, quantifiers, comparatives, too/enough/so/such, agreement, word form),
 chosen by checking the CEFR-J Grammar Profile's A1–B2 items against the
 deck and against the topic-less rows in learners' error logs.
 

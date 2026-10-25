@@ -62,6 +62,13 @@ deck:
   skip: []                 # `point:` names to leave out entirely
   new_per_day: {new_per_day}
 
+# Card audio. engine: say (built in) or kokoro (natural voices; ./install.sh
+# --speech). accent: us or uk. cards: marked (vocab) or all (every sentence).
+audio:
+  engine: say
+  accent: us
+  cards: marked
+
 # What content should prioritise. /check and /level revise this from evidence.
 weak_areas: []
 
@@ -334,6 +341,8 @@ def cmd_doctor(args: list[str]) -> int:
 
     check((ROOT / "data/lexicon/words.tsv").exists(), "word lists (optional)",
           "./english vocab --fetch")
+    check((ROOT / ".venv-speech/bin/python").exists(),
+          "speech tools: Kokoro audio, ./english speak (optional)", "./install.sh --speech")
 
     loaded = subprocess.run(["launchctl", "print", f"gui/{os.getuid()}/{REMINDER_LABEL}"],
                             capture_output=True).returncode == 0

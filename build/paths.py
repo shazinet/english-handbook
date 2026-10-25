@@ -19,6 +19,9 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 MEDIA = ROOT / "media"
 APKG = ROOT / "english.apkg"
+# Optional environment for Kokoro TTS and Whisper (`./install.sh --speech`),
+# kept apart from .venv so torch never meets the pinned anki library.
+SPEECH_PYTHON = ROOT / ".venv-speech" / "bin" / "python"
 # Open datasets fetched at install time (word lists, grammar profile). Shared,
 # not personal, but gitignored: some sources allow use but not redistribution.
 DATA = ROOT / "data"
@@ -43,6 +46,9 @@ DEFAULT_PROFILE = {
     "goal": "everyday conversational English",
     "level": None,
     "deck": {"max_level": "C1", "skip": [], "new_per_day": 6},
+    # engine: say (built in) or kokoro (./install.sh --speech); accent: us or uk;
+    # cards: marked (only `audio: true`) or all (every sentence gets audio).
+    "audio": {"engine": "say", "accent": "us", "cards": "marked"},
     "weak_areas": [],
     "life_context": "",
 }
@@ -51,12 +57,12 @@ DEFAULT_PROFILE = {
 def load_profile() -> dict:
     """me/profile.yml over DEFAULT_PROFILE. A missing file yields the defaults,
     so building and checking work before onboarding has run."""
-    profile = {**DEFAULT_PROFILE, "deck": dict(DEFAULT_PROFILE["deck"])}
+    profile = {k: dict(v) if isinstance(v, dict) else v for k, v in DEFAULT_PROFILE.items()}
     if PROFILE.exists():
         user = yaml.safe_load(PROFILE.read_text()) or {}
         for key, value in user.items():
-            if key == "deck" and isinstance(value, dict):
-                profile["deck"].update(value)
+            if isinstance(profile.get(key), dict) and isinstance(value, dict):
+                profile[key].update(value)
             else:
                 profile[key] = value
     return profile

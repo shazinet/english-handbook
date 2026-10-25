@@ -202,6 +202,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `./english doctor` | Checks the whole install and says how to fix problems |
 | `./english status` | Today's three checkboxes, the streak, and time left |
 | `./english build` | Generates audio and builds the deck file |
+| `./install.sh --speech` | Optional: Kokoro voices for card audio and Whisper for `speak` (~1.5 GB) |
 | `./english deck` | Imports it into Anki. **Anki must be closed**, and synced first |
 | `./english level` | Level history and progress signals; `--efset N` records a test |
 | `./english report` | Writes and opens your shareable progress page |
@@ -220,6 +221,13 @@ that repeats the book's wording.
 The PDFs' text layer has no `ToUnicode` maps, so their IPA transcriptions are
 unrecoverable garbage (`/braɪt/` extracts as `/bra1t/`). That's why cards carry
 generated audio instead of phonetics.
+
+Audio comes from macOS `say` by default. After `./install.sh --speech`, set
+`audio.engine: kokoro` in `me/profile.yml` for [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)
+(Apache 2.0), a far more natural neural voice, in a US or UK accent
+(`audio.accent`). `audio.cards: all` gives every card a spoken sentence, not
+just vocabulary. Vocab cards also link to [YouGlish](https://youglish.com),
+where you hear the word in real speech.
 
 For graded exercises with answer keys alongside this: Murphy, *English Grammar
 in Use* (intermediate) for the B1–B2 foundation, and Hewings, *Advanced Grammar

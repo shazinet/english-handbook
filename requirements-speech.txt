@@ -1,0 +1,11 @@
+# Optional speech tools, installed into .venv-speech/ by `./install.sh --speech`:
+# Kokoro TTS for card audio, Whisper for `./english speak`. Kept out of .venv
+# because torch must never share an environment with the pinned anki library.
+kokoro
+soundfile
+sounddevice
+mlx-whisper
+# misaki (Kokoro's phonemiser) fetches its spaCy model with pip on first use.
+pip
+# preshed 3.0.14 breaks spaCy's tokenizer ("OverflowError: Python int too large").
+preshed==3.0.10

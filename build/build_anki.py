@@ -17,13 +17,15 @@ import hashlib
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 import genanki
 
 from ankidb import DECK_PREFIX, LEGACY_PREFIX
+from audio import clip_path, settings, wants_audio
 
 from paths import APKG as OUTPUT
-from paths import CEFR, MEDIA, ROOT, content_files, display, level_index, load_profile
+from paths import CEFR, ROOT, content_files, display, level_index, load_profile
 
 # Stable across runs. Changing these re-creates the deck/model rather than
 # updating it, which is why they are hardcoded rather than generated.
@@ -184,10 +186,25 @@ def included(data: dict, personal: bool, profile: dict) -> bool:
     return level_index(data["level"]) <= level_index(deck.get("max_level") or "C2")
 
 
-def build(files: list[tuple[Path, dict]]) -> tuple[genanki.Package, int]:
+def youglish(card: dict, tags: list[str]) -> str:
+    """A link to hear a vocab card's answer in real YouTube speech. Only a URL
+    goes into the deck, nothing from the site. Inline-styled, because changing
+    the notetype's CSS isn't worth the risk to sync."""
+    if "vocab" not in tags:
+        return ""
+    answers = [m.group(2).split("::")[0] for m in CLOZE_RE.finditer(card["text"])]
+    if len(answers) != 1 or len(answers[0].split()) > 4:
+        return ""
+    url = f"https://youglish.com/pronounce/{quote(answers[0])}/english"
+    return (f'<div style="margin-top:10px;font-size:13px"><a href="{url}">'
+            f"Hear “{answers[0]}” in real speech ↗</a></div>")
+
+
+def build(files: list[tuple[Path, dict]], profile: dict) -> tuple[genanki.Package, int]:
     decks = {}
     media_files = []
     count = 0
+    _, _, voice = settings(profile)
 
     for path, data in files:
         point = data["point"]
@@ -202,8 +219,8 @@ def build(files: list[tuple[Path, dict]]) -> tuple[genanki.Package, int]:
 
         for card in data["cards"]:
             audio_field = ""
-            if card.get("audio"):
-                clip = MEDIA / f"{card['id']}.m4a"
+            if wants_audio(card, profile):
+                clip = clip_path(card["id"], voice)
                 if clip.exists():
                     audio_field = f"[sound:{clip.name}]"
                     media_files.append(str(clip))
@@ -211,7 +228,7 @@ def build(files: list[tuple[Path, dict]]) -> tuple[genanki.Package, int]:
                 model=MODEL,
                 fields=[
                     card["text"],
-                    card.get("note", ""),
+                    card.get("note", "") + youglish(card, base_tags + card.get("tags", [])),
                     card.get("trap", ""),
                     point,
                     audio_field,
@@ -271,17 +288,17 @@ def main() -> None:
         print(f"OK — {len(every)} files, {total} cards, no problems.")
         return
 
-    package, count = build(files)
+    package, count = build(files, profile)
     package.write_to_file(OUTPUT)
-    audio = sum(1 for _, d in files for c in d["cards"] if c.get("audio"))
+    audio = sum(1 for _, d in files for c in d["cards"] if wants_audio(c, profile))
     missing = audio - len(package.media_files)
     print(f"Wrote {OUTPUT.relative_to(ROOT)} — {count} cards, {len(files)} topics.")
     if left_out:
         print(f"Left out {left_out} topic file(s) above your level or in deck.skip "
               f"(me/profile.yml); --stats lists them.")
     if missing > 0:
-        print(f"Note: {missing} card(s) request audio but have no mp3. "
-              f"Run: python3 build/audio.py")
+        print(f"Note: {missing} card(s) request audio but have no clip. "
+              f"Run: ./english build (it generates audio first)")
 
 
 if __name__ == "__main__":

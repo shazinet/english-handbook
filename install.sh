@@ -4,6 +4,8 @@
 #     git clone <repo> ~/english && ~/english/install.sh
 #
 # Options are passed to `./english setup`; --no-deck skips the Anki import.
+# --speech also installs the optional speech tools (Kokoro TTS for natural card
+# audio, Whisper for `./english speak`) into .venv-speech/, about 1.5 GB.
 #
 # Safe to re-run at any time — every step checks before it acts — and
 # `./english update` runs it again after pulling a new version. It installs what
@@ -17,6 +19,11 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SPEECH=0
+SETUP_ARGS=()
+for arg in "$@"; do
+    if [[ "$arg" == "--speech" ]]; then SPEECH=1; else SETUP_ARGS+=("$arg"); fi
+done
 ANKI_APP="/Applications/Anki.app"
 cd "$REPO"
 
@@ -90,6 +97,14 @@ if [[ ! -f data/lexicon/words.tsv ]]; then
         || note "couldn't download the word lists — retry later: ./english vocab --fetch"
 fi
 
+# Speech tools: installed on request, and kept current once they exist.
+if [[ $SPEECH == 1 || -x .venv-speech/bin/python ]]; then
+    step "Speech tools (Kokoro TTS, Whisper)"
+    [[ -x .venv-speech/bin/python ]] || uv venv --quiet --python 3.12 .venv-speech
+    uv pip install --quiet --python .venv-speech/bin/python -r requirements-speech.txt
+    note "installed in .venv-speech/ — set audio.engine: kokoro in me/profile.yml to use it"
+fi
+
 # --- 5. Anki profile -----------------------------------------------------------------
 
 # The deck import needs a collection, which Anki only creates on first launch.
@@ -106,4 +121,4 @@ fi
 # --- 6. The learner's profile and deck ---------------------------------------------
 
 step "Setting up your profile and deck"
-exec "$REPO/english" setup "$@"
+exec "$REPO/english" setup ${SETUP_ARGS[@]+"${SETUP_ARGS[@]}"}

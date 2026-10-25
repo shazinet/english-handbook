@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
-"""Generate pronunciation audio for cards marked `audio: true`.
+"""Generate audio for cards: those marked `audio: true`, or every card.
 
-Uses macOS `say` + `afconvert`, so this is fully offline and free. Output is
-cached by card id and content hash: unchanged cards are not regenerated, so
-re-running is cheap.
+Two engines, chosen in me/profile.yml under `audio:` and both fully offline:
+
+    say      macOS `say` + `afconvert`. Built in, nothing to install. The default.
+    kokoro   Kokoro-82M neural TTS (Apache 2.0): far more natural, US or UK
+             voices. Needs `./install.sh --speech`, which builds .venv-speech/;
+             without it this falls back to `say` and says so.
+
+`accent: us|uk` picks the voice and `cards: all` gives every sentence audio,
+grammar cards included, rather than only cards marked `audio: true`.
+
+Output is cached by card id and a hash of voice and text: unchanged cards are
+not regenerated, so re-running is cheap. Clips from voices other than the
+original `say` Samantha are named `<id>-<voice>.m4a`, so switching voice gives
+Anki a new file name rather than a same-named file with different sound.
 """
 
 import argparse
@@ -15,10 +26,17 @@ import sys
 import tempfile
 from pathlib import Path
 
-from paths import MEDIA, ROOT, content_files
+from paths import MEDIA, ROOT, SPEECH_PYTHON, content_files, load_profile
 
 CACHE = MEDIA / ".cache.json"
-VOICE = "Samantha"  # US English; `say -v '?'` lists alternatives
+VOICES = {
+    ("say", "us"): "Samantha",
+    ("say", "uk"): "Daniel",
+    ("kokoro", "us"): "af_heart",
+    ("kokoro", "uk"): "bf_emma",
+}
+LEGACY_VOICE = "Samantha"  # clips from before engines existed: <id>.m4a
+KOKORO_LANG = {"us": "a", "uk": "b"}
 
 CLOZE_RE = re.compile(r"\{\{c\d+::(.+?)(?:::.+?)?\}\}")
 
@@ -28,33 +46,92 @@ def spoken_text(text: str) -> str:
     return CLOZE_RE.sub(r"\1", text).strip()
 
 
+def kokoro_ready() -> bool:
+    return SPEECH_PYTHON.exists()
+
+
+def settings(profile: dict, quiet: bool = True) -> tuple[str, str, str]:
+    """(engine, accent, voice) the build will use, falling back to `say` when
+    Kokoro is asked for but not installed."""
+    conf = profile.get("audio") or {}
+    engine = conf.get("engine") or "say"
+    accent = conf.get("accent") if conf.get("accent") in KOKORO_LANG else "us"
+    if engine == "kokoro" and not kokoro_ready():
+        if not quiet:
+            print("audio.engine is kokoro but .venv-speech/ is missing — using say. "
+                  "Install it with: ./install.sh --speech")
+        engine = "say"
+    if engine not in ("say", "kokoro"):
+        sys.exit(f"audio.engine must be say or kokoro, not {engine!r}")
+    return engine, accent, VOICES[(engine, accent)]
+
+
+def wants_audio(card: dict, profile: dict) -> bool:
+    if (profile.get("audio") or {}).get("cards") == "all":
+        return card.get("audio", True) is not False
+    return bool(card.get("audio"))
+
+
+def clip_path(card_id: str, voice: str) -> Path:
+    if voice == LEGACY_VOICE:
+        return MEDIA / f"{card_id}.m4a"
+    return MEDIA / f"{card_id}-{voice}.m4a"
+
+
 def load_cache() -> dict:
     if CACHE.exists():
         return json.loads(CACHE.read_text())
     return {}
 
 
-def synth(text: str, dest: Path, voice: str) -> None:
-    # `say` writes AIFF at its own default format; passing --data-format here
-    # makes it fail with "Opening output file failed: fmt?". afconvert then
-    # produces AAC-in-MP4 (.m4a) — macOS has no MP3 encoder.
-    with tempfile.NamedTemporaryFile(suffix=".aiff", delete=True) as tmp:
-        subprocess.run(["say", "-v", voice, "-o", tmp.name, text], check=True)
-        subprocess.run(
-            ["afconvert", "-f", "mp4f", "-d", "aac", tmp.name, str(dest)],
-            check=True,
-            capture_output=True,
-        )
+def to_m4a(src: Path, dest: Path) -> None:
+    # afconvert produces AAC-in-MP4 (.m4a) — macOS has no MP3 encoder.
+    subprocess.run(["afconvert", "-f", "mp4f", "-d", "aac", str(src), str(dest)],
+                   check=True, capture_output=True)
+
+
+def synth_say(todo: list[tuple], voice: str) -> None:
+    for i, (cid, text, dest, _) in enumerate(todo, 1):
+        # `say` writes AIFF at its own default format; passing --data-format here
+        # makes it fail with "Opening output file failed: fmt?".
+        with tempfile.NamedTemporaryFile(suffix=".aiff", delete=True) as tmp:
+            subprocess.run(["say", "-v", voice, "-o", tmp.name, text], check=True)
+            to_m4a(Path(tmp.name), dest)
+        print(f"  [{i}/{len(todo)}] {cid}")
+
+
+def synth_kokoro(todo: list[tuple], voice: str, accent: str) -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        wavs = [Path(tmp) / f"{i}.wav" for i in range(len(todo))]
+        job = {"voice": voice, "lang": KOKORO_LANG[accent],
+               "items": [{"text": t, "out": str(w)} for (_, t, _, _), w in zip(todo, wavs)]}
+        print(f"  Kokoro ({voice}): {len(todo)} clip(s); the first run downloads the model")
+        worker = subprocess.run([str(SPEECH_PYTHON), str(Path(__file__).with_name("tts_kokoro.py"))],
+                                input=json.dumps(job), text=True, capture_output=True)
+        if worker.returncode != 0:
+            sys.exit("Kokoro failed:\n" + worker.stderr.strip()[-1500:])
+        for i, ((cid, _, dest, _), wav) in enumerate(zip(todo, wavs), 1):
+            to_m4a(wav, dest)
+            if i % 50 == 0 or i == len(todo):
+                print(f"  [{i}/{len(todo)}] {cid}")
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--voice", default=VOICE, help=f"say voice (default: {VOICE})")
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--engine", choices=("say", "kokoro"), help="override audio.engine")
+    ap.add_argument("--voice", help="override the voice (say -v '?' lists them)")
     ap.add_argument("--force", action="store_true", help="regenerate everything")
     args = ap.parse_args()
 
     if sys.platform != "darwin":
-        sys.exit("audio generation requires macOS (`say`)")
+        sys.exit("audio generation requires macOS (`say`, `afconvert`)")
+
+    profile = load_profile()
+    if args.engine:
+        profile["audio"] = {**profile["audio"], "engine": args.engine}
+    engine, accent, voice = settings(profile, quiet=False)
+    voice = args.voice or voice
 
     MEDIA.mkdir(parents=True, exist_ok=True)
     cache = {} if args.force else load_cache()
@@ -62,12 +139,14 @@ def main() -> None:
     todo = []
     for _, data, _ in content_files():
         for card in data.get("cards", []):
-            if not card.get("audio"):
+            if not wants_audio(card, profile):
                 continue
             text = spoken_text(card["text"])
-            key = hashlib.sha1(f"{args.voice}::{text}".encode()).hexdigest()
-            dest = MEDIA / f"{card['id']}.m4a"
-            if cache.get(card["id"]) == key and dest.exists():
+            key = hashlib.sha1(f"{voice}::{text}".encode()).hexdigest()
+            dest = clip_path(card["id"], voice)
+            # Keyed by file stem (the card id for legacy clips), so each voice's
+            # clips stay cached when you switch back and forth.
+            if cache.get(dest.stem) == key and dest.exists():
                 continue
             todo.append((card["id"], text, dest, key))
 
@@ -75,10 +154,12 @@ def main() -> None:
         print("Audio up to date — nothing to generate.")
         return
 
-    for i, (cid, text, dest, key) in enumerate(todo, 1):
-        synth(text, dest, args.voice)
-        cache[cid] = key
-        print(f"  [{i}/{len(todo)}] {cid}")
+    if engine == "kokoro":
+        synth_kokoro(todo, voice, accent)
+    else:
+        synth_say(todo, voice)
+    for _, _, dest, key in todo:
+        cache[dest.stem] = key
 
     CACHE.write_text(json.dumps(cache, indent=2, sort_keys=True))
     print(f"Generated {len(todo)} file(s) into {MEDIA.relative_to(ROOT)}/")

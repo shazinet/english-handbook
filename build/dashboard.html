@@ -1,0 +1,631 @@
+<div class="ep">
+<style>
+.ep { font-family: var(--font-anthropic-sans); display: grid; gap: var(--cds-gap-xl); max-width: 1200px; margin-inline: auto; }
+.ep-head { display: grid; gap: var(--cds-gap-xs); }
+.ep-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.ep-take { color: var(--color-fg-muted); margin: 0; font-size: var(--cds-font-size-body); }
+.ep-take b, .ep b { font-weight: 600; color: var(--color-fg); }
+.ep-meta { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ep-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--cds-gap-md); }
+.ep-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+.ep-tile .ep-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ep-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.ep-sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.ep-good { color: var(--color-ok); } .ep-bad { color: var(--color-bad); } .ep-warn { color: var(--color-warn); }
+.ep-section { display: grid; gap: var(--cds-gap-md); }
+.ep-h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.ep-h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.ep-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+.ep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); }
+.ep-chart { position: relative; min-height: 120px; }
+.ep-chart svg { display: block; }
+.ep-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; z-index: 2; }
+.ep-tip .k { color: var(--cds-text-secondary); }
+.ep-tip[hidden] { display: none; }
+.ep-check { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); }
+.ep-check td { padding: var(--cds-pad-xs) 0; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.ep-check tr:last-child td { border-bottom: 0; }
+.ep-check .st { text-align: right; font-weight: 600; white-space: nowrap; }
+.ep-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.ep-legend i { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 2px; margin-right: 0.35rem; vertical-align: -1px; }
+.ep-tablebox { max-height: 30rem; overflow: auto; }
+.ep-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.ep-table th { position: sticky; top: 0; background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm) var(--cds-pad-xs) 0; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.ep-table th button { all: unset; cursor: pointer; }
+.ep-table th button:focus-visible { outline: 2px solid var(--color-fg); }
+.ep-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm) var(--cds-pad-xs) 0; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.ep-table .num { text-align: right; }
+.ep-table .wrap { white-space: normal; min-width: 12rem; }
+.ep-wrong { color: var(--color-bad); }
+.ep-right { color: var(--color-ok); }
+.ep-search { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); width: min(100%, 16rem); }
+.ep-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--cds-gap-sm); }
+.ep-mini { display: grid; grid-template-columns: minmax(8rem, 14rem) 1fr; gap: var(--cds-gap-xs) var(--cds-gap-md); align-items: center; font-size: var(--cds-font-size-caption); }
+.ep-mini .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 640px) { .ep-hide-narrow { display: none; } }
+.ep-level { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--cds-gap-lg); }
+@media (max-width: 720px) { .ep-level { grid-template-columns: 1fr; } }
+.ep-level-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: calc(var(--cds-font-size-title) * 1.6); line-height: 1; }
+.ep-factors { display: grid; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-body); margin: 0; padding: 0; list-style: none; }
+.ep-factors li { display: flex; justify-content: space-between; gap: var(--cds-gap-md); border-bottom: 1px solid var(--color-border-line); padding: var(--cds-pad-xs) 0; }
+.ep-factors li:last-child { border-bottom: 0; }
+.ep-factors .v { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.ep-fail { display: flex; align-items: center; justify-content: center; gap: 0.4rem; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: inherit; }
+.ep-fail::before { content: ""; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+</style>
+
+<header class="ep-head" id="overview">
+  <h1 class="ep-title">English Practice</h1>
+  <p class="ep-take">Still to do today: <b class="dash-skeleton" data-source="today" data-field="remaining" data-row="0">—</b>. The most frequent error topic in the last 30 days is <b class="dash-skeleton" data-source="error_points" data-field="point" data-row="0">—</b>, with <b class="dash-skeleton" data-source="error_points" data-field="last_30" data-row="0">—</b> errors.</p>
+  <span class="ep-meta">Data from your Mac, refreshed <span class="dash-skeleton" data-source="today" data-field="generated_at" data-row="0">—</span></span>
+</header>
+
+<div class="ep-tiles" id="tiles">
+  <div class="ep-card ep-tile"><span class="ep-label">Streak</span><span class="ep-big dash-skeleton" data-source="today" data-field="streak" data-row="0">—</span><span class="ep-sub">days with all three done</span></div>
+  <div class="ep-card ep-tile"><span class="ep-label">Cards due today</span><span class="ep-big dash-skeleton" data-source="today" data-field="due" data-row="0">—</span><span class="ep-sub"><span data-source="today" data-field="reviews_today" data-row="0">—</span> reviewed today</span></div>
+  <div class="ep-card ep-tile"><span class="ep-label">Retention, last 30 days</span><span class="ep-big dash-skeleton" data-source="anki" data-field="retention_30" data-row="0">—</span><span class="ep-sub">target 90% · <span data-source="anki" data-field="reviews_30" data-row="0">—</span> reviews</span></div>
+  <div class="ep-card ep-tile"><span class="ep-label">Cards learned</span><span class="ep-big dash-skeleton" data-source="anki" data-field="learned" data-row="0">—</span><span class="ep-sub">of <span data-source="anki" data-field="total" data-row="0">—</span> in Anki</span></div>
+  <div class="ep-card ep-tile"><span class="ep-label">Errors per 100 words</span><span class="ep-big dash-skeleton" data-source="rate_change" data-field="rate" data-row="0">—</span><span class="ep-sub"><span id="rate-change" data-source="rate_change" data-field="change" data-row="0">—</span> vs <span data-source="rate_change" data-field="prev_month" data-row="0">—</span></span></div>
+</div>
+
+<section class="ep-section" id="level">
+  <h2 class="ep-h2">Level</h2>
+  <div class="ep-card" id="level-card">
+    <div class="ep-level">
+      <div style="display:grid;gap:var(--cds-gap-sm);align-content:start">
+        <span class="ep-label ep-note">Estimate from your writing</span>
+        <span class="ep-level-big dash-skeleton" data-source="level" data-field="label" data-row="0">—</span>
+        <p class="ep-note">Based on the last <span data-source="level" data-field="window_days" data-row="0">—</span> days: <span data-source="level" data-field="entries" data-row="0">—</span> entries, <span data-source="level" data-field="words" data-row="0">—</span> words, <span data-source="level" data-field="errors" data-row="0">—</span> errors. Confidence: <span data-source="level" data-field="confidence" data-row="0">—</span>.</p>
+        <p class="ep-note" id="recorded-line">Recorded level: <b data-source="level" data-field="recorded_level" data-row="0">—</b> <span id="recorded-detail">(<span data-source="level" data-field="recorded_source" data-row="0">—</span>, <span data-source="level" data-field="recorded_date" data-row="0">—</span>)</span></p>
+      </div>
+      <div style="display:grid;gap:var(--cds-gap-sm);align-content:start">
+        <ul class="ep-factors">
+          <li><span>Accuracy: <span data-source="level" data-field="rate" data-row="0">—</span> errors per 100 words</span><span class="v" data-source="level" data-field="accuracy_band" data-row="0">—</span></li>
+          <li><span>Sentence length: <span data-source="level" data-field="sentence_length" data-row="0">—</span> words on average</span><span class="v" data-source="level" data-field="length_band" data-row="0">—</span></li>
+          <li><span>Errors in B1-or-lower topics</span><span class="v" data-source="level" data-field="foundation_share" data-row="0">—</span></li>
+        </ul>
+        <p class="ep-note">Accuracy counts three times as much as sentence length. The third row doesn't change the number; it shows how much of what holds you back is foundation grammar: articles, prepositions and the basic tenses.</p>
+      </div>
+    </div>
+    <div class="ep-chart" id="meter" data-source="level" style="min-height:96px"></div>
+    <p class="ep-note">This is an estimate, not a test result. The scale is a rough calibration of how /check counts errors (no typos, no style notes), and a single entry can move it. Run /level for a placement, or take the free EF SET test, and the recorded level appears on the meter as a diamond.</p>
+  </div>
+  <div class="ep-grid">
+    <div class="ep-card" id="level-trend-card">
+      <h3 class="ep-h3">Estimate by month</h3>
+      <p class="ep-note">Months with at least 300 words written.</p>
+      <div class="ep-chart" id="level-trend" data-source="level_months" style="min-height:180px"></div>
+    </div>
+    <div class="ep-card" id="level-ret-card">
+      <h3 class="ep-h3">Anki retention by topic level</h3>
+      <p class="ep-note">Last 30 days. How well you remember the rules at each level, separate from using them in writing.</p>
+      <table class="ep-table" data-source="level_retention" data-row-key="level">
+        <thead><tr><th data-field="level">Level</th><th data-field="retention" class="num">Retention</th><th data-field="reviews" class="num">Reviews</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="ep-section" id="practice">
+  <h2 class="ep-h2">Practice</h2>
+  <div class="ep-grid">
+    <div class="ep-card" id="today-card">
+      <h3 class="ep-h3">Today</h3>
+      <p class="ep-note">A day counts only when all three are done.</p>
+      <table class="ep-check" data-source="checklist" data-row-key="part">
+        <thead hidden><tr><th data-field="part">Part</th><th data-field="detail">Detail</th><th data-field="state">State</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="ep-card" id="heat-card">
+      <h3 class="ep-h3">Last 12 weeks</h3>
+      <p class="ep-note">One square per day, Monday at the top. Darker means more of the loop got done.</p>
+      <div class="ep-chart" id="heat" data-source="heat" style="min-height:150px"></div>
+      <div class="ep-legend" id="heat-legend"></div>
+    </div>
+  </div>
+  <div class="ep-card" id="daily-card">
+    <h3 class="ep-h3">Anki reviews per day</h3>
+    <p class="ep-note">Last 30 days.</p>
+    <div class="ep-chart" id="daily" data-source="daily" style="min-height:170px"></div>
+  </div>
+</section>
+
+<section class="ep-section" id="anki">
+  <h2 class="ep-h2">Anki</h2>
+  <div class="ep-card" id="states-card">
+    <h3 class="ep-h3">Where your cards are</h3>
+    <p class="ep-note">Young cards have an interval under 21 days; mature cards, 21 days or more.</p>
+    <div class="ep-chart" id="states" data-source="anki" style="min-height:44px"></div>
+    <div class="ep-legend">
+      <span><i style="background:var(--cds-chart-muted)"></i>New <b data-source="anki" data-field="new" data-row="0">—</b></span>
+      <span><i id="sw-learning"></i>Learning <b data-source="anki" data-field="learning" data-row="0">—</b></span>
+      <span><i id="sw-young"></i>Young <b data-source="anki" data-field="young" data-row="0">—</b></span>
+      <span><i id="sw-mature"></i>Mature <b data-source="anki" data-field="mature" data-row="0">—</b></span>
+      <span><i style="background:var(--cds-chart-status-critical)"></i>Suspended <b data-source="anki" data-field="suspended" data-row="0">—</b></span>
+    </div>
+  </div>
+  <div class="ep-card" id="topics-card">
+    <div class="ep-row"><h3 class="ep-h3">Topics</h3><input class="ep-search" id="topic-search" type="search" placeholder="Search topics" aria-label="Search topics"></div>
+    <p class="ep-note">Every topic in the library. Sentences are the card sentences you wrote or the deck ships; a sentence with two blanks makes two Anki cards. Click a heading to sort.</p>
+    <div class="ep-tablebox">
+      <table class="ep-table" id="topics" data-source="topics" data-row-key="point">
+        <thead><tr>
+          <th data-field="point"><button type="button" data-sort="point">Topic</button></th>
+          <th data-field="level"><button type="button" data-sort="level">Level</button></th>
+          <th data-field="status" class="ep-hide-narrow"><button type="button" data-sort="status">In deck</button></th>
+          <th data-field="sentences" class="num"><button type="button" data-sort="sentences">Sentences</button></th>
+          <th data-field="own" class="num ep-hide-narrow"><button type="button" data-sort="own">Yours</button></th>
+          <th data-field="new" class="num"><button type="button" data-sort="new">New</button></th>
+          <th data-field="young" class="num ep-hide-narrow"><button type="button" data-sort="young">Young</button></th>
+          <th data-field="mature" class="num"><button type="button" data-sort="mature">Mature</button></th>
+          <th data-field="due" class="num"><button type="button" data-sort="due">Due</button></th>
+          <th data-field="retention_30" class="num"><button type="button" data-sort="retention_30">Retention</button></th>
+          <th data-field="errors_30" class="num"><button type="button" data-sort="errors_30">Errors 30d</button></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="ep-section" id="writing">
+  <h2 class="ep-h2">Journal</h2>
+  <div class="ep-tiles">
+    <div class="ep-card ep-tile"><span class="ep-label">Entries</span><span class="ep-big dash-skeleton" data-source="journal" data-field="entries" data-row="0">—</span><span class="ep-sub"><span data-source="journal" data-field="checked" data-row="0">—</span> checked</span></div>
+    <div class="ep-card ep-tile"><span class="ep-label">Words written</span><span class="ep-big dash-skeleton" data-source="journal" data-field="words" data-row="0">—</span><span class="ep-sub">all entries</span></div>
+    <div class="ep-card ep-tile"><span class="ep-label">Errors logged</span><span class="ep-big dash-skeleton" data-source="journal" data-field="errors_total" data-row="0">—</span><span class="ep-sub"><span data-source="journal" data-field="errors_30" data-row="0">—</span> in the last 30 days</span></div>
+    <div class="ep-card ep-tile"><span class="ep-label">Days since a free entry</span><span class="ep-big dash-skeleton" id="free-days" data-source="journal" data-field="days_since_free" data-row="0">—</span><span class="ep-sub">one is due every 7 days</span></div>
+  </div>
+  <div class="ep-grid">
+    <div class="ep-card" id="entries-card">
+      <h3 class="ep-h3">Errors per 100 words, by entry</h3>
+      <p class="ep-note">Your last 14 entries, drills included. Watch the trend: harder writing raises it, and that's fine.</p>
+      <div class="ep-chart" id="entries" data-source="entries" style="min-height:190px"></div>
+    </div>
+    <div class="ep-card" id="targets-card">
+      <h3 class="ep-h3">Recent journal targets</h3>
+      <p class="ep-note">What each /journal prompt aimed at.</p>
+      <div class="ep-tablebox" style="max-height:16rem">
+        <table class="ep-table" data-source="targets" data-row-key="date">
+          <thead><tr><th data-field="date">Date</th><th data-field="target">Target</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ep-section" id="errors">
+  <h2 class="ep-h2">Errors</h2>
+  <div class="ep-grid">
+    <div class="ep-card" id="points-card">
+      <h3 class="ep-h3">Top error topics</h3>
+      <p class="ep-note">Ranked by the last 30 days. "Recurring" means 2 or more in the last 14 days.</p>
+      <table class="ep-table" data-source="error_points" data-row-key="point">
+        <thead><tr>
+          <th data-field="point">Topic</th>
+          <th data-field="last_14" class="num">14d</th>
+          <th data-field="last_30" class="num">30d</th>
+          <th data-field="all_time" class="num">All</th>
+          <th data-field="flag">Note</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="ep-card" id="weeks-card">
+      <h3 class="ep-h3">Errors per week</h3>
+      <p class="ep-note">The same topics over the last 8 weeks, on one shared scale.</p>
+      <div class="ep-chart" id="weeks" data-source="error_weeks" style="min-height:160px"></div>
+    </div>
+  </div>
+  <div class="ep-card" id="examples-card">
+    <h3 class="ep-h3">Your recent corrections</h3>
+    <p class="ep-note">The 3 latest for each top topic, from your errors log.</p>
+    <div class="ep-tablebox">
+      <table class="ep-table" data-source="examples" data-row-key="point,wrong">
+        <thead><tr>
+          <th data-field="point">Topic</th>
+          <th data-field="wrong">You wrote</th>
+          <th data-field="right">Correction</th>
+          <th data-field="why" class="ep-hide-narrow">Why</th>
+          <th data-field="date">Date</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="ep-card" id="gaps-card">
+    <h3 class="ep-h3">Gaps in the deck</h3>
+    <p class="ep-note">Error topics with no matching deck topic, so no cards practise them yet.</p>
+    <div class="ep-tablebox" style="max-height:18rem">
+      <table class="ep-table" data-source="gaps" data-row-key="point">
+        <thead><tr><th data-field="point">Topic</th><th data-field="last_30" class="num">30d</th><th data-field="all_time" class="num">All</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+dash.calc('today', { inputs: ['practice'], title: 'Today', description: 'The row for today: streak, cards due and what is left.', fn: (practice) => practice.filter((r) => r.section === 'today') });
+dash.calc('anki', { inputs: ['practice'], title: 'Anki summary', description: 'Card counts by state and 30-day retention.', fn: (practice) => practice.filter((r) => r.section === 'anki') });
+dash.calc('journal', { inputs: ['practice'], title: 'Journal summary', description: 'Entries, words and errors logged.', fn: (practice) => practice.filter((r) => r.section === 'journal') });
+dash.calc('daily', { inputs: ['practice'], title: 'Reviews per day', description: 'Anki reviews on each of the last 30 days.', fn: (practice) => practice.filter((r) => r.section === 'daily') });
+dash.calc('heat', { inputs: ['practice'], title: 'Practice by day', description: 'Each of the last 84 days: reviews, journal written, checked, day complete.', fn: (practice) => practice.filter((r) => r.section === 'heat') });
+dash.calc('topics', { inputs: ['practice'], title: 'Topics', description: 'Every topic with its sentences, card states, retention and errors.', fn: (practice) => practice.filter((r) => r.section === 'topic') });
+dash.calc('entries', { inputs: ['practice'], title: 'Journal entries', description: 'Words and errors in each of the last 14 entries.', fn: (practice) => practice.filter((r) => r.section === 'entry') });
+dash.calc('months', { inputs: ['practice'], title: 'Errors per 100 words by month', description: 'Months with at least 100 words written.', fn: (practice) => practice.filter((r) => r.section === 'month') });
+dash.calc('targets', { inputs: ['practice'], title: 'Journal targets', description: 'The last 10 lines of the journal prompt log.', fn: (practice) => practice.filter((r) => r.section === 'target') });
+dash.calc('error_points', { inputs: ['practice'], title: 'Top error topics', description: 'Error counts for the 6 most frequent topics of the last 30 days.', fn: (practice) => practice.filter((r) => r.section === 'error_point') });
+dash.calc('error_weeks', { inputs: ['practice'], title: 'Errors per week', description: 'Weekly error counts for the top topics.', fn: (practice) => practice.filter((r) => r.section === 'error_week') });
+dash.calc('examples', { inputs: ['practice'], title: 'Recent corrections', description: 'The latest corrected errors for each top topic.', fn: (practice) => practice.filter((r) => r.section === 'example') });
+dash.calc('gaps', { inputs: ['practice'], title: 'Gaps in the deck', description: 'Error topics with no deck topic.', fn: (practice) => practice.filter((r) => r.section === 'gap') });
+dash.calc('level', { inputs: ['practice'], title: 'Level estimate', description: 'A CEFR estimate from recent writing: accuracy and sentence length, with the recorded level if any.', fn: (practice) => practice.filter((r) => r.section === 'level') });
+dash.calc('level_months', { inputs: ['practice'], title: 'Level estimate by month', description: 'The same estimate for each month with at least 300 words.', fn: (practice) => practice.filter((r) => r.section === 'level_month') });
+dash.calc('level_retention', { inputs: ['practice'], title: 'Retention by topic level', description: 'Anki retention over 30 days, grouped by the CEFR level of each topic.', fn: (practice) => practice.filter((r) => r.section === 'level_retention') });
+dash.calc('rate_change', {
+  inputs: ['months'], title: 'Error rate change',
+  description: 'The latest month with writing, its errors per 100 words, and the change from the month before.',
+  fn: (months) => {
+    if (!months.length) return [];
+    const last = months[months.length - 1];
+    const prev = months.length > 1 ? months[months.length - 2] : null;
+    return [{ month: last.month, rate: Number(last.rate), prev_month: prev ? prev.month : null,
+      change: prev ? Math.round((Number(last.rate) - Number(prev.rate)) * 10) / 10 : null }];
+  },
+});
+dash.calc('checklist', {
+  inputs: ['today'], title: 'Today checklist', description: 'The three parts of the daily loop and whether each is done.',
+  fn: (today) => {
+    const t = today[0];
+    if (!t) return [];
+    return [
+      { part: 'Anki reps', detail: t.due ? t.due + ' cards due' : 'nothing due', state: t.anki_done ? 'Done' : 'To do' },
+      { part: 'Journal entry', detail: t.journal_words + ' words', state: t.journal_done ? 'Done' : 'To do' },
+      { part: '/check', detail: t.checked ? 'marker found' : 'not run yet', state: t.checked ? 'Done' : 'To do' },
+    ];
+  },
+});
+</script>
+
+<script>
+(function () {
+  const fmt = d3.format(',');
+  const one = d3.format('.1f');
+  const dayFmt = d3.utcFormat('%b %-d');
+  const parseDay = (s) => new Date(s + 'T00:00:00Z');
+  const ok = (id) => { const d = dash.data(id); return d.status === 'ok' ? d.data : null; };
+  const status = (id) => dash.data(id).status;
+  const show = (v, f) => (v === null || v === undefined || v === '' ? '—' : f ? f(v) : String(v));
+  const pct = (v) => one(Number(v)) + '%';
+
+  function fail(el) { el.replaceChildren(); const s = document.createElement('div'); s.className = 'ep-fail'; s.textContent = 'Failed to load'; el.appendChild(s); }
+  function settle(el, id) {
+    const st = status(id);
+    if (st === 'ok' || st === 'error') el.classList.remove('dash-skeleton');
+    return st;
+  }
+
+  function fillValues() {
+    document.querySelectorAll('.ep [data-field][data-row]').forEach((el) => {
+      const id = el.dataset.source;
+      const rows = ok(id);
+      settle(el, id);
+      if (!rows) { el.textContent = '—'; return; }
+      const r = rows[Number(el.dataset.row)];
+      const v = r ? r[el.dataset.field] : null;
+      const f = el.dataset.field;
+      if (f === 'retention_30') el.textContent = show(v, pct);
+      else if (f === 'foundation_share') el.textContent = show(v, (x) => d3.format('.0%')(Number(x)));
+      else if (f === 'rate') el.textContent = show(v, (x) => one(Number(x)));
+      else if (f === 'change') el.textContent = show(v, (x) => (Number(x) > 0 ? '+' : '') + one(Number(x)));
+      else if (f === 'prev_month' || f === 'month') el.textContent = show(v, (x) => d3.utcFormat('%B')(parseDay(x + '-01')));
+      else if (f === 'generated_at') el.textContent = show(v, (x) => d3.timeFormat('%b %-d, %H:%M')(new Date(x)));
+      else if (typeof v === 'number') el.textContent = fmt(v);
+      else el.textContent = show(v);
+    });
+    const ch = document.getElementById('rate-change');
+    const rc = ok('rate_change');
+    ch.className = rc && rc[0] && rc[0].change !== null ? (Number(rc[0].change) > 0 ? 'ep-bad' : 'ep-good') : '';
+    const fd = document.getElementById('free-days');
+    const j = ok('journal');
+    fd.classList.toggle('ep-warn', !!(j && j[0] && Number(j[0].days_since_free) > 7));
+  }
+
+  // ---- tooltip ----
+  function tipFor(box) {
+    let t = box.querySelector('.ep-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'ep-tip'; t.hidden = true; box.appendChild(t); }
+    return {
+      show(event, lines) {
+        t.replaceChildren(...lines.map((l, i) => { const d = document.createElement('div'); if (i === 0) d.className = 'k'; d.textContent = l; return d; }));
+        t.hidden = false;
+        const b = box.getBoundingClientRect();
+        let x = event.clientX - b.left + 12, y = event.clientY - b.top + 12;
+        const w = t.offsetWidth, h = t.offsetHeight;
+        if (x + w > b.width) x = Math.max(0, event.clientX - b.left - w - 12);
+        if (y + h > b.height + 40) y = Math.max(0, event.clientY - b.top - h - 12);
+        t.style.left = x + 'px'; t.style.top = y + 'px';
+      },
+      hide() { t.hidden = true; },
+    };
+  }
+  function svgIn(box, h) {
+    box.querySelectorAll('svg, .ep-fail').forEach((n) => n.remove());
+    const w = Math.max(240, box.clientWidth);
+    return { svg: d3.select(box).insert('svg', ':first-child').attr('width', '100%').attr('viewBox', `0 0 ${w} ${h}`), w };
+  }
+
+  // ---- heatmap ----
+  function drawHeat() {
+    const box = document.getElementById('heat');
+    const st = status('heat');
+    if (st === 'error') return fail(box);
+    const rows = ok('heat');
+    if (!rows) return;
+    const first = parseDay(rows[0].date);
+    const offset = (first.getUTCDay() + 6) % 7;
+    const cols = Math.ceil((rows.length + offset) / 7);
+    const labelW = 26, gap = 3;
+    const cell = Math.max(8, Math.min(18, Math.floor((Math.max(240, box.clientWidth) - labelW) / cols) - gap));
+    const h = 7 * (cell + gap) + 22;
+    const { svg } = svgIn(box, h);
+    const tip = tipFor(box);
+    const base = dash.colors[0];
+    const level = (r) => (r.complete ? 3 : (Number(r.reviews) > 0) + !!r.wrote + !!r.checked >= 2 ? 2 : (Number(r.reviews) > 0 || r.wrote) ? 1 : 0);
+    const opac = [1, 0.3, 0.6, 1];
+    ['Mon', '', 'Wed', '', 'Fri', '', 'Sun'].forEach((d, i) => d && svg.append('text').attr('x', 0).attr('y', i * (cell + gap) + cell * 0.8).attr('font-size', 10).attr('fill', 'var(--color-fg-muted)').text(d));
+    rows.forEach((r, i) => {
+      const k = i + offset, c = Math.floor(k / 7), rr = k % 7, lv = level(r);
+      svg.append('rect').attr('x', labelW + c * (cell + gap)).attr('y', rr * (cell + gap)).attr('width', cell).attr('height', cell).attr('rx', 2)
+        .style('fill', lv ? base : 'var(--cds-chart-grid)').attr('fill-opacity', opac[lv])
+        .on('mousemove', (e) => tip.show(e, [dayFmt(parseDay(r.date)), `${fmt(Number(r.reviews))} reviews`, `journal ${r.wrote ? 'written' : 'not written'}`, `/check ${r.checked ? 'run' : 'not run'}`, r.complete ? 'day complete' : 'day not complete']))
+        .on('mouseleave', () => tip.hide());
+    });
+    for (let c = 0; c < cols; c += 4) {
+      const idx = Math.max(0, c * 7 - offset);
+      if (rows[idx]) svg.append('text').attr('x', labelW + c * (cell + gap)).attr('y', h - 4).attr('font-size', 10).attr('fill', 'var(--color-fg-muted)').text(dayFmt(parseDay(rows[idx].date)));
+    }
+    const lg = document.getElementById('heat-legend');
+    lg.replaceChildren(...[['Nothing', 0], ['Some practice', 1], ['Most of the loop', 2], ['Day complete', 3]].map(([n, l]) => {
+      const s = document.createElement('span'); const i = document.createElement('i');
+      i.style.background = l ? base : 'var(--cds-chart-grid)'; i.style.opacity = opac[l]; s.append(i, n); return s;
+    }));
+  }
+
+  // ---- bars over days ----
+  function drawBars(boxId, id, xKey, yKey, h, tipLines, yLabel) {
+    const box = document.getElementById(boxId);
+    if (status(id) === 'error') return fail(box);
+    const rows = ok(id);
+    if (!rows) return;
+    const { svg, w } = svgIn(box, h);
+    const tip = tipFor(box);
+    const maxY = d3.max(rows, (r) => Number(r[yKey])) || 1;
+    const y = d3.scaleLinear([0, maxY], [h - 24, 10]).nice();
+    const ticks = y.ticks(4);
+    const tmp = svg.append('text').attr('font-size', 11).text(d3.format(',')(d3.max(ticks)));
+    const left = Math.ceil(tmp.node().getComputedTextLength()) + 8; tmp.remove();
+    const x = d3.scaleBand(rows.map((r) => r[xKey]), [left, w - 4]).padding(0.25);
+    ticks.forEach((t) => {
+      svg.append('line').attr('x1', left).attr('x2', w - 4).attr('y1', y(t)).attr('y2', y(t)).style('stroke', 'var(--cds-chart-grid)');
+      svg.append('text').attr('x', left - 6).attr('y', y(t) + 4).attr('text-anchor', 'end').attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(fmt(t));
+    });
+    rows.forEach((r) => {
+      const v = Number(r[yKey]) || 0;
+      svg.append('rect').attr('x', x(r[xKey])).attr('width', x.bandwidth()).attr('y', y(v)).attr('height', Math.max(0, y(0) - y(v))).attr('rx', Math.min(4, x.bandwidth() / 2))
+        .style('fill', dash.colors[0])
+        .on('mousemove', (e) => tip.show(e, tipLines(r))).on('mouseleave', () => tip.hide());
+    });
+    const step = Math.ceil(rows.length / Math.max(2, Math.floor((w - left) / 70)));
+    rows.forEach((r, i) => {
+      if (i % step) return;
+      svg.append('text').attr('x', x(r[xKey]) + x.bandwidth() / 2).attr('y', h - 6).attr('text-anchor', 'middle').attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(dayFmt(parseDay(r[xKey])));
+    });
+  }
+
+  // ---- card states ----
+  function drawStates() {
+    const box = document.getElementById('states');
+    if (status('anki') === 'error') return fail(box);
+    const rows = ok('anki');
+    if (!rows || !rows[0]) return;
+    const a = rows[0];
+    const parts = [['new', 'var(--cds-chart-muted)'], ['learning', dash.colors[2]], ['young', dash.colors[1]], ['mature', dash.colors[0]], ['suspended', 'var(--cds-chart-status-critical)']];
+    document.getElementById('sw-learning').style.background = dash.colors[2];
+    document.getElementById('sw-young').style.background = dash.colors[1];
+    document.getElementById('sw-mature').style.background = dash.colors[0];
+    const total = d3.sum(parts, ([k]) => Number(a[k]) || 0) || 1;
+    const { svg, w } = svgIn(box, 32);
+    const tip = tipFor(box);
+    let x = 0;
+    parts.forEach(([k, c]) => {
+      const n = Number(a[k]) || 0; if (!n) return;
+      const pw = (n / total) * w;
+      svg.append('rect').attr('x', x).attr('y', 4).attr('width', Math.max(1, pw - 2)).attr('height', 24).attr('rx', 4).style('fill', c)
+        .on('mousemove', (e) => tip.show(e, [k[0].toUpperCase() + k.slice(1), `${fmt(n)} cards`, d3.format('.0%')(n / total)])).on('mouseleave', () => tip.hide());
+      x += pw;
+    });
+  }
+
+  // ---- errors per week, small multiples ----
+  function drawWeeks() {
+    const box = document.getElementById('weeks');
+    if (status('error_weeks') === 'error') return fail(box);
+    const rows = ok('error_weeks');
+    if (!rows) return;
+    box.querySelectorAll('.ep-mini, .ep-fail').forEach((n) => n.remove());
+    const pts = Array.from(new Set(rows.map((r) => r.point)));
+    const maxN = d3.max(rows, (r) => Number(r.n)) || 1;
+    const grid = document.createElement('div'); grid.className = 'ep-mini'; box.appendChild(grid);
+    const tip = tipFor(box);
+    pts.forEach((p) => {
+      const lbl = document.createElement('span'); lbl.className = 'lbl'; lbl.textContent = p; lbl.title = p;
+      const holder = document.createElement('div'); grid.append(lbl, holder);
+      const these = rows.filter((r) => r.point === p);
+      const w = Math.max(120, holder.clientWidth || 200), h = 26;
+      const svg = d3.select(holder).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${w} ${h}`);
+      const x = d3.scaleBand(these.map((r) => r.week), [0, w]).padding(0.2);
+      these.forEach((r) => {
+        const v = Number(r.n) || 0, bh = (v / maxN) * (h - 2);
+        svg.append('rect').attr('x', x(r.week)).attr('width', x.bandwidth()).attr('y', h - Math.max(1, bh)).attr('height', Math.max(1, bh)).attr('rx', 2)
+          .style('fill', v ? dash.colors[0] : 'var(--cds-chart-grid)')
+          .on('mousemove', (e) => tip.show(e, [`Week of ${dayFmt(parseDay(r.week))}`, p, `${v} errors`])).on('mouseleave', () => tip.hide());
+      });
+    });
+  }
+
+
+  // ---- level meter ----
+  const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  function drawMeter() {
+    const box = document.getElementById('meter');
+    if (status('level') === 'error') return fail(box);
+    const rows = ok('level');
+    if (!rows || !rows[0]) return;
+    const L = rows[0];
+    const rec = L.recorded_level;
+    document.getElementById('recorded-detail').hidden = !rec;
+    if (!rec) document.querySelector('#recorded-line b').textContent = 'none yet (run /level)';
+    const { svg, w } = svgIn(box, 92);
+    const tip = tipFor(box);
+    const x = d3.scaleLinear([0.5, 6.5], [8, w - 8]);
+    const y0 = 40, bh = 16;
+    CEFR.forEach((name, i) => {
+      const v = i + 1;
+      svg.append('rect').attr('x', x(v - 0.5) + 1).attr('y', y0).attr('width', x(v + 0.5) - x(v - 0.5) - 2).attr('height', bh).attr('rx', 4)
+        .style('fill', 'var(--cds-chart-grid)');
+      svg.append('text').attr('x', x(v)).attr('y', y0 + bh + 18).attr('text-anchor', 'middle').attr('font-size', 12).attr('fill', 'var(--color-fg-muted)').text(name);
+    });
+    if (L.value !== null && L.value !== undefined) {
+      const lo = Number(L.low), hi = Number(L.high), v = Number(L.value);
+      svg.append('rect').attr('x', x(lo)).attr('y', y0).attr('width', Math.max(2, x(hi) - x(lo))).attr('height', bh).attr('rx', 4)
+        .style('fill', dash.colors[0]).attr('fill-opacity', 0.35)
+        .on('mousemove', (e) => tip.show(e, ['Likely range', `${CEFR[Math.round(lo) - 1]} to ${CEFR[Math.round(hi) - 1]}`])).on('mouseleave', () => tip.hide());
+      svg.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', y0 - 8).attr('y2', y0 + bh + 2).style('stroke', dash.colors[0]).attr('stroke-width', 3).attr('stroke-linecap', 'round');
+      const t = svg.append('text').attr('x', x(v)).attr('y', y0 - 14).attr('text-anchor', 'middle').attr('font-size', 12).attr('font-weight', 600).attr('fill', 'var(--color-fg)').text(`Writing: ${L.label}`);
+      const tw = t.node().getComputedTextLength();
+      t.attr('x', Math.min(w - tw / 2 - 4, Math.max(tw / 2 + 4, x(v))));
+    }
+    if (rec && CEFR.includes(rec)) {
+      const rv = CEFR.indexOf(rec) + 1, cx = x(rv), cy = y0 + bh / 2;
+      svg.append('path').attr('d', `M${cx},${cy - 9} L${cx + 9},${cy} L${cx},${cy + 9} L${cx - 9},${cy} Z`)
+        .style('fill', 'var(--color-panel)').style('stroke', 'var(--color-fg)').attr('stroke-width', 2)
+        .on('mousemove', (e) => tip.show(e, ['Recorded level', `${rec} (${L.recorded_source}, ${L.recorded_date})`])).on('mouseleave', () => tip.hide());
+    }
+  }
+
+  function drawLevelTrend() {
+    const box = document.getElementById('level-trend');
+    if (status('level_months') === 'error') return fail(box);
+    const rows = ok('level_months');
+    if (!rows) return;
+    box.querySelectorAll('.ep-note-empty').forEach((n) => n.remove());
+    if (!rows.length) { box.querySelectorAll('svg').forEach((n) => n.remove()); return; }
+    const h = 180;
+    const { svg, w } = svgIn(box, h);
+    const tip = tipFor(box);
+    const vals = rows.map((r) => Number(r.value));
+    const lo = Math.max(1, Math.floor(d3.min(vals) - 0.5)), hi = Math.min(6, Math.ceil(d3.max(vals) + 0.5));
+    const y = d3.scaleLinear([lo, hi], [h - 26, 10]);
+    const months = rows.map((r) => r.month);
+    const x = d3.scalePoint(months, [40, w - 16]).padding(0.5);
+    for (let v = lo; v <= hi; v++) {
+      svg.append('line').attr('x1', 32).attr('x2', w - 8).attr('y1', y(v)).attr('y2', y(v)).style('stroke', 'var(--cds-chart-grid)');
+      svg.append('text').attr('x', 26).attr('y', y(v) + 4).attr('text-anchor', 'end').attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(CEFR[v - 1]);
+    }
+    const line = d3.line().x((r) => x(r.month)).y((r) => y(Number(r.value)));
+    svg.append('path').datum(rows).attr('d', line).attr('fill', 'none').style('stroke', dash.colors[0]).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+    rows.forEach((r) => {
+      svg.append('circle').attr('cx', x(r.month)).attr('cy', y(Number(r.value))).attr('r', 5).style('fill', dash.colors[0])
+        .on('mousemove', (e) => tip.show(e, [d3.utcFormat('%B %Y')(parseDay(r.month + '-01')), `Estimate ${r.label}`, `${one(Number(r.rate))} errors per 100 words`, `${one(Number(r.sentence_length))} words per sentence`, `${fmt(Number(r.words))} words written`]))
+        .on('mouseleave', () => tip.hide());
+      svg.append('text').attr('x', x(r.month)).attr('y', h - 6).attr('text-anchor', 'middle').attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(d3.utcFormat('%b %Y')(parseDay(r.month + '-01')));
+    });
+  }
+
+  // ---- tables ----
+  const sortState = { key: 'errors_30', dir: -1 };
+  function fillTable(table, rows, cols, keyOf) {
+    const tb = table.querySelector('tbody');
+    tb.replaceChildren(...rows.map((r) => {
+      const tr = document.createElement('tr');
+      cols.forEach(([field, f, cls]) => {
+        const td = document.createElement('td');
+        if (cls) td.className = cls;
+        td.textContent = f ? f(r[field], r) : show(r[field]);
+        tr.appendChild(td);
+      });
+      if (keyOf) tr.dataset.key = keyOf(r);
+      return tr;
+    }));
+  }
+  function drawTopics() {
+    const table = document.getElementById('topics');
+    if (status('topics') === 'error') return fail(table.parentElement);
+    let rows = ok('topics');
+    if (!rows) return;
+    const q = document.getElementById('topic-search').value.trim().toLowerCase();
+    if (q) rows = rows.filter((r) => String(r.point).toLowerCase().includes(q));
+    const k = sortState.key;
+    rows = rows.slice().sort((a, b) => {
+      const va = a[k], vb = b[k];
+      if (va === null || va === undefined) return 1;
+      if (vb === null || vb === undefined) return -1;
+      return (typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb))) * sortState.dir;
+    });
+    table.querySelectorAll('th').forEach((th) => th.setAttribute('aria-sort', th.dataset.field === k ? (sortState.dir > 0 ? 'ascending' : 'descending') : 'none'));
+    const n = (v) => show(v, (x) => fmt(Number(x)));
+    fillTable(table, rows, [
+      ['point'], ['level'], ['status', null, 'ep-hide-narrow'], ['sentences', n, 'num'], ['own', n, 'num ep-hide-narrow'],
+      ['new', n, 'num'], ['young', n, 'num ep-hide-narrow'], ['mature', n, 'num'], ['due', n, 'num'],
+      ['retention_30', (v) => show(v, pct), 'num'], ['errors_30', n, 'num'],
+    ]);
+  }
+  document.querySelectorAll('#topics th button').forEach((b) => b.addEventListener('click', () => {
+    const k = b.dataset.sort;
+    sortState.dir = sortState.key === k ? -sortState.dir : (['point', 'level', 'status'].includes(k) ? 1 : -1);
+    sortState.key = k; drawTopics();
+  }));
+  document.getElementById('topic-search').addEventListener('input', drawTopics);
+
+  function drawSimpleTables() {
+    const specs = [
+      ['checklist', [['part'], ['detail'], ['state', null, 'st']]],
+      ['targets', [['date'], ['target', null, 'wrap']]],
+      ['error_points', [['point'], ['last_14', null, 'num'], ['last_30', null, 'num'], ['all_time', null, 'num'],
+        ['flag', (_, r) => [r.recurring ? 'recurring' : '', r.in_deck ? '' : 'no deck topic'].filter(Boolean).join(' · ')]]],
+      ['examples', [['point'], ['wrong', null, 'wrap ep-wrong'], ['right', null, 'wrap ep-right'], ['why', null, 'wrap ep-hide-narrow'], ['date']],
+        (r) => [r.point, r.wrong].map(encodeURIComponent).join(',')],
+      ['gaps', [['point'], ['last_30', null, 'num'], ['all_time', null, 'num']]],
+      ['level_retention', [['level'], ['retention', (v) => show(v, pct), 'num'], ['reviews', null, 'num']]],
+    ];
+    specs.forEach(([id, cols, keyOf]) => {
+      const table = document.querySelector(`table[data-source="${id}"]`);
+      if (status(id) === 'error') return fail(table.parentElement);
+      const rows = ok(id);
+      if (!rows) return;
+      fillTable(table, rows, cols, keyOf);
+      if (id === 'checklist') table.querySelectorAll('td.st').forEach((td) => { td.className = 'st ' + (td.textContent === 'Done' ? 'ep-good' : 'ep-warn'); });
+    });
+  }
+
+  dash.onData(() => {
+    fillValues();
+    drawMeter();
+    drawLevelTrend();
+    drawHeat();
+    drawBars('daily', 'daily', 'date', 'reviews', 170, (r) => [dayFmt(parseDay(r.date)), `${fmt(Number(r.reviews))} reviews`]);
+    drawBars('entries', 'entries', 'date', 'rate', 190, (r) => [dayFmt(parseDay(r.date)), `${one(Number(r.rate))} errors per 100 words`, `${fmt(Number(r.errors))} errors in ${fmt(Number(r.words))} words`]);
+    drawStates();
+    drawWeeks();
+    drawTopics();
+    drawSimpleTables();
+  });
+})();
+</script>

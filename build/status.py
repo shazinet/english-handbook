@@ -21,6 +21,7 @@ land on the new day here — which is what the countdown implies anyway.
 
 import argparse
 import json
+import re
 import sqlite3
 import sys
 from datetime import date, datetime, time, timedelta
@@ -65,6 +66,25 @@ def load_config() -> dict:
 # --- journal -----------------------------------------------------------------
 
 
+# /journal ends its prompt with a line telling the writer to run /check, often
+# followed by a `---` rule. Entries where the prompt wasn't deleted keep it above.
+PROMPT_END = re.compile(r"then run `?/check", re.IGNORECASE)
+RULE = re.compile(r"^\s*-{3,}\s*$")
+
+
+def entry_text(text: str) -> str:
+    """Only what the learner wrote: the prompt (if still there), the heading,
+    rules and the /check marker removed."""
+    lines = text.splitlines()
+    ends = [i for i, line in enumerate(lines) if PROMPT_END.search(line)]
+    if ends:
+        lines = lines[ends[-1] + 1:]
+    return "\n".join(
+        line for line in lines
+        if line.strip() and not RULE.match(line) and not line.lstrip().startswith(("#", "<!--"))
+    )
+
+
 def body_words(text: str) -> int:
     """Words of actual writing: no heading, no bullet markers, no markers."""
     words = 0
@@ -82,9 +102,10 @@ def journal_state(day: date, min_words: int) -> tuple[bool, bool, int]:
     if not path.exists():
         return False, False, 0
     text = path.read_text()
-    words = body_words(text)
     # /journal seeds the file with a prompt the writer is meant to delete, so
-    # "the file exists" is not evidence that anything was written.
+    # neither "the file exists" nor its word count is evidence of writing:
+    # only the words below the prompt count.
+    words = body_words(entry_text(text))
     return words >= min_words, CHECK_MARKER in text, words
 
 

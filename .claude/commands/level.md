@@ -1,7 +1,7 @@
 ---
 description: Estimate my CEFR level with a short adaptive placement, and record it
 argument-hint: [omit for the full placement (~15 min), or "quick" for a monthly re-check]
-allowed-tools: Read, Glob, Grep, Bash(date:*), Bash(./english level:*)
+allowed-tools: Read, Glob, Grep, Bash(date:*), Bash(./english level:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Estimate my English level: $1
@@ -70,3 +70,9 @@ Finish by suggesting the free EF SET test (efset.org, ~50 min) once a quarter
 as an objective anchor — recorded with `./english level --efset <score>` — and
 remind me that a changed level reaches the deck after:
 sync Anki → quit Anki → `./english build` → `./english deck`.
+
+## Dashboard
+
+If `me/dashboard/artifact-url` exists, finish by refreshing the dashboard the
+way `.claude/commands/dashboard.md` describes, and add its one-line summary to
+your reply. If it doesn't exist, skip this.

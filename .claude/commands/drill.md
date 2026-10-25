@@ -1,7 +1,7 @@
 ---
 description: Run a spoken-style conversation drill targeting a weak grammar point
 argument-hint: [grammar point, e.g. "conditionals" — or omit to pick from me/errors.md]
-allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep
+allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Run a conversation drill on: $1
@@ -39,3 +39,9 @@ and which I got wrong.
 Append genuine errors to `me/errors.md` in the same format `/check` uses, tagged
 with the grammar point. Then suggest whether this topic needs new cards — and if
 so, run `/mine` yourself rather than telling me to.
+
+## Dashboard
+
+If `me/dashboard/artifact-url` exists, finish by refreshing the dashboard the
+way `.claude/commands/dashboard.md` describes, and add its one-line summary to
+your reply. If it doesn't exist, skip this.

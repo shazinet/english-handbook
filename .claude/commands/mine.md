@@ -1,7 +1,7 @@
 ---
 description: Turn recurring errors from me/errors.md into new cloze cards
 argument-hint: [optional grammar point to limit to]
-allowed-tools: Read, Edit, Write, Glob, Grep, Bash(./english check:*)
+allowed-tools: Read, Edit, Write, Glob, Grep, Bash(./english check:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Read `me/errors.md` and turn my recurring errors into new cards.
@@ -55,3 +55,9 @@ Run `./english check` and confirm it passes.
 
 Report what you added and which errors you deliberately skipped, with the reason.
 Remind me to rebuild and re-import if I want them on my phone today.
+
+## Dashboard
+
+If `me/dashboard/artifact-url` exists, finish by refreshing the dashboard the
+way `.claude/commands/dashboard.md` describes, and add its one-line summary to
+your reply. If it doesn't exist, skip this.

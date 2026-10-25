@@ -1,7 +1,7 @@
 ---
 description: Correct a journal entry, explain each error by grammar point, and log it
 argument-hint: [path to journal file, or omit for today's]
-allowed-tools: Read, Edit, Write, Bash(date:*), Glob
+allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Correct the writing in: $1
@@ -59,3 +59,9 @@ profile's `weak_areas`, add it there — the profile should follow the evidence.
 
 Finally, tell me the single grammar point I should focus on next, based on what
 recurs in `me/errors.md` as a whole — not just today's entry.
+
+## Dashboard
+
+If `me/dashboard/artifact-url` exists, finish by refreshing the dashboard the
+way `.claude/commands/dashboard.md` describes, and add its one-line summary to
+your reply. If it doesn't exist, skip this.

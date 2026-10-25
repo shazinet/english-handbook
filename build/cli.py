@@ -357,6 +357,7 @@ PASSTHROUGH = {
     "remind": ("remind.py", [], "run the reminder once (--dry-run to preview)"),
     "level": ("level.py", [], "your level history; --efset N records a test score"),
     "report": ("report.py", [], "a shareable progress page (no journal text)"),
+    "dashboard": ("dashboard.py", [], "data for your private dashboard (/dashboard publishes it)"),
 }
 
 

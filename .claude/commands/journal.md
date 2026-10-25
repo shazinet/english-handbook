@@ -1,7 +1,7 @@
 ---
 description: Create today's journal entry with a prompt aimed at your current weak point
 argument-hint: [optional topic, or "free" for an unprompted entry]
-allowed-tools: Read, Write, Glob, Grep, Bash(date:*)
+allowed-tools: Read, Write, Glob, Grep, Bash(date:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Create today's journal entry at `me/journal/YYYY-MM-DD.md` (get the date with `date +%F`).
@@ -67,3 +67,9 @@ entries** is being avoided, and avoidance never appears in `me/errors.md` — yo
 cannot log an error in something never attempted. If you find a structure the
 deck teaches but that the writer has never once produced, prefer it over the
 frequency-based default, and say that's what you're doing.
+
+## Dashboard
+
+If `me/dashboard/artifact-url` exists, finish by refreshing the dashboard the
+way `.claude/commands/dashboard.md` describes, and add its one-line summary to
+your reply. If it doesn't exist, skip this.

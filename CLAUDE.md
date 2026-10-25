@@ -176,6 +176,22 @@ content ends) and `weak_areas`; an EF SET score is the objective anchor. Everyth
 `./english report` must keep carrying numbers and topic names only. Learners
 share it, so journal text and the sentences in `errors.md` must never reach it.
 
+## The dashboard
+
+`/dashboard` keeps a private claude.ai dashboard (Dashboard artifact type) in
+step with the learner's data. `./english dashboard` (`build/dashboard.py`)
+writes `me/dashboard/data.json` and the flat `practice.json` the page loads;
+the page itself is `build/dashboard.html`, app code with no learner data in it.
+The artifact's link, the current data file's id and the page's hash live in
+`me/dashboard/`, and the five loop commands refresh it as their last step when
+`me/dashboard/artifact-url` exists. Anki reviews alone can't trigger a refresh;
+they appear on the next one.
+
+Unlike `./english report`, the dashboard carries `errors.md` sentences (the
+learner's recent corrections). That's acceptable only because the artifact is
+private. Never move those sentences into the report or anything else meant to
+be shared, and never point `report.py` at `progress.error_details()`.
+
 ## The reminder layer
 
 `build/status.py` decides whether a day counts, and `build/remind.py` pushes the

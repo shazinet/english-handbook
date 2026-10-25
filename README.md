@@ -97,12 +97,12 @@ out until you get closer.
 
 ## What's in it
 
-**628 cards across 36 topics**, each tagged with a CEFR level, in an Anki deck
+**729 cards across 43 topics**, each tagged with a CEFR level, in an Anki deck
 called **English Practice**:
 
 | | |
 |---|---|
-| `00 …` (10 topics) | Tenses, articles, prepositions, collocations: the foundation, **authored, not from the book** |
+| `00 …` (17 topics) | Tenses, articles, prepositions, collocations, the passive, reported speech, questions, quantifiers, comparatives, too/enough/so/such, agreement: the foundation, **authored, not from the book** |
 | `1A`–`10B` (17 topics) | The AEF 5 grammar bank |
 | `V01`–`V12` (9 topics) | The AEF 5 vocabulary bank, with audio |
 
@@ -111,7 +111,9 @@ repeated mistakes.
 
 The `00` modules exist because AEF 5 is a C1 *reference summary*. It assumes
 you already know the tense system, articles and prepositions, and never teaches
-any of them.
+any of them. The same goes for the passive, reported speech, questions,
+quantifiers and comparatives; those topics were picked by checking the open
+CEFR-J Grammar Profile against the deck.
 
 Deliberately cut as poor value for everyday speech: grammar 4B (inversion) and
 5A (distancing), both formal written register; vocab *Conflict & warfare*,

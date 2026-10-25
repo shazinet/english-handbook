@@ -158,7 +158,32 @@ journal. Never push that old history to the public remote.
 
 `content/grammar/00-tense-system/` is **authored, not extracted** — the source
 book is a C1 reference summary that assumes the core tense system and never
-teaches it. That gap is the whole reason this module exists.
+teaches it. That gap is the whole reason this module exists. The other `00-*`
+topics fill the same kind of gap (articles, prepositions, the passive, reported
+speech, questions, quantifiers, comparatives, too/enough/so/such, agreement),
+chosen by checking the CEFR-J Grammar Profile's A1–B2 items against the
+deck and against the topic-less rows in learners' error logs.
+
+## Open data
+
+`./english vocab --fetch` (and `install.sh`) downloads open word lists into
+`data/lexicon/` (gitignored, because the CEFR-J terms allow use with citation
+but don't grant redistribution): NGSL 1.2 and NGSL-Spoken for frequency,
+CEFR-J 1.5 and Octanove C1/C2 for levels, and the CEFR-J Grammar Profile
+(`cefrj-grammar.csv`, a reference for which structures exist at which level).
+`build/lexicon.py` joins them into `words.tsv`. They decide **which** words or
+structures to target, never what a card says: rule 3 still holds, and nothing
+from them is copied into `content/`. Everything degrades to "not fetched yet"
+without them, so the build never needs the network. The vocabulary share in
+`progress.writing_level()` stays a diagnostic, because there's no calibrated
+scale to turn it into a CEFR estimate.
+
+The speech tools live in `.venv-speech/` (`install.sh --speech`): Kokoro TTS
+(`build/tts_kokoro.py`, called by `audio.py`) and mlx-whisper (`build/speak.py`).
+They pull in torch, which must never be installed into `.venv`. `cli.py`
+runs `speak.py` with that interpreter. Audio clips from any voice other than
+`say` Samantha are named `<id>-<voice>.m4a`, so changing voice gives Anki a new
+file rather than a same-named file with different content.
 
 ## The practice loop
 

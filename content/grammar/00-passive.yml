@@ -1,0 +1,72 @@
+point: 00 The passive
+level: B1
+tags: [grammar, passive]
+# Authored, not from the book: the coursebook assumes the passive. In speech it
+# turns up mostly in notices, news about your own life ("my bike was stolen",
+# "the flight's been cancelled") and in the get-passive, so that's the focus.
+cards:
+  - id: pass-01
+    text: "The rent {{c1::is paid}} on the first of every month."
+    note: "Present simple passive: am/is/are + past participle. Used when who does it doesn't matter."
+
+  - id: pass-02
+    text: "My bike {{c1::was stolen}} outside the station last night."
+    note: "Past simple passive: was/were + past participle. The thief is unknown, so the bike becomes the subject."
+    trap: "NOT 'My bike stole'. That would mean the bike did the stealing."
+
+  - id: pass-03
+    text: "Sorry about the smell of paint: the kitchen {{c1::is being repainted}} this week."
+    note: "Present continuous passive: is/are being + past participle, for work in progress around now."
+
+  - id: pass-04
+    text: "Good news: your application {{c1::has been approved}}."
+    note: "Present perfect passive: has/have been + past participle. A recent result, typical of emails and notifications."
+
+  - id: pass-05
+    text: "The parcel {{c1::will be delivered}} between nine and twelve tomorrow."
+    note: "Future passive: will be + past participle."
+
+  - id: pass-06
+    text: "This form {{c1::must be signed}} by both tenants."
+    note: "Modal passive: modal + be + past participle (can be done, should be checked, must be signed)."
+    trap: "NOT 'must signed' or 'must to be signed'."
+
+  - id: pass-07
+    text: "I {{c1::was born}} in a small town near the coast."
+    note: "'be born' is always passive in English, and it's past for your own birth."
+    trap: "NOT 'I born' or 'I am born in…'."
+
+  - id: pass-08
+    text: "We {{c1::were told}} to wait in the second room."
+    note: "With tell, ask, give, offer and send, the person becomes the subject of the passive."
+    trap: "NOT 'It was told us to wait'."
+
+  - id: pass-09
+    text: "The new library was designed {{c1::by}} a local architect."
+    note: "by + the doer, only when who did it is new or interesting information. Most passives leave it out."
+
+  - id: pass-10
+    text: "Breakfast {{c1::isn't included}} in the price, unfortunately."
+    note: "Negative passive: isn't/aren't/wasn't + past participle."
+
+  - id: pass-11
+    text: "{{c1::Was}} your deposit {{c2::returned}} in full when you moved out?"
+    note: "Passive questions: be goes before the subject; the past participle stays after it."
+
+  - id: pass-12
+    text: "I {{c1::got stuck}} in traffic for an hour this morning."
+    note: "get + past participle is the everyday spoken passive for things that happen to you: get stuck, get lost, get invited, get fired."
+
+  - id: pass-13
+    text: "We {{c1::get paid}} at the end of each month."
+    note: "'get paid' is what people say; 'we are paid' sounds like a contract."
+
+  - id: pass-14
+    text: "The car {{c1::needs to be}} serviced before the long drive."
+    note: "need to be + past participle: something has to be done to it."
+    trap: "Also natural: 'The car needs servicing' (need + -ing has the same passive meaning)."
+
+  - id: pass-15
+    text: "The accident {{c1::happened}} on the ring road just after eight."
+    note: "happen, arrive, die, disappear and go take no object, so they have no passive form."
+    trap: "NOT 'The accident was happened'."

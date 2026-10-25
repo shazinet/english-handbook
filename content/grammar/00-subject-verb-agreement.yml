@@ -1,0 +1,66 @@
+point: 00 Subject–verb agreement
+level: B1
+tags: [grammar, agreement]
+# Authored, not from the book. Third-person -s, "people are", "one of … is"
+# and "there is/are" are the agreement slips that survive into B2 writing and
+# speech, because they almost never block understanding.
+cards:
+  - id: agr-01
+    text: "My sister {{c1::works}} in a hospital."
+    note: "he/she/it + -s in the present simple."
+    trap: "NOT 'My sister work'."
+
+  - id: agr-02
+    text: "Everyone in my building {{c1::knows}} each other."
+    note: "everyone, everybody, someone and nobody take a singular verb."
+
+  - id: agr-03
+    text: "The people next door {{c1::are}} really friendly."
+    note: "people is plural: people are, people have."
+    trap: "NOT 'people is'."
+
+  - id: agr-04
+    text: "The news {{c1::is}} on at nine."
+    note: "news is uncountable and singular, despite the -s."
+
+  - id: agr-05
+    text: "One of my colleagues {{c1::lives}} on my street."
+    note: "one of + plural noun + singular verb. The subject is 'one'."
+
+  - id: agr-06
+    text: "There {{c1::are}} two supermarkets near the flat."
+    note: "there is / there are agrees with the noun that follows."
+
+  - id: agr-07
+    text: "There {{c1::is}} a lot of noise from the street at night."
+    note: "a lot of + uncountable noun takes a singular verb; a lot of + plural takes a plural one."
+
+  - id: agr-08
+    text: "The keys to the front door {{c1::are}} on the kitchen table."
+    note: "The verb agrees with the main noun (keys), not the nearest one (door)."
+
+  - id: agr-09
+    text: "He {{c1::doesn't}} like working late."
+    note: "he/she/it → doesn't."
+    trap: "NOT 'he don't'."
+
+  - id: agr-10
+    text: "Does your landlord {{c1::live}} in the building?"
+    note: "After does, the main verb has no -s: does … live."
+    trap: "NOT 'Does he lives'."
+
+  - id: agr-11
+    text: "Twenty euros {{c1::is}} a lot for a sandwich."
+    note: "An amount of money, time or distance seen as one quantity takes a singular verb."
+
+  - id: agr-12
+    text: "Living with flatmates {{c1::has}} its good and bad sides."
+    note: "An -ing subject is singular."
+
+  - id: agr-13
+    text: "The police {{c1::are}} looking into the break-in."
+    note: "police is always plural."
+
+  - id: agr-14
+    text: "Each of the rooms {{c1::has}} a window that opens."
+    note: "each of + plural noun + singular verb. The subject is 'each'."

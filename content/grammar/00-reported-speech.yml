@@ -1,0 +1,73 @@
+point: 00 Reported speech
+level: B1
+tags: [grammar, reported-speech]
+# Authored, not from the book. Passing on what someone told you is constant in
+# everyday talk ("the landlord said he'd fix it"); the say/tell and question
+# word-order cards target the errors that survive longest.
+cards:
+  - id: rep-01
+    text: "She said she {{c1::was}} exhausted and went straight to bed."
+    note: "After a past reporting verb, the present usually moves back: 'I'm exhausted' → she said she was exhausted."
+
+  - id: rep-02
+    text: "He told me he {{c1::had already paid}} the electricity bill."
+    note: "'I've already paid' → he told me he had already paid. Present perfect and past simple move back to the past perfect."
+
+  - id: rep-03
+    text: "The landlord said he {{c1::would}} fix the heating by Friday."
+    note: "will → would when you report it later."
+
+  - id: rep-04
+    text: "She {{c1::told}} me that the office was closed for the holiday."
+    note: "tell + the person: tell someone (that)…"
+    trap: "NOT 'she said me'. say never takes the person directly."
+
+  - id: rep-05
+    text: "He {{c1::said}} that the office was closed for the holiday."
+    note: "say + (that) clause, with no person. To mention the person: 'he said to me'."
+    trap: "NOT 'He told that…'. tell needs a person after it."
+
+  - id: rep-06
+    text: "My manager asked me {{c1::if I could}} stay late on Friday."
+    note: "Reported yes/no question: ask + if/whether + statement word order."
+    trap: "NOT 'asked me could I stay'."
+
+  - id: rep-07
+    text: "The woman at the desk asked me where {{c1::I lived}}."
+    note: "Reported wh- question: statement word order, no do/did."
+    trap: "NOT 'asked me where did I live'."
+
+  - id: rep-08
+    text: "The doctor told me {{c1::to drink}} more water."
+    note: "Reported instructions and requests: tell/ask + person + to-infinitive."
+
+  - id: rep-09
+    text: "Our neighbour asked us {{c1::not to park}} in front of his garage."
+    note: "Negative instruction: not goes before to."
+    trap: "NOT 'asked us don't park'."
+
+  - id: rep-10
+    text: "She says she {{c1::is}} running late, so start without her."
+    note: "With a present reporting verb (says, is saying) nothing moves back."
+
+  - id: rep-11
+    text: "He told me his sister {{c1::lives}} near the university, so I could ask her about rooms."
+    note: "When the fact is still true now, you can keep the present: the backshift is optional."
+
+  - id: rep-12
+    text: "She {{c1::suggested}} meeting at the café instead."
+    note: "suggest + -ing, or suggest (that) we meet."
+    trap: "NOT 'suggested to meet'."
+
+  - id: rep-13
+    text: "The bank clerk explained {{c1::to me}} why the payment had failed."
+    note: "explain something to someone: the person needs 'to'."
+    trap: "NOT 'explained me why'."
+
+  - id: rep-14
+    text: "On Monday they said the parcel would arrive {{c1::the next day}}, but it still hasn't."
+    note: "When you report on a different day, time words shift too: tomorrow → the next day, yesterday → the day before."
+
+  - id: rep-15
+    text: "He {{c1::promised}} to call me back before five."
+    note: "promise, agree, offer and refuse + to-infinitive report what someone said they'd do."

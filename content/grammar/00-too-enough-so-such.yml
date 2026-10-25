@@ -1,0 +1,58 @@
+point: 00 too, enough, so and such
+level: B1
+tags: [grammar, degree, intensifiers]
+# Authored, not from the book. The core trap is treating "too" as a stronger
+# "very": it always means more than you want, so "I liked it too much" says
+# something went wrong.
+cards:
+  - id: deg-01
+    text: "The flat was {{c1::too}} expensive, so we kept looking."
+    note: "too + adjective = more than is acceptable, with a negative result."
+
+  - id: deg-02
+    text: "We liked the hotel {{c1::very}} much and would definitely go back."
+    note: "very much = a lot, a positive idea."
+    trap: "NOT 'too much', which means more than was good: a problem."
+
+  - id: deg-03
+    text: "The bedroom isn't big {{c1::enough}} for a double bed."
+    note: "adjective + enough: enough comes after an adjective."
+    trap: "NOT 'enough big'."
+
+  - id: deg-04
+    text: "We don't have {{c1::enough}} money for the deposit yet."
+    note: "enough + noun: enough comes before a noun."
+
+  - id: deg-05
+    text: "It's too cold {{c1::to}} swim today."
+    note: "too + adjective + to-infinitive."
+    trap: "NOT 'too cold for swim'. Use 'for' only with a noun: too cold for a swim."
+
+  - id: deg-06
+    text: "The coffee was {{c1::so}} strong that I couldn't sleep."
+    note: "so + adjective (+ that …): so strong, so tired."
+
+  - id: deg-07
+    text: "It was {{c1::such}} a long day that I went straight to bed."
+    note: "such (a/an) + adjective + noun: such a long day."
+    trap: "NOT 'so long day'. so goes with an adjective alone; such goes with a noun."
+
+  - id: deg-08
+    text: "They're {{c1::such}} nice people, we got lucky with the neighbours."
+    note: "such + plural or uncountable noun, without 'a': such nice people, such good weather."
+
+  - id: deg-09
+    text: "There were {{c1::too many}} people at the viewing to see anything."
+    note: "too many + plural countable noun."
+
+  - id: deg-10
+    text: "I've had {{c1::too much}} coffee today, I'm shaking."
+    note: "too much + uncountable noun."
+
+  - id: deg-11
+    text: "She explains things {{c1::slowly enough}} for everyone to follow."
+    note: "adverb + enough + for someone + to-infinitive."
+
+  - id: deg-12
+    text: "The music is {{c1::a bit too}} loud. Could you turn it down?"
+    note: "a bit too / slightly too softens a complaint; far too / way too makes it stronger."

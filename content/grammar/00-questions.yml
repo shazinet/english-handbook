@@ -1,0 +1,73 @@
+point: 00 Questions — indirect and tags
+level: B1
+tags: [grammar, questions]
+# Authored, not from the book. Indirect questions are how you ask strangers for
+# anything politely; question tags and subject questions are where word order
+# goes wrong in fast speech.
+cards:
+  - id: ques-01
+    text: "Excuse me, could you tell me where {{c1::the nearest pharmacy is}}?"
+    note: "After 'Could you tell me…', 'Do you know…' and similar, the question uses statement word order."
+    trap: "NOT 'where is the nearest pharmacy' after 'could you tell me'."
+
+  - id: ques-02
+    text: "Do you happen to know when {{c1::the pool opens}} on public holidays?"
+    note: "No do/does in the indirect part: when the pool opens."
+    trap: "NOT 'when does the pool open' after 'do you know'."
+
+  - id: ques-03
+    text: "I was wondering {{c1::if}} you could help me with something."
+    note: "if/whether introduces an indirect yes/no question. 'I was wondering if…' is a very soft request."
+
+  - id: ques-04
+    text: "Do you have any idea how long {{c1::it will take}}?"
+    note: "Statement order again: how long it will take, not how long will it take."
+
+  - id: ques-05
+    text: "You're coming on Saturday, {{c1::aren't you}}?"
+    note: "Positive sentence → negative tag, using the same auxiliary."
+
+  - id: ques-06
+    text: "You haven't seen my keys anywhere, {{c1::have you}}?"
+    note: "Negative sentence → positive tag."
+
+  - id: ques-07
+    text: "She works from home on Fridays, {{c1::doesn't she}}?"
+    note: "No auxiliary in the sentence → the tag uses do/does/did."
+
+  - id: ques-08
+    text: "I'm on the list, {{c1::aren't I}}?"
+    note: "The tag for 'I am' is 'aren't I'."
+    trap: "NOT 'amn't I' or 'am I not' in everyday speech."
+
+  - id: ques-09
+    text: "Let's get a coffee first, {{c1::shall we}}?"
+    note: "Let's… → shall we?"
+
+  - id: ques-10
+    text: "Who {{c1::told}} you about the job?"
+    note: "When who/what is the subject, there's no do/did: the verb comes straight after."
+    trap: "NOT 'Who did tell you?' (unless you're stressing 'did')."
+
+  - id: ques-11
+    text: "Who {{c1::did you call}} about the leak?"
+    note: "When who is the object (you called someone), the question needs did."
+
+  - id: ques-12
+    text: "What {{c1::happened}} at the meeting yesterday?"
+    note: "what as the subject: no did."
+    trap: "NOT 'What did happen?'."
+
+  - id: ques-13
+    text: "Who are you waiting {{c1::for}}?"
+    note: "In everyday questions the preposition goes at the end."
+    trap: "'For whom are you waiting?' is formal writing, not conversation."
+
+  - id: ques-14
+    text: "What's your new neighbourhood {{c1::like}}?"
+    note: "What is X like? = describe it for me."
+    trap: "NOT 'How is your new neighbourhood like?'."
+
+  - id: ques-15
+    text: "{{c1::Don't}} you think it's a bit expensive for what it is?"
+    note: "A negative question invites the other person to agree with you."

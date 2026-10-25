@@ -1,0 +1,73 @@
+point: 00 Quantifiers and determiners
+level: B1
+tags: [grammar, quantifiers, determiners]
+# Authored, not from the book. Countable vs uncountable choices (much/many,
+# few/little) and the "most / most of" split are the determiner errors that
+# show up most in everyday writing.
+cards:
+  - id: quant-01
+    text: "We haven't got {{c1::much}} space in the kitchen, so we eat in the living room."
+    note: "much + uncountable noun, mostly in negatives and questions."
+
+  - id: quant-02
+    text: "There weren't {{c1::many}} people at the gym this morning."
+    note: "many + plural countable noun."
+
+  - id: quant-03
+    text: "I've got {{c1::a lot of}} work on this week."
+    note: "In positive sentences, everyday English uses a lot of / lots of, for both countable and uncountable."
+    trap: "'I have much work' is correct but sounds stiff in speech."
+
+  - id: quant-04
+    text: "I've got {{c1::a few}} questions about the contract before I sign."
+    note: "a few + plural = some, a small number (a positive idea)."
+
+  - id: quant-05
+    text: "There's {{c1::a little}} milk left, enough for one coffee."
+    note: "a little + uncountable = some, a small amount."
+
+  - id: quant-06
+    text: "Very {{c1::few}} flats around here allow pets."
+    note: "few without 'a' = hardly any. It sounds negative."
+    trap: "a few = some; few = not many. The 'a' changes the meaning."
+
+  - id: quant-07
+    text: "Is there {{c1::any}} sugar? I can't find it anywhere."
+    note: "any in questions and negatives."
+
+  - id: quant-08
+    text: "Would you like {{c1::some}} tea while you wait?"
+    note: "some in offers and requests, even though they're questions: you expect a yes."
+
+  - id: quant-09
+    text: "{{c1::Most}} people I work with live outside the city."
+    note: "most + noun when you mean people or things in general."
+    trap: "NOT 'Most of people'. 'most of' needs the/my/these first."
+
+  - id: quant-10
+    text: "{{c1::Most of}} my friends here are from work."
+    note: "most of + the/my/these/those + noun: a specific group."
+
+  - id: quant-11
+    text: "{{c1::Each}} room has its own bathroom."
+    note: "each/every + singular noun: each room, every day."
+
+  - id: quant-12
+    text: "I go to the gym {{c1::every}} other day."
+    note: "every other day = on alternate days (Monday, Wednesday, Friday…)."
+
+  - id: quant-13
+    text: "{{c1::Both}} flats were nice, but the second one was cheaper."
+    note: "both = the two of them, with a plural verb."
+
+  - id: quant-14
+    text: "{{c1::Neither}} option is perfect, to be honest."
+    note: "neither + singular noun = not this one and not that one."
+
+  - id: quant-15
+    text: "There's {{c1::no}} parking anywhere near the building."
+    note: "no + noun = not any. 'There's no parking' = 'There isn't any parking'."
+
+  - id: quant-16
+    text: "{{c1::All}} the shops close early on Sundays."
+    note: "all (of) the + plural noun. 'All of the shops' is equally fine."

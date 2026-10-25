@@ -44,7 +44,8 @@ SOURCES = {
     "spoken-forms.csv": NGSL + "NGSL-Spoken_12_lemmatized_for_teaching.csv",
     "cefrj-vocab.csv": CEFRJ + "cefrj-vocabulary-profile-1.5.csv",
     "octanove-c1c2.csv": CEFRJ + "octanove-vocabulary-profile-c1c2-1.0.csv",
-    # Not used here; build/grammar_audit.py reads it.
+    # Not used here: a reference for which structures exist at which level,
+    # for choosing new grammar topics (see CLAUDE.md, Open data).
     "cefrj-grammar.csv": CEFRJ + "cefrj-grammar-profile-20180315.csv",
 }
 TABLE = LEXICON / "words.tsv"

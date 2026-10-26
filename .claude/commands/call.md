@@ -30,7 +30,10 @@ Tell me in two lines who's calling and what I want from the call. Then start.
    4 s; Kokoro is nicer but takes 15 s a line, too slow for a call).
 2. Run `./english speak --turn`. It waits up to 20 s for me to start. Read the
    transcript it prints and the `TURN {...}` line (seconds, words, wpm,
-   fillers); keep a running total of the seconds.
+   fillers, and `audio`, the turn's recording); keep a running total of the
+   seconds. The 2.5 s end-of-turn silence is deliberate, to keep me talking:
+   never offer to lengthen it, but if a turn ends mid-sentence, say so out of
+   character in one line and suggest filling the pause ("let me think…").
 3. Reply in character to what I actually said. If nothing was heard twice in a
    row, ask whether I'd like to switch to typing, and continue in text if so.
 
@@ -51,7 +54,8 @@ evidence. 6–10 turns, then end the call naturally.
    seconds) against the 120 goal, in one line.
 
 Save the call to `me/calls/YYYY-MM-DD-HHMM.md`: the setup, then each turn as
-`**Name:** …` / `**Me:** …`, then the debrief. Then log it, with the minutes I
+`**Name:** …` / `**Me:** …` (mark a cut-off or unheard turn, with its `audio`
+path so I can listen back), then the debrief. Then log it, with the minutes I
 spoke, rounded up:
 
 ```

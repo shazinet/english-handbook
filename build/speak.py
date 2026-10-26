@@ -11,6 +11,7 @@
     ./english speak --turn             one conversational turn for /call: starts
                                        when you speak, stops when you go quiet,
                                        prints the words, touches no journal
+                                       (the audio is kept in me/recordings/)
 
 The microphone is `speech.microphone` in the profile (part of its name, e.g.
 "USB-C"), or the Mac's current input when that's empty or not plugged in.
@@ -54,9 +55,15 @@ VERBATIM_PROMPT = ("Um, so yesterday I- I go to the, uh, the gym and, er, I meet
 FILLERS = {"um", "uh", "er", "erm", "hmm", "mm", "ah", "eh"}
 PAUSE = 1.0  # seconds of silence between words that counts as a long pause
 # --turn: how long to wait for the first word, the silence that ends a turn,
-# and the longest turn. Thinking pauses mid-answer are normal for a learner,
-# so the end-of-turn silence is generous.
+# and the longest turn. The silence is short on purpose: a call pushes you to
+# keep talking (say "let me think…") rather than stop and compose.
 TURN_WAIT, TURN_SILENCE, TURN_MAX = 20, 2.5, 90
+# What counts as speech, as RMS level per 100 ms. Starting needs a clear lift
+# above the room's noise; once you're talking, a quieter level keeps the turn
+# open, so a soft "er…" mid-answer isn't taken for silence. Headset mics with a
+# noise gate send exact zeros between words, so the floors sit just above zero.
+START_FLOOR, START_OVER_NOISE = 0.003, 3.5
+KEEP_FLOOR, KEEP_OVER_NOISE = 0.0015, 2.0
 
 
 def input_devices() -> list[tuple[int, str]]:
@@ -108,10 +115,12 @@ def record(seconds: int | None, mic: int | None = None) -> np.ndarray:
     return audio
 
 
-def record_turn(mic: int | None = None) -> np.ndarray:
+def record_turn(mic: int | None = None) -> tuple[np.ndarray, bool]:
     """Record one turn with no key press: wait for speech, stop after
-    TURN_SILENCE seconds of quiet. The threshold is set from the first half
-    second of room noise, so a noise-cancelling mic and a laptop mic both work."""
+    TURN_SILENCE seconds of quiet. Thresholds are set from the first half
+    second of room noise, so a noise-gated headset and a laptop mic both work.
+    Returns the audio and whether speech started; if it never did, the audio
+    is the whole wait, kept so a missed answer can be listened to."""
     import queue
 
     import sounddevice as sd
@@ -121,26 +130,28 @@ def record_turn(mic: int | None = None) -> np.ndarray:
     chunks: list[np.ndarray] = []
     with sd.InputStream(samplerate=RATE, channels=1, dtype="float32", blocksize=block,
                         callback=lambda indata, *_: q.put(indata[:, 0].copy()), device=mic):
-        noise = [float(np.sqrt(np.mean(q.get() ** 2))) for _ in range(5)]
-        threshold = max(0.008, 3.5 * float(np.median(noise)))
-        print("● Listening… speak when you're ready.", flush=True)
+        noise = float(np.median([np.sqrt(np.mean(q.get() ** 2)) for _ in range(5)]))
+        start = max(START_FLOOR, START_OVER_NOISE * noise)
+        keep = max(KEEP_FLOOR, KEEP_OVER_NOISE * noise)
+        name = sd.query_devices(mic if mic is not None else sd.default.device[0])["name"]
+        print(f"● Listening on {name}… speak when you're ready.", flush=True)
         started, quiet, waited = False, 0.0, 0.0
         while True:
             chunk = q.get()
-            loud = float(np.sqrt(np.mean(chunk ** 2))) > threshold
+            level = float(np.sqrt(np.mean(chunk ** 2)))
+            chunks.append(chunk)
             if not started:
                 waited += 0.1
-                if loud:
+                if level > start:
                     started = True
-                    chunks.extend([np.zeros(block, dtype="float32"), chunk])
+                    chunks = [np.zeros(block, dtype="float32"), *chunks[-3:]]
                 elif waited >= TURN_WAIT:
                     break
                 continue
-            chunks.append(chunk)
-            quiet = 0.0 if loud else quiet + 0.1
+            quiet = 0.0 if level > keep else quiet + 0.1
             if quiet >= TURN_SILENCE or len(chunks) * 0.1 >= TURN_MAX:
                 break
-    return np.concatenate(chunks) if chunks else np.zeros(0, dtype="float32")
+    return np.concatenate(chunks) if chunks else np.zeros(0, dtype="float32"), started
 
 
 def load_file(path: Path) -> np.ndarray:
@@ -281,16 +292,23 @@ def main() -> int:
 
 
 def turn(args, speech: dict) -> int:
-    """Print the turn's words, then one `TURN {json}` line for /call to total."""
-    audio = record_turn(pick_microphone(args.mic or speech.get("microphone") or ""))
-    if len(audio) < RATE:
+    """Print the turn's words, then one `TURN {json}` line for /call to total.
+    Every turn's audio is saved, a missed one included, so a cut-off can be
+    checked by ear: a real pause, or the mic going quiet."""
+    audio, started = record_turn(pick_microphone(args.mic or speech.get("microphone") or ""))
+    saved = save_recording(audio, f"call-{datetime.now():%Y-%m-%d-%H%M%S}"
+                           + ("" if started else "-unheard")) if len(audio) else None
+    where = str(saved.relative_to(ME)) if saved else None
+    if not started or len(audio) < RATE:
         print("(no answer heard)")
-        print("TURN " + json.dumps({"seconds": 0, "words": 0, "wpm": 0, "fillers": 0}))
+        print("TURN " + json.dumps({"seconds": 0, "words": 0, "wpm": 0, "fillers": 0,
+                                    "audio": where}))
         return 0
     result = transcribe(audio, args.model or speech.get("model") or DEFAULT_MODEL)
     stats = fluency(result)
     print(f"\n{paragraphs(result) or '(no words recognised)'}\n")
-    print("TURN " + json.dumps({k: stats[k] for k in ("seconds", "words", "wpm", "fillers")}))
+    print("TURN " + json.dumps({**{k: stats[k] for k in ("seconds", "words", "wpm", "fillers")},
+                                "audio": where}))
     return 0
 
 

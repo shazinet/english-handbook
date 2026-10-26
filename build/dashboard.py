@@ -19,11 +19,12 @@ import sys
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 
+import gamify
 from build_anki import included
 from paths import JOURNAL, ME, content_files, load_profile
 from progress import (
     anki_stats, current_level, error_details, errors_per_100_by_month, journal_words,
-    load_history, topic_cards, writing_level,
+    load_history, speaking_sessions, topic_cards, writing_level,
 )
 from status import CHECK_MARKER, compute, day_complete, load_config
 
@@ -33,6 +34,7 @@ ROWS = OUT_DIR / "practice.json"  # what the artifact loads
 PROMPTS_LOG = JOURNAL / ".prompts.log"
 HEATMAP_DAYS = 84
 EXAMPLES_PER_POINT = 3
+TALKS_SHOWN = 20
 
 
 def library(profile: dict) -> dict[str, dict]:
@@ -108,6 +110,20 @@ def gather() -> dict:
     prompts = prompt_log()
     free = [p["date"] for p in prompts if p["target"].startswith("free")]
 
+    # --- speaking ---
+    talks = speaking_sessions()
+    recent_talks = talks[-5:]
+    talk_secs = sum(t["seconds"] for t in recent_talks)
+    speaking = {
+        "sessions": len(talks),
+        "minutes": round(sum(t["seconds"] for t in talks) / 60, 1),
+        # pooled rather than averaged, so a 10-second test can't swing it
+        "wpm_last_5": round(60 * sum(t["words"] for t in recent_talks) / talk_secs) if talk_secs else None,
+        "latest": talks[-1] if talks else None,
+        "wpm_change": talks[-1]["wpm"] - talks[-2]["wpm"] if len(talks) > 1 else None,
+        "recent": talks[-TALKS_SHOWN:],
+    }
+
     # --- heatmap ---
     heat = []
     for i in range(HEATMAP_DAYS - 1, -1, -1):
@@ -163,6 +179,15 @@ def gather() -> dict:
         for k in ("new", "learning", "young", "mature", "suspended"):
             totals[k] += t[k]
 
+    meter = writing_level()
+    game = gamify.build({
+        "today": today, "status": status, "min_words": min_words, "daily": daily,
+        "entries": entries, "talks": talks, "months": errors_per_100_by_month(),
+        "mature": totals["mature"], "retention_30": stats["retention"],
+        "reviews_30": stats["reviews"], "own_cards": sum(r["own"] for r in lib.values()),
+        "free_entries": len(free), "recorded_level": (meter["recorded"] or {}).get("overall"),
+    })
+
     return {
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "date": today.isoformat(),
@@ -192,7 +217,8 @@ def gather() -> dict:
                 for i in range(29, -1, -1)],
             "reviews_all_time": sum(daily.values()),
         },
-        "level_meter": writing_level(),
+        "level_meter": meter,
+        "game": game,
         "heatmap": heat,
         "topics": topics,
         "journal": {
@@ -205,6 +231,7 @@ def gather() -> dict:
             "last_free": free[-1] if free else None,
             "days_since_free": (today - date.fromisoformat(free[-1])).days if free else None,
         },
+        "speaking": speaking,
         "errors": {
             "total": len(errors),
             "last_30": sum(last30.values()),
@@ -241,6 +268,22 @@ def rows(d: dict) -> list[dict]:
         "last_free": j["last_free"], "days_since_free": j["days_since_free"],
         "errors_total": e["total"], "errors_30": e["last_30"],
     }]
+    sp = d["speaking"]
+    last = sp["latest"] or {}
+    out.append({
+        "section": "speaking", "sessions": sp["sessions"], "minutes": sp["minutes"],
+        "wpm_last_5": sp["wpm_last_5"], "wpm_change": sp["wpm_change"],
+        "latest_date": last.get("date"), "latest_wpm": last.get("wpm"),
+        "latest_pauses": last.get("pauses_per_min"), "latest_fillers": last.get("fillers_per_min"),
+    })
+    out += [{"section": "talk", "at": f"{t['date']} {t['time']}", **t} for t in sp["recent"]]
+    g = d["game"]
+    out.append({"section": "game", **{k: v for k, v in g.items()
+                                       if k not in ("days", "goals", "badges", "rules")}})
+    out += [{"section": "xp_rule", **x} for x in g["rules"]]
+    out += [{"section": "xp_day", **x} for x in g["days"]]
+    out += [{"section": "goal", **x} for x in g["goals"]]
+    out += [{"section": "badge", **x} for x in g["badges"]]
     lm = d["level_meter"]
     cur, rec = lm["current"] or {}, lm["recorded"] or {}
     out.append({
@@ -303,7 +346,14 @@ def changes(old: dict | None, new: dict) -> str:
     delta("cards", oa.get("total"), na["total"])
     delta("entries", old.get("journal", {}).get("entries"), new["journal"]["entries"])
     delta("errors", old.get("errors", {}).get("total"), new["errors"]["total"])
+    delta("speaking sessions", (old.get("speaking") or {}).get("sessions"), new["speaking"]["sessions"])
     delta("streak", old.get("today", {}).get("streak"), new["today"]["streak"])
+    delta("XP", (old.get("game") or {}).get("xp"), new["game"]["xp"])
+    old_tiers = {b["id"]: b["tier"] for b in (old.get("game") or {}).get("badges", [])}
+    if old_tiers:
+        for b in new["game"]["badges"]:
+            if b["tier"] > old_tiers.get(b["id"], 0):
+                parts.append(f"badge earned: {b['name']} {b['tier_name']}")
     delta("level estimate", ((old.get("level_meter") or {}).get("current") or {}).get("label"),
           (new["level_meter"]["current"] or {}).get("label"))
 

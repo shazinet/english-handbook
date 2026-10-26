@@ -116,22 +116,23 @@ def journal_texts() -> dict[date, str]:
     return texts
 
 
-SPOKEN_RE = re.compile(r"<!-- spoken: (\d{4}-\d{2}-\d{2})T[\d:]+ · (\d+)m(\d+)s · (\d+) words · "
+SPOKEN_RE = re.compile(r"<!-- spoken: (\d{4}-\d{2}-\d{2})T([\d:]+) · (\d+)m(\d+)s · (\d+) words · "
                        r"(\d+) wpm · (\d+) pauses · (\d+) fillers")
 
 
 def speaking_sessions() -> list[dict]:
     """Every `./english speak` recording, from the markers it leaves in the journal:
-    date, seconds, words, words per minute, and long pauses and fillers per minute."""
+    date, time, seconds, words, words per minute, and long pauses and fillers per minute."""
     out = []
     if JOURNAL.is_dir():
         for path in sorted(JOURNAL.glob("????-??-??.md")):
             for m in SPOKEN_RE.finditer(path.read_text()):
-                secs = int(m[2]) * 60 + int(m[3])
+                secs = int(m[3]) * 60 + int(m[4])
                 per_min = 60 / max(secs, 1)
-                out.append({"date": m[1], "seconds": secs, "words": int(m[4]), "wpm": int(m[5]),
-                            "pauses_per_min": round(int(m[6]) * per_min, 1),
-                            "fillers_per_min": round(int(m[7]) * per_min, 1)})
+                out.append({"date": m[1], "time": m[2], "seconds": secs, "words": int(m[5]),
+                            "wpm": int(m[6]),
+                            "pauses_per_min": round(int(m[7]) * per_min, 1),
+                            "fillers_per_min": round(int(m[8]) * per_min, 1)})
     return out
 
 

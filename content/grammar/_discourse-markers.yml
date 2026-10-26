@@ -7,11 +7,11 @@ cards:
     note: "so — the everyday way to introduce a result."
 
   - id: dm-02
-    text: "There was a metro strike. {{c1::As a result}}, half the team worked from home."
+    text: "There was a metro strike. {{c1::As a result::consequence}}, half the team worked from home."
     note: "as a result / therefore / consequently — more formal than so, usually sentence-initial."
 
   - id: dm-03
-    text: "Costs have gone up, and the landlord has {{c1::therefore}} decided to raise the rent."
+    text: "Costs have gone up, and the landlord has {{c1::therefore::for that reason}} decided to raise the rent."
     note: "therefore and consequently can also sit before the main verb."
 
   - id: dm-04
@@ -33,11 +33,11 @@ cards:
     note: "due to and owing to — more formal than because of. Typical announcement register."
 
   - id: dm-08
-    text: "I'm saving every month {{c1::in order to}} buy a car."
+    text: "I'm saving every month {{c1::in order to::purpose, formal}} buy a car."
     note: "Purpose: 'in order to' is a slightly more formal 'to'; 'so as to' works the same way."
 
   - id: dm-09
-    text: "I left early {{c1::so as not to}} miss the last bus."
+    text: "I left early {{c1::so as not to::purpose, negative}} miss the last bus."
     note: "Negative purpose: so as not to / in order not to."
     trap: "NOT 'for not missing the last bus'."
 
@@ -55,34 +55,34 @@ cards:
     note: "'the fact that' lets you follow despite/in spite of with a clause."
 
   - id: dm-13
-    text: "A: Are you from Madrid? B: {{c1::Actually}}, I'm from Valencia."
+    text: "A: Are you from Madrid? B: {{c1::Actually::in fact}}, I'm from Valencia."
     note: "actually / in fact / as a matter of fact introduce surprising or unexpected information."
     trap: "In English 'actually' does NOT mean 'currently' — a common false friend."
 
   - id: dm-14
-    text: "OK, see you at seven. {{c1::By the way}}, did you get my message about Saturday?"
+    text: "OK, see you at seven. {{c1::By the way::new topic}}, did you get my message about Saturday?"
     note: "by the way / incidentally introduce something you just thought of, or change the subject."
 
   - id: dm-15
-    text: "{{c1::Speaking of}} vacations, have you booked anything for the summer?"
+    text: "{{c1::Speaking of::linking to that topic}} vacations, have you booked anything for the summer?"
     note: "Changes direction while linking to what was just said."
 
   - id: dm-16
-    text: "I couldn't make it to the party. {{c1::In any case}}, I didn't really know anyone there."
+    text: "I couldn't make it to the party. {{c1::In any case::anyway}}, I didn't really know anyone there."
     note: "in any case / anyway — what I'm about to say matters more, or returns to the main topic."
 
   - id: dm-17
-    text: "I lost my phone. {{c1::At least}} I'd backed up all my photos."
+    text: "I lost my phone. {{c1::At least::the good side}} I'd backed up all my photos."
     note: "at least introduces a positive point after bad news, or softens a claim."
 
   - id: dm-18
-    text: "The shop opens at nine, or {{c1::at least}} it did last year."
+    text: "The shop opens at nine, or {{c1::at least::less definite}} it did last year."
     note: "at least also qualifies what you just said, making it less definite."
 
   - id: dm-19
-    text: "{{c1::As I was saying}}, we need to pick a date soon."
+    text: "{{c1::As I was saying::back to the topic}}, we need to pick a date soon."
     note: "Returns to a previous subject after an interruption."
 
   - id: dm-20
-    text: "The project went over budget. {{c1::Nevertheless}}, the client was happy with the result."
+    text: "The project went over budget. {{c1::Nevertheless::but, formal}}, the client was happy with the result."
     note: "nevertheless — contrast, formal. Where 'but' would be too casual."

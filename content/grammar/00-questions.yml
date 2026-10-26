@@ -6,12 +6,12 @@ tags: [grammar, questions]
 # goes wrong in fast speech.
 cards:
   - id: ques-01
-    text: "Excuse me, could you tell me where {{c1::the nearest pharmacy is}}?"
+    text: "Excuse me, could you tell me where {{c1::the nearest pharmacy is::the nearest pharmacy + be}}?"
     note: "After 'Could you tell me…', 'Do you know…' and similar, the question uses statement word order."
     trap: "NOT 'where is the nearest pharmacy' after 'could you tell me'."
 
   - id: ques-02
-    text: "Do you happen to know when {{c1::the pool opens}} on public holidays?"
+    text: "Do you happen to know when {{c1::the pool opens::the pool + open}} on public holidays?"
     note: "No do/does in the indirect part: when the pool opens."
     trap: "NOT 'when does the pool open' after 'do you know'."
 
@@ -20,7 +20,7 @@ cards:
     note: "if/whether introduces an indirect yes/no question. 'I was wondering if…' is a very soft request."
 
   - id: ques-04
-    text: "Do you have any idea how long {{c1::it will take}}?"
+    text: "Do you have any idea how long {{c1::it will take::it + take}}?"
     note: "Statement order again: how long it will take, not how long will it take."
 
   - id: ques-05
@@ -45,16 +45,16 @@ cards:
     note: "Let's… → shall we?"
 
   - id: ques-10
-    text: "Who {{c1::told}} you about the job?"
+    text: "Who {{c1::told::tell}} you about the job?"
     note: "When who/what is the subject, there's no do/did: the verb comes straight after."
     trap: "NOT 'Who did tell you?' (unless you're stressing 'did')."
 
   - id: ques-11
-    text: "Who {{c1::did you call}} about the leak?"
+    text: "Who {{c1::did you call::you + call}} about the leak?"
     note: "When who is the object (you called someone), the question needs did."
 
   - id: ques-12
-    text: "What {{c1::happened}} at the meeting yesterday?"
+    text: "What {{c1::happened::happen}} at the meeting yesterday?"
     note: "what as the subject: no did."
     trap: "NOT 'What did happen?'."
 

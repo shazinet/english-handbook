@@ -43,7 +43,7 @@ aren't downloaded). Then pick **at most eight**:
   word I keep circling around with a vaguer one ("very big" for *huge*,
   "make a decision about" for *decide*) is the best candidate of all.
 - One card per word, cloze on the word itself (or the whole chunk it lives in:
-  `{{c1::take part}} in`), in a sentence about my real life. The note says what
+  `{{c1::take part::join an activity}} in`), in a sentence about my real life. The note says what
   it means in a few words and what it's used with. Never a definition-to-word card.
 
 These go in `me/my-cards/vocab-gaps.yml` with `point: V00 Everyday words`
@@ -53,7 +53,8 @@ already there. Afterwards `./english vocab --word <w>` should show each one as t
 ## How to write the cards
 
 Follow the authoring rules in `CLAUDE.md` — cloze only, everyday register, one
-point per card, never IPA.
+point per card, never IPA, and a hint on any gap that can't be worked out from
+the front alone (rule 8: `{{c1::had known::know}}`, `{{c1::budget::spending plan}}`).
 
 Write cards **based on my own sentences** from `me/errors.md` where possible,
 corrected. A card built from a mistake I actually made is far stickier than a

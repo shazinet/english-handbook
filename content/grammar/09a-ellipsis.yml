@@ -3,11 +3,11 @@ level: C1
 tags: [grammar, ellipsis, spoken]
 cards:
   - id: 9a-01
-    text: "I came home and {{c1::made}} dinner."
+    text: "I came home and {{c1::made::make}} dinner."
     note: "After and/but/or you drop the repeated subject — 'took', not 'he took'."
 
   - id: 9a-02
-    text: "He called back but {{c1::didn't leave}} a message."
+    text: "He called back but {{c1::didn't leave::leave, negative}} a message."
     note: "Subject dropped after but."
 
   - id: 9a-03

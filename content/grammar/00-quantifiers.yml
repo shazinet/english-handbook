@@ -6,24 +6,24 @@ tags: [grammar, quantifiers, determiners]
 # show up most in everyday writing.
 cards:
   - id: quant-01
-    text: "We haven't got {{c1::much}} space in the kitchen, so we eat in the living room."
+    text: "We haven't got {{c1::much::a large amount}} space in the kitchen, so we eat in the living room."
     note: "much + uncountable noun, mostly in negatives and questions."
 
   - id: quant-02
-    text: "There weren't {{c1::many}} people at the gym this morning."
+    text: "There weren't {{c1::many::a large number}} people at the gym this morning."
     note: "many + plural countable noun."
 
   - id: quant-03
-    text: "I've got {{c1::a lot of}} work on this week."
+    text: "I've got {{c1::a lot of::a large amount}} work on this week."
     note: "In positive sentences, everyday English uses a lot of / lots of, for both countable and uncountable."
     trap: "'I have much work' is correct but sounds stiff in speech."
 
   - id: quant-04
-    text: "I've got {{c1::a few}} questions about the contract before I sign."
+    text: "I've got {{c1::a few::a small number}} questions about the contract before I sign."
     note: "a few + plural = some, a small number (a positive idea)."
 
   - id: quant-05
-    text: "There's {{c1::a little}} milk left, enough for one coffee."
+    text: "There's {{c1::a little::a small amount}} milk left, enough for one coffee."
     note: "a little + uncountable = some, a small amount."
 
   - id: quant-06
@@ -36,16 +36,16 @@ cards:
     note: "any in questions and negatives."
 
   - id: quant-08
-    text: "Would you like {{c1::some}} tea while you wait?"
+    text: "Would you like {{c1::some::an amount of}} tea while you wait?"
     note: "some in offers and requests, even though they're questions: you expect a yes."
 
   - id: quant-09
-    text: "{{c1::Most}} people I work with live outside the city."
+    text: "{{c1::Most::nearly all}} people I work with live outside the city."
     note: "most + noun when you mean people or things in general."
     trap: "NOT 'Most of people'. 'most of' needs the/my/these first."
 
   - id: quant-10
-    text: "{{c1::Most of}} my friends here are from work."
+    text: "{{c1::Most of::nearly all, of a group}} my friends here are from work."
     note: "most of + the/my/these/those + noun: a specific group."
 
   - id: quant-11
@@ -57,17 +57,17 @@ cards:
     note: "every other day = on alternate days (Monday, Wednesday, Friday…)."
 
   - id: quant-13
-    text: "{{c1::Both}} flats were nice, but the second one was cheaper."
+    text: "{{c1::Both::the two}} flats were nice, but the second one was cheaper."
     note: "both = the two of them, with a plural verb."
 
   - id: quant-14
-    text: "{{c1::Neither}} option is perfect, to be honest."
+    text: "{{c1::Neither::not one of the two}} option is perfect, to be honest."
     note: "neither + singular noun = not this one and not that one."
 
   - id: quant-15
-    text: "There's {{c1::no}} parking anywhere near the building."
+    text: "There's {{c1::no::not any}} parking anywhere near the building."
     note: "no + noun = not any. 'There's no parking' = 'There isn't any parking'."
 
   - id: quant-16
-    text: "{{c1::All}} the shops close early on Sundays."
+    text: "{{c1::All::every one of}} the shops close early on Sundays."
     note: "all (of) the + plural noun. 'All of the shops' is equally fine."

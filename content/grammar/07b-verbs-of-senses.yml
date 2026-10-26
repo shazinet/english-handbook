@@ -3,40 +3,40 @@ level: B2
 tags: [grammar, senses, stative]
 cards:
   - id: 7b-01
-    text: "I {{c1::can smell}} gas. Did you leave the stove on?"
+    text: "I {{c1::can smell::smell}} gas. Did you leave the stove on?"
     note: "Sense verbs are stative — use CAN, not the continuous, for something happening right now."
     trap: "NOT 'I'm smelling gas'."
 
   - id: 7b-02
-    text: "I {{c1::can't hear}} you — the line is really bad."
+    text: "I {{c1::can't hear::hear, negative}} you — the line is really bad."
     note: "can't hear, not 'I'm not hearing'."
 
   - id: 7b-03
-    text: "I {{c1::can taste}} garlic in this sauce."
+    text: "I {{c1::can taste::taste}} garlic in this sauce."
     note: "hear, see, smell, feel, taste all behave this way."
 
   - id: 7b-04
-    text: "I've been {{c1::hearing}} a lot about that new café."
+    text: "I've been {{c1::hearing::hear}} a lot about that new café."
     note: "hear CAN be dynamic, with a different meaning — receiving information over time."
 
   - id: 7b-05
-    text: "I'm {{c1::seeing}} my accountant on Friday."
+    text: "I'm {{c1::seeing::meet}} my accountant on Friday."
     note: "see as a dynamic verb = meet by arrangement."
 
   - id: 7b-06
-    text: "I watched my son {{c1::score}} the winning goal."
+    text: "I watched my son {{c1::score::score}} the winning goal."
     note: "hear/see + object + BASE FORM = you experienced the whole action from start to finish."
 
   - id: 7b-07
-    text: "I could hear the neighbors {{c1::arguing}} through the wall."
+    text: "I could hear the neighbors {{c1::arguing::argue}} through the wall."
     note: "hear/see + object + GERUND = an action in progress, or repeated. You caught part of it."
 
   - id: 7b-08
-    text: "Did you see anyone {{c1::take}} my bag?"
+    text: "Did you see anyone {{c1::take::take}} my bag?"
     note: "Base form — you saw the complete action. Also applies after watch, notice, listen to, and feel."
 
   - id: 7b-09
-    text: "You {{c1::look}} tired — did you sleep badly?"
+    text: "You {{c1::look::from your face}} tired — did you sleep badly?"
     note: "Sense verbs (look, feel, smell, sound, taste) take an adjective straight after them — no adverb, no like."
     trap: "NOT 'You look tiredly' and NOT 'You look like tired'."
 
@@ -50,13 +50,13 @@ cards:
     trap: "NOT 'It sounds a great plan' — before a noun you need like."
 
   - id: 7b-12
-    text: "The delivery {{c1::seems}} to have gone to the wrong address."
+    text: "The delivery {{c1::seems::appear}} to have gone to the wrong address."
     note: "seem + infinitive. look cannot take an infinitive this way."
 
   - id: 7b-13
-    text: "It {{c1::looks}} as if they've already left."
+    text: "It {{c1::looks::appear}} as if they've already left."
     note: "look/seem as if + clause. Both work here."
 
   - id: 7b-14
-    text: "I haven't been {{c1::feeling}} great since I got back from the trip."
+    text: "I haven't been {{c1::feeling::feel}} great since I got back from the trip."
     note: "feel about health IS commonly used in the continuous — an exception worth knowing."

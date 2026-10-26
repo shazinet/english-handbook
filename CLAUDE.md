@@ -107,6 +107,17 @@ These are the rules that matter — violating them silently degrades the system.
    everyone, so traps say "NOT 'X'", never "Your error: 'X' (08-15)". Quotes
    from a learner's journal belong only in their own `me/my-cards/`. Place
    names stay generic for the same reason.
+8. **Every gap must be answerable.** Someone who knows the rule should be able
+   to tell what goes in the gap from the front alone. When the sentence still
+   works with the gap empty (*Cycling is [...] the quickest way*), when several
+   different words fit, or when the verb itself can't be guessed, add a hint
+   after a second `::`, which Anki shows in place of `[...]`:
+   `{{c1::by far::emphasis: easily}}`, `{{c1::had known::know}}`. A hint names
+   the base verb for a tense or form gap, and the meaning or function for a
+   word-choice gap. It never gives away what the card tests: no base verb when
+   the card tests which verb (*make* vs *do*), no meaning when it tests a
+   meaning. Gaps that grammar already pins down (*It depends [...] the price*)
+   need none. `--check` can't judge this, so read each front as a learner would.
 
 Licensing: code is MIT (`LICENSE`), cards in `content/` are CC BY-SA 4.0
 (`content/LICENSE`). Anything added to `content/` is published under CC BY-SA,

@@ -16,7 +16,7 @@ cards:
     trap: "NOT 'the colleague that her husband works at the bank'."
 
   - id: 10b-04
-    text: "Is that the jacket {{c1::you bought}} in the sale?"
+    text: "Is that the jacket {{c1::you bought::you + buy}} in the sale?"
     note: "When who/which/that is the OBJECT of the relative clause, drop it entirely — 'the jacket you bought', with no pronoun at all."
 
   - id: 10b-05

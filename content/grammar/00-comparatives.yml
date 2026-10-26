@@ -6,21 +6,21 @@ tags: [grammar, comparatives]
 # far the best) are where it goes wrong.
 cards:
   - id: comp-01
-    text: "The new flat is {{c1::bigger}} than the old one."
+    text: "The new flat is {{c1::bigger::big}} than the old one."
     note: "Short adjectives: -er + than (big → bigger, cheap → cheaper)."
 
   - id: comp-02
-    text: "Taking a taxi is {{c1::more expensive}} than the train, but it's faster."
+    text: "Taking a taxi is {{c1::more expensive::expensive}} than the train, but it's faster."
     note: "Longer adjectives: more + adjective + than."
     trap: "NOT 'more cheaper': it's either -er or more, never both."
 
   - id: comp-03
-    text: "The traffic is even {{c1::worse}} today than yesterday."
+    text: "The traffic is even {{c1::worse::bad}} today than yesterday."
     note: "Irregular: good → better → best, bad → worse → worst, far → further → furthest."
     trap: "NOT 'more bad' or 'badder'."
 
   - id: comp-04
-    text: "That's {{c1::the best}} pizza I've ever had."
+    text: "That's {{c1::the best::good}} pizza I've ever had."
     note: "the + superlative, often followed by the present perfect with ever."
 
   - id: comp-05
@@ -28,16 +28,16 @@ cards:
     note: "the most + longer adjective."
 
   - id: comp-06
-    text: "The second flat was {{c1::much}} cheaper than the first."
+    text: "The second flat was {{c1::much::a big difference}} cheaper than the first."
     note: "much / far / a lot + comparative for a big difference."
     trap: "NOT 'very cheaper'. very goes with the plain adjective (very cheap)."
 
   - id: comp-07
-    text: "It's {{c1::a bit}} warmer than yesterday, isn't it?"
+    text: "It's {{c1::a bit::a small difference}} warmer than yesterday, isn't it?"
     note: "a bit / slightly / a little + comparative for a small difference."
 
   - id: comp-08
-    text: "Cycling is {{c1::by far}} the quickest way to get across town."
+    text: "Cycling is {{c1::by far::emphasis: easily}} the quickest way to get across town."
     note: "by far strengthens a superlative (or a comparative): by far the best, better by far."
     trap: "NOT with a plain adjective: 'very different', NOT 'different by far'."
 
@@ -51,15 +51,15 @@ cards:
     trap: "NOT 'same like mine' or 'the same with mine'."
 
   - id: comp-11
-    text: "The {{c1::earlier}} we leave, the less traffic we'll hit."
+    text: "The {{c1::earlier::early}} we leave, the less traffic we'll hit."
     note: "the + comparative, the + comparative: one thing changes with the other."
 
   - id: comp-12
-    text: "It's getting {{c1::harder and harder}} to find a flat in the centre."
+    text: "It's getting {{c1::harder and harder::hard, more all the time}} to find a flat in the centre."
     note: "comparative + and + comparative = a change that keeps going."
 
   - id: comp-13
-    text: "He drives {{c1::more carefully}} than his brother."
+    text: "He drives {{c1::more carefully::careful}} than his brother."
     note: "Adverbs ending in -ly compare with more: more carefully, more slowly."
 
   - id: comp-14

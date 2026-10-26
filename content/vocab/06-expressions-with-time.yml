@@ -3,7 +3,7 @@ level: B2
 tags: [vocab, time, collocations]
 cards:
   - id: time-01
-    text: "I {{c1::waste}} so much time scrolling on my phone."
+    text: "I {{c1::waste::use badly}} so much time scrolling on my phone."
     note: "waste time — use it badly."
     audio: true
   - id: time-02
@@ -11,7 +11,7 @@ cards:
     note: "save time — the opposite of waste time."
     audio: true
   - id: time-03
-    text: "We got to the airport early, so we walked around the shops to {{c1::kill}} time."
+    text: "We got to the airport early, so we walked around the shops to {{c1::kill::fill}} time."
     note: "kill time — fill an empty period while waiting."
     audio: true
   - id: time-04
@@ -19,7 +19,7 @@ cards:
     note: "take your time — don't rush. Very common reassurance."
     audio: true
   - id: time-05
-    text: "After months of working weekends, I'm going to {{c1::make up for}} lost time with my kids."
+    text: "After months of working weekends, I'm going to {{c1::make up for::compensate}} lost time with my kids."
     note: "make up for lost time — compensate for opportunities missed earlier."
     audio: true
   - id: time-06
@@ -31,7 +31,7 @@ cards:
     note: "give someone a hard time — criticise or make things difficult for them."
     audio: true
   - id: time-08
-    text: "Can you {{c1::spare}} five minutes? I need your advice."
+    text: "Can you {{c1::spare::make available}} five minutes? I need your advice."
     note: "spare time for someone — make it available despite being busy."
     audio: true
   - id: time-09
@@ -39,7 +39,7 @@ cards:
     note: "run out of time — have none left."
     audio: true
   - id: time-10
-    text: "Commuting {{c1::takes up}} two hours of my day."
+    text: "Commuting {{c1::takes up::use}} two hours of my day."
     note: "take up time — consume it."
     audio: true
   - id: time-11

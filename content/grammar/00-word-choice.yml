@@ -10,12 +10,12 @@ tags: [grammar, vocabulary, word-choice, false-friends]
 # nothing about them feels wrong.
 cards:
   - id: wc-01
-    text: "The last three days were {{c1::really}} heavy — I'm still tired."
+    text: "The last three days were {{c1::really::intensifier}} heavy — I'm still tired."
     note: "very / really for intensity. *too* means MORE than you want, and is always negative."
     trap: "NOT 'too heavy' or 'liked them too much'. 'Too heavy' means it exceeded what you could bear."
 
   - id: wc-02
-    text: "The shops were beautiful — we liked them {{c1::very much}}."
+    text: "The shops were beautiful — we liked them {{c1::very much::a lot}}."
     note: "like something very much / a lot."
     trap: "'We liked them too much' means the liking itself was a problem."
 
@@ -30,7 +30,7 @@ cards:
     trap: "NOT 'she said me'."
 
   - id: wc-05
-    text: "The heat {{c1::affected}} my productivity."
+    text: "The heat {{c1::affected::had an effect on}} my productivity."
     note: "AFFECT is the verb, and it's transitive. EFFECT is the noun."
     trap: "NOT 'impacted on my productivity'. As a verb, impact takes no *on*."
 
@@ -39,16 +39,16 @@ cards:
     note: "the noun takes *on*: an effect on something."
 
   - id: wc-07
-    text: "The heat {{c1::slowed down}} my recovery."
+    text: "The heat {{c1::slowed down::made slower}} my recovery."
     note: "slow down. There is no *slow up*."
 
   - id: wc-08
-    text: "The toilet flush is {{c1::broken}} — it's been like that for weeks."
+    text: "The toilet flush is {{c1::broken::not working}} — it's been like that for weeks."
     note: "broken / faulty for physical things."
     trap: "NOT 'got corrupted'. *Corrupted* is only for data and files."
 
   - id: wc-09
-    text: "Sagrada Familia is a {{c1::historic}} building."
+    text: "Sagrada Familia is a {{c1::historic::important in history}} building."
     note: "HISTORIC = important in history."
     trap: "HISTORICAL = relating to the study of history. 'a historical novel'."
 
@@ -71,31 +71,31 @@ cards:
     trap: "NOT 'remember me to call'."
 
   - id: wc-14
-    text: "I'm {{c1::actually}} planning to move back to Canada."
+    text: "I'm {{c1::actually::in fact}} planning to move back to Canada."
     note: "ACTUALLY = in fact, contrary to what you might think."
     trap: "FALSE FRIEND: Spanish *actualmente* means CURRENTLY. English *actually* never does."
 
   - id: wc-15
-    text: "I'm {{c1::currently}} living in Berlin."
+    text: "I'm {{c1::currently::now}} living in Berlin."
     note: "currently / at the moment for the present time."
 
   - id: wc-16
-    text: "About forty people {{c1::attended}} the meeting."
+    text: "About forty people {{c1::attended::went to}} the meeting."
     note: "ATTEND = go to an event."
     trap: "FALSE FRIEND: Spanish *asistir a*. English *assist* means HELP."
 
   - id: wc-17
-    text: "I didn't {{c1::realize}} how hot it would be."
+    text: "I didn't {{c1::realize::become aware}} how hot it would be."
     note: "REALIZE = become aware of."
     trap: "FALSE FRIEND: Spanish *realizar* means CARRY OUT. Use *carry out* or *do* for that."
 
   - id: wc-18
-    text: "My landlady is very {{c1::sensitive}} — she takes everything personally."
+    text: "My landlady is very {{c1::sensitive::easily hurt}} — she takes everything personally."
     note: "SENSITIVE = easily hurt or quick to feel."
     trap: "FALSE FRIEND: Spanish *sensible*. English *sensible* means practical and reasonable."
 
   - id: wc-19
-    text: "Taking the metro would be more {{c1::sensible}} than walking in this heat."
+    text: "Taking the metro would be more {{c1::sensible::wise}} than walking in this heat."
     note: "SENSIBLE = showing good judgement. Compare wc-18."
 
   - id: wc-20
@@ -104,7 +104,7 @@ cards:
     trap: "FALSE FRIEND: Spanish *soportar*. English *support* means back or hold up."
 
   - id: wc-21
-    text: "It's a really {{c1::steep}} climb up to the viewpoint."
+    text: "It's a really {{c1::steep::rising sharply}} climb up to the viewpoint."
     note: "steep is an ADJECTIVE only — there is no noun *a steep*."
     trap: "NOT 'a really high steep of the mountain'."
 
@@ -117,11 +117,11 @@ cards:
     note: "degrees, plural, for anything above one."
 
   - id: wc-24
-    text: "I was {{c1::so angry}} that I decided not to say anything."
+    text: "I was {{c1::so angry::angry}} that I decided not to say anything."
     note: "BE angry, BE tired, BE hungry — English uses *be* where Spanish, French and many other languages use *have*."
     trap: "NOT 'when I have this much anger'."
 
   - id: wc-m01
-    text: "I could stay {{c1::longer}}, but we're both exhausted."
+    text: "I could stay {{c1::longer::more time}}, but we're both exhausted."
     note: "*longer* for duration; *more* is quantity — more money, more work."
     trap: "NOT 'I could stay more'. A very common slip — more can't describe duration."

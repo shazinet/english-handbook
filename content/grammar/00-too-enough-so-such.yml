@@ -6,7 +6,7 @@ tags: [grammar, degree, intensifiers]
 # something went wrong.
 cards:
   - id: deg-01
-    text: "The flat was {{c1::too}} expensive, so we kept looking."
+    text: "The flat was {{c1::too::more than is OK}} expensive, so we kept looking."
     note: "too + adjective = more than is acceptable, with a negative result."
 
   - id: deg-02
@@ -20,7 +20,7 @@ cards:
     trap: "NOT 'enough big'."
 
   - id: deg-04
-    text: "We don't have {{c1::enough}} money for the deposit yet."
+    text: "We don't have {{c1::enough::as much as needed}} money for the deposit yet."
     note: "enough + noun: enough comes before a noun."
 
   - id: deg-05
@@ -46,13 +46,13 @@ cards:
     note: "too many + plural countable noun."
 
   - id: deg-10
-    text: "I've had {{c1::too much}} coffee today, I'm shaking."
+    text: "I've had {{c1::too much::more than is good}} coffee today, I'm shaking."
     note: "too much + uncountable noun."
 
   - id: deg-11
-    text: "She explains things {{c1::slowly enough}} for everyone to follow."
+    text: "She explains things {{c1::slowly enough::slow}} for everyone to follow."
     note: "adverb + enough + for someone + to-infinitive."
 
   - id: deg-12
-    text: "The music is {{c1::a bit too}} loud. Could you turn it down?"
+    text: "The music is {{c1::a bit too::slightly, more than is OK}} loud. Could you turn it down?"
     note: "a bit too / slightly too softens a complaint; far too / way too makes it stronger."

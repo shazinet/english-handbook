@@ -10,7 +10,7 @@ cards:
     note: "After a past reporting verb, the present usually moves back: 'I'm exhausted' → she said she was exhausted."
 
   - id: rep-02
-    text: "He told me he {{c1::had already paid}} the electricity bill."
+    text: "He told me he {{c1::had already paid::already + pay}} the electricity bill."
     note: "'I've already paid' → he told me he had already paid. Present perfect and past simple move back to the past perfect."
 
   - id: rep-03
@@ -28,21 +28,21 @@ cards:
     trap: "NOT 'He told that…'. tell needs a person after it."
 
   - id: rep-06
-    text: "My manager asked me {{c1::if I could}} stay late on Friday."
+    text: "My manager asked me {{c1::if I could::I + can}} stay late on Friday."
     note: "Reported yes/no question: ask + if/whether + statement word order."
     trap: "NOT 'asked me could I stay'."
 
   - id: rep-07
-    text: "The woman at the desk asked me where {{c1::I lived}}."
+    text: "The woman at the desk asked me where {{c1::I lived::I + live}}."
     note: "Reported wh- question: statement word order, no do/did."
     trap: "NOT 'asked me where did I live'."
 
   - id: rep-08
-    text: "The doctor told me {{c1::to drink}} more water."
+    text: "The doctor told me {{c1::to drink::drink}} more water."
     note: "Reported instructions and requests: tell/ask + person + to-infinitive."
 
   - id: rep-09
-    text: "Our neighbour asked us {{c1::not to park}} in front of his garage."
+    text: "Our neighbour asked us {{c1::not to park::park, negative}} in front of his garage."
     note: "Negative instruction: not goes before to."
     trap: "NOT 'asked us don't park'."
 
@@ -51,23 +51,23 @@ cards:
     note: "With a present reporting verb (says, is saying) nothing moves back."
 
   - id: rep-11
-    text: "He told me his sister {{c1::lives}} near the university, so I could ask her about rooms."
+    text: "He told me his sister {{c1::lives::live}} near the university, so I could ask her about rooms."
     note: "When the fact is still true now, you can keep the present: the backshift is optional."
 
   - id: rep-12
-    text: "She {{c1::suggested}} meeting at the café instead."
+    text: "She {{c1::suggested::proposed an idea}} meeting at the café instead."
     note: "suggest + -ing, or suggest (that) we meet."
     trap: "NOT 'suggested to meet'."
 
   - id: rep-13
-    text: "The bank clerk explained {{c1::to me}} why the payment had failed."
+    text: "The bank clerk explained {{c1::to me::the person}} why the payment had failed."
     note: "explain something to someone: the person needs 'to'."
     trap: "NOT 'explained me why'."
 
   - id: rep-14
-    text: "On Monday they said the parcel would arrive {{c1::the next day}}, but it still hasn't."
+    text: "On Monday they said the parcel would arrive {{c1::the next day::tomorrow, reported later}}, but it still hasn't."
     note: "When you report on a different day, time words shift too: tomorrow → the next day, yesterday → the day before."
 
   - id: rep-15
-    text: "He {{c1::promised}} to call me back before five."
+    text: "He {{c1::promised::gave his word}} to call me back before five."
     note: "promise, agree, offer and refuse + to-infinitive report what someone said they'd do."

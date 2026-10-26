@@ -11,20 +11,20 @@ cards:
     note: "Works with negatives too."
 
   - id: 10a-03
-    text: "{{c1::All}} I want is a quiet evening at home."
+    text: "{{c1::All::the only thing}} I want is a quiet evening at home."
     note: "All I want... = the only thing I want. Slightly stronger than What."
 
   - id: 10a-04
-    text: "{{c1::All}} I did was ask a question!"
+    text: "{{c1::All::the only thing}} I did was ask a question!"
     note: "After 'All I did was', the verb takes the BARE infinitive — no 'to'."
     trap: "NOT 'All I did was to ask a question'."
 
   - id: 10a-05
-    text: "{{c1::What happened was}} that my alarm didn't go off."
+    text: "{{c1::What happened was::happen}} that my alarm didn't go off."
     note: "What happened was (that)... to introduce an explanation or story."
 
   - id: 10a-06
-    text: "{{c1::What happens is}} that you fill in a form online and they call you back."
+    text: "{{c1::What happens is::happen}} that you fill in a form online and they call you back."
     note: "Present version, for describing a process."
 
   - id: 10a-07

@@ -9,22 +9,22 @@ tags: [grammar, collocations, vocabulary]
 cards:
   # --- common learner errors ----------------------------------------------
   - id: coll-01
-    text: "She's waiting to {{c1::get}} her visa before she can travel."
+    text: "She's waiting to {{c1::get::receive}} her visa before she can travel."
     note: "get / obtain a visa. In everyday speech it's always *get*."
     trap: "NOT 'take the visa'. You never *take* a document."
 
   - id: coll-02
-    text: "We're hoping to {{c1::rent}} a whole apartment near the beach."
+    text: "We're hoping to {{c1::rent::pay to live in}} a whole apartment near the beach."
     note: "rent an apartment (you pay), let an apartment (you own it)."
     trap: "NOT 'take a whole apartment'."
 
   - id: coll-03
-    text: "I still need to {{c1::get}} a digital signature."
+    text: "I still need to {{c1::get::obtain}} a digital signature."
     note: "get / obtain a signature."
     trap: "NOT 'taking a digital signature'."
 
   - id: coll-04
-    text: "I can't sign a {{c1::rental}} contract without a residence permit."
+    text: "I can't sign a {{c1::rental::for a flat}} contract without a residence permit."
     note: "a rental contract, or simply *a lease*. *rent* is the money you pay."
     trap: "NOT 'a rent contract'."
 
@@ -106,7 +106,7 @@ cards:
     note: "apply FOR a job, a visa, residency, a grant."
 
   - id: coll-22
-    text: "We should {{c1::book}} the flights before the prices go up."
+    text: "We should {{c1::book::reserve}} the flights before the prices go up."
     note: "book a flight, a table, a room. *reserve* is the formal alternative."
 
   - id: coll-23
@@ -114,5 +114,5 @@ cards:
     note: "have a look, have a go, have a chat — informal and very common."
 
   - id: coll-24
-    text: "He never {{c1::keeps}} his promises."
+    text: "He never {{c1::keeps::do what you said}} his promises."
     note: "keep a promise, keep a secret, keep an appointment. You *break* all three."

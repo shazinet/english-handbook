@@ -16,11 +16,11 @@ cards:
     trap: "NOT 'a few calls to do'."
     audio: true
   - id: tech-04
-    text: "Hardly anyone my age has a {{c1::landline}} anymore."
+    text: "Hardly anyone my age has a {{c1::landline::fixed phone}} anymore."
     note: "landline — a fixed phone line, as opposed to mobile."
     audio: true
   - id: tech-05
-    text: "The clinic's number has been {{c1::busy}} all morning."
+    text: "The clinic's number has been {{c1::busy::line in use}} all morning."
     note: "busy (US) / engaged (UK) for a line already in use."
     trap: "NOT 'occupied' for a phone line."
     audio: true
@@ -30,46 +30,46 @@ cards:
     trap: "NOT 'lost call'."
     audio: true
   - id: tech-07
-    text: "Hi, it's Dana — leave a message after the {{c1::beep}}."
+    text: "Hi, it's Dana — leave a message after the {{c1::beep::signal}}."
     note: "the beep / the tone — the signal on voicemail."
     audio: true
   - id: tech-08
-    text: "There's no {{c1::reception}} in the basement, so I'll call you when I'm outside."
+    text: "There's no {{c1::reception::signal strength}} in the basement, so I'll call you when I'm outside."
     note: "reception / coverage — how well your phone connects. You 'get a signal'."
     audio: true
   - id: tech-09
-    text: "Don't {{c1::hang up}} — I'm just checking the dates."
+    text: "Don't {{c1::hang up::end the call}} — I'm just checking the dates."
     note: "hang up — end a phone call."
     audio: true
   - id: tech-10
-    text: "Sorry, we got {{c1::cut off}} — I went into a tunnel."
+    text: "Sorry, we got {{c1::cut off::disconnected}} — I went into a tunnel."
     note: "be cut off — the connection is lost mid-call."
     audio: true
   - id: tech-11
-    text: "I called the airline six times before I finally {{c1::got through}}."
+    text: "I called the airline six times before I finally {{c1::got through::reached them}}."
     note: "get through — succeed in reaching someone by phone."
     audio: true
   - id: tech-12
-    text: "Hold on, I'll {{c1::put}} you {{c2::through}} to customer service."
+    text: "Hold on, I'll {{c1::put::connect}} you {{c2::through}} to customer service."
     note: "put someone through — connect them to another line."
     audio: true
   - id: tech-13
-    text: "My phone battery is about to {{c1::run out}}."
+    text: "My phone battery is about to {{c1::run out::be used up}}."
     note: "run out — be used up completely."
     audio: true
   - id: tech-14
-    text: "I need to {{c1::free up}} some space on my laptop."
+    text: "I need to {{c1::free up::make available}} some space on my laptop."
     note: "free up — make available."
     audio: true
   - id: tech-15
-    text: "I can't {{c1::log in}} — I think I forgot my password."
+    text: "I can't {{c1::log in::sign in}} — I think I forgot my password."
     note: "log in / log out."
     audio: true
   - id: tech-16
-    text: "Sorry, can you {{c1::speak up}}? It's noisy in here."
+    text: "Sorry, can you {{c1::speak up::talk louder}}? It's noisy in here."
     note: "speak up — talk more loudly."
     audio: true
   - id: tech-17
-    text: "{{c1::Scroll down}} and you'll see the opening hours."
+    text: "{{c1::Scroll down::move the page}} and you'll see the opening hours."
     note: "scroll down / scroll up."
     audio: true

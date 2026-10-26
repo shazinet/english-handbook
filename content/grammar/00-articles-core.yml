@@ -51,7 +51,7 @@ cards:
     note: "Now 'the' IS correct — 'of a freelancer' specifies WHICH life. Compare card art-08."
 
   - id: art-12
-    text: "We're going to refactor the site by {{c1::next}} month."
+    text: "We're going to refactor the site by {{c1::next::the coming one}} month."
     note: "NO article before next/last + a time word."
     trap: "NOT 'by THE next month'. It's 'next month', 'last week', 'next year'."
 
@@ -89,11 +89,11 @@ cards:
     note: "a, not an — 'university' starts with a /y/ consonant sound despite the vowel letter."
 
   - id: art-21
-    text: "Would you like {{c1::some}} coffee?"
+    text: "Would you like {{c1::some::an amount of}} coffee?"
     note: "some for an unspecified amount of an uncountable noun — the everyday alternative to no article."
 
   - id: art-22
-    text: "I don't have {{c1::any}} plans for the weekend."
+    text: "I don't have {{c1::any::none at all}} plans for the weekend."
     note: "any in negatives and questions where some would go in a statement."
 
   - id: art-m01

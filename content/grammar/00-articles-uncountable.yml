@@ -33,7 +33,7 @@ cards:
     trap: "NOT 'an information', NOT 'informations'."
 
   - id: unc-06
-    text: "The news {{c1::is}} much better today."
+    text: "The news {{c1::is::be}} much better today."
     note: "news ends in -s but is uncountable and takes a SINGULAR verb."
     trap: "NOT 'the news are'."
 

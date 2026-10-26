@@ -30,7 +30,7 @@ from anki.import_export_pb2 import (
 )
 
 from ankidb import COLLECTION, DECK_PREFIX, LEGACY_PREFIX, ours
-from paths import APKG, content_files, load_profile
+from paths import APKG, CONTENT, MY_CARDS, PROFILE, content_files, load_profile
 
 CONFIG_NAME = DECK_PREFIX
 GATHER_BY_DECK, GATHER_BY_POSITION = 0, 1   # DeckConfig.Config.NewCardGatherPriority
@@ -44,6 +44,15 @@ def ensure_anki_closed() -> None:
             "If you review on a phone: sync the desktop BEFORE quitting, so this\n"
             "import doesn't diverge from AnkiWeb and force a one-way sync."
         )
+
+
+def stale_sources() -> list[Path]:
+    """Card files (and the profile, which decides what's in the deck) edited
+    since english.apkg was built. Importing then would bring in the old build,
+    so /mine's new cards would silently not arrive."""
+    built = APKG.stat().st_mtime
+    sources = [*CONTENT.rglob("*.yml"), *MY_CARDS.glob("*.yml"), PROFILE]
+    return [p for p in sources if p.exists() and p.stat().st_mtime > built]
 
 
 def migrate_deck_name(col: Collection) -> None:
@@ -127,6 +136,11 @@ def main() -> None:
         ensure_anki_closed()  # a copy can be imported into with Anki open
     if not APKG.exists():
         sys.exit(f"{APKG.name} not found — run build/build_anki.py first.")
+    stale = stale_sources()
+    if stale:
+        names = ", ".join(p.name for p in stale[:3]) + (f" and {len(stale) - 3} more" if len(stale) > 3 else "")
+        sys.exit(f"{APKG.name} is older than your cards ({names} changed since it was built).\n"
+                 "Run ./english build first, then ./english deck. Anki can stay closed.")
     if not target.exists():
         sys.exit(f"no Anki collection at {target}\nLaunch Anki once to create it.")
 

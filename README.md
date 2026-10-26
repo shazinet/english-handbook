@@ -258,7 +258,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `./english speak` | Talk instead of writing: records you, transcribes on this Mac, adds it to today's journal for `/check` (`--file memo.m4a` for a phone recording) |
 | `./english build` | Generates audio and builds the deck file |
 | `./install.sh --speech` | Optional: Kokoro voices for card audio and Whisper for `speak` (~1.5 GB) |
-| `./english deck` | Imports it into Anki. **Anki must be closed**, and synced first |
+| `./english deck` | Imports it into Anki. **Anki must be closed**, and synced first. Refuses a build older than your cards: run `./english build` first |
 | `./english level` | Level history and progress signals; `--efset N` records a test |
 | `./english report` | Writes and opens your shareable progress page |
 | `./english check` / `stats` | Validates card files / counts cards per topic |

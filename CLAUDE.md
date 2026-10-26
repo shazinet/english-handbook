@@ -36,7 +36,7 @@ and what to write about — are in their profile:
 ./english check                 # validate all card files (content/ + me/my-cards/)
 ./english stats                 # cards per topic, and what the learner's level leaves out
 ./english build                 # audio + english.apkg
-./english deck                  # import into Anki, FSRS, new/day from the profile
+./english deck                  # import into Anki, FSRS, new/day from the profile; refuses a stale build
 ./english                       # home screen: path, next step, quests, practice (home.py; --json)
 ./english status                # today's three checkboxes + streak (status.py --json)
 ./english log KIND ...          # record a practice session in me/activity.log

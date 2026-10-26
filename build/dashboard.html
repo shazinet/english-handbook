@@ -123,7 +123,59 @@
 .ep-filter button[aria-pressed=true] { color: var(--color-fg); border-color: var(--color-fg); }
 .ep-filter button:focus-visible { outline: 2px solid var(--color-fg); }
 
+/* home: path, next step, quests, practice */
+.ep-home { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: var(--cds-gap-md); align-items: start; }
+@media (max-width: 780px) { .ep-home { grid-template-columns: 1fr; } }
+.ep-stack { display: grid; gap: var(--cds-gap-md); min-width: 0; }
+.ep-unit { display: grid; gap: 2px; padding: var(--cds-pad-md) var(--cds-pad-lg); border-radius: var(--cds-radius); background: color-mix(in srgb, var(--ep-accent) 13%, var(--color-panel)); border-left: 4px solid var(--ep-accent); }
+.ep-unit .k { font-size: var(--cds-font-size-caption); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+.ep-unit .t { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-title); line-height: 1.15; }
+.ep-stars { letter-spacing: .1em; color: var(--color-fg-muted); }
+.ep-stars .on { color: var(--ep-gold); }
+.ep-path { display: grid; gap: 18px; justify-items: center; padding: var(--cds-pad-md) 0 var(--cds-pad-sm); overflow: hidden; }
+.ep-node { display: grid; justify-items: center; gap: 6px; text-align: center; transform: translateX(var(--x, 0px)); }
+.ep-disc { --disc: var(--cds-chart-grid); --ink: var(--color-fg-muted); width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--disc); color: var(--ink); box-shadow: 0 5px 0 color-mix(in srgb, var(--disc) 62%, black); position: relative; }
+.ep-disc svg { width: 28px; height: 28px; }
+.ep-node.done .ep-disc { --disc: var(--color-ok); --ink: var(--color-bg); }
+.ep-node.next .ep-disc { --disc: var(--ep-accent); --ink: var(--color-bg); outline: 4px solid color-mix(in srgb, var(--ep-accent) 30%, transparent); outline-offset: 5px; }
+.ep-node.chest .ep-disc { border-radius: 16px; }
+.ep-node.chest.open .ep-disc { --disc: var(--ep-gold); --ink: var(--color-bg); }
+.ep-node .nm { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); max-width: 14rem; }
+.ep-node.locked .nm { color: var(--color-fg-muted); }
+.ep-start { font-size: var(--cds-font-size-caption); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ep-accent); background: var(--color-panel); border: 2px solid var(--color-border-line); border-radius: 10px; padding: 2px 10px; }
+.ep-upnext { display: grid; gap: var(--cds-gap-xs); margin: 0; padding: 0; list-style: none; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ep-upnext li { display: flex; align-items: center; gap: var(--cds-gap-sm); }
+.ep-upnext svg { width: 14px; height: 14px; flex: none; }
+.ep-code { font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace); font-size: var(--cds-font-size-caption); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: 6px; padding: 2px 6px; overflow-wrap: anywhere; }
+.ep-cmd { display: flex; flex-wrap: wrap; align-items: center; gap: var(--cds-gap-xs); }
+.ep-copy { all: unset; cursor: pointer; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding: 1px 8px; border-radius: 999px; border: 1px solid var(--color-border-line); }
+.ep-copy:hover { color: var(--color-fg); border-color: var(--color-fg-muted); }
+.ep-copy:focus-visible { outline: 2px solid var(--color-fg); }
+.ep-nextstep { border-left: 4px solid var(--ep-accent); }
+.ep-nextstep .t { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.ep-quests { display: grid; gap: var(--cds-gap-md); }
+.ep-quest { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px var(--cds-gap-md); align-items: center; }
+.ep-quest .qi { grid-row: span 2; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--ep-gold) 18%, transparent); color: var(--ep-gold); }
+.ep-quest.done .qi { background: color-mix(in srgb, var(--color-ok) 18%, transparent); color: var(--color-ok); }
+.ep-quest .qi svg { width: 20px; height: 20px; }
+.ep-quest .qn { display: flex; justify-content: space-between; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-body); }
+.ep-quest .qn span { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ep-hub { display: grid; gap: var(--cds-gap-lg); }
+.ep-hub-group { display: grid; gap: var(--cds-gap-sm); }
+.ep-acts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-sm); }
+.ep-act { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px var(--cds-gap-md); align-items: start; padding: var(--cds-pad-md); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: var(--color-bg); position: relative; }
+.ep-act .ai { grid-row: span 3; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: var(--act); background: color-mix(in srgb, var(--act) 16%, transparent); }
+.ep-act .ai svg { width: 22px; height: 22px; }
+.ep-act .an { display: flex; align-items: baseline; gap: var(--cds-gap-sm); flex-wrap: wrap; }
+.ep-act .an b { font-size: var(--cds-font-size-body); }
+.ep-act .xp { font-size: var(--cds-font-size-caption); font-weight: 600; color: var(--color-fg); background: color-mix(in srgb, var(--ep-gold) 16%, transparent); border-radius: 999px; padding: 0 8px; }
+.ep-act .bl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+.ep-act .cnt { position: absolute; top: -8px; right: -6px; font-size: var(--cds-font-size-caption); font-weight: 700; color: var(--color-bg); background: var(--color-bad); border-radius: 999px; padding: 0 7px; font-variant-numeric: tabular-nums; }
+.ep-act .tick { color: var(--color-ok); font-size: var(--cds-font-size-caption); font-weight: 600; }
+
 @media (prefers-reduced-motion: no-preference) {
+  .ep-start { animation: ep-bob 1.6s ease-in-out infinite; }
+  @keyframes ep-bob { 50% { transform: translateY(-3px); } }
   .ep:not([data-drawn]) .ep-bar > span { animation: ep-grow var(--cds-dur-slow) var(--cds-ease-out) both; animation-duration: 900ms; }
   .ep:not([data-drawn]) .ep-arc { animation: ep-arc 1100ms var(--cds-ease-out) both; }
   .ep:not([data-drawn]) .ep-medal.t1, .ep:not([data-drawn]) .ep-medal.t2, .ep:not([data-drawn]) .ep-medal.t3 { animation: ep-pop 600ms var(--cds-ease-out) both; }
@@ -159,9 +211,41 @@
         <span class="ep-rank dash-skeleton" data-source="game" data-field="title" data-row="0">—</span>
         <div class="ep-bar" id="level-bar" data-source="game"><span></span></div>
         <div class="ep-row ep-sub"><span><b data-source="game" data-field="xp_into_level" data-row="0">—</b> of <span data-source="game" data-field="xp_for_level" data-row="0">—</span> XP into this level</span><span><span data-source="game" data-field="xp" data-row="0">—</span> XP in total</span></div>
-        <p class="ep-note">XP comes from every part of the loop. Writing, /check and speaking are worth far more than single card reviews, and a complete day earns a bonus. The Badges tab has the full table.</p>
+        <p class="ep-note">XP comes from every part of the loop and every practice activity. Writing, /check and speaking are worth far more than single card reviews; complete days, daily quests and finished units earn bonuses. The Badges tab has the full table.</p>
       </div>
     </div>
+  </div>
+
+  <div class="ep-home">
+    <div class="ep-card" id="path-card">
+      <div class="ep-unit" id="unit-banner">
+        <span class="k">Unit <span class="dash-skeleton" data-source="current_unit" data-field="number" data-row="0">—</span> · <span data-source="current_unit" data-field="level" data-row="0">—</span></span>
+        <span class="t dash-skeleton" data-source="current_unit" data-field="point" data-row="0">—</span>
+        <span class="ep-sub"><span class="ep-stars" id="unit-stars" data-source="current_unit"></span> · <span data-source="current_unit" data-field="lessons_done" data-row="0">—</span> of <span data-source="current_unit" data-field="lessons_total" data-row="0">—</span> lessons · <span data-source="game" data-field="units_done" data-row="0">—</span> of <span data-source="game" data-field="units_total" data-row="0">—</span> units finished</span>
+      </div>
+      <div class="ep-path" id="path" data-source="lessons" style="min-height:320px"></div>
+      <h3 class="ep-h3">Coming up</h3>
+      <p class="ep-note">Units are your topics, ordered by how often each shows up in your error log lately. Locks are only a guide: any activity is open at any time.</p>
+      <ul class="ep-upnext" id="upnext" data-source="upcoming_units"></ul>
+    </div>
+    <div class="ep-stack">
+      <div class="ep-card ep-nextstep" id="next-step">
+        <span class="ep-label">Next step</span>
+        <span class="t dash-skeleton" data-source="next_step" data-field="text" data-row="0">—</span>
+        <div class="ep-cmd" id="next-cmd"><code class="ep-code" data-source="next_step" data-field="command" data-row="0">—</code></div>
+        <p class="ep-note">Anki, the journal and /check come first: a day only counts when all three are done. Then the path.</p>
+      </div>
+      <div class="ep-card" id="quests-card">
+        <div class="ep-row"><h2 class="ep-h3">Daily quests</h2><span class="ep-note"><span data-source="game" data-field="quests_done" data-row="0">—</span> of 3 done · +10 XP each, +20 for all three</span></div>
+        <div class="ep-quests" id="quests" data-source="quests"></div>
+        <p class="ep-note">New quests every day at midnight.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ep-card" id="practice-card">
+    <div class="ep-row"><h2 class="ep-h2">Practice</h2><span class="ep-note">Run these in Claude Code or your terminal · <span data-source="game" data-field="mistakes_open" data-row="0">—</span> mistakes open, <span data-source="game" data-field="mistakes_resolved" data-row="0">—</span> resolved</span></div>
+    <div class="ep-hub" id="hub" data-source="activities"></div>
   </div>
 
   <div class="ep-tiles" id="game-tiles">
@@ -458,7 +542,14 @@ dash.calc('level_retention', { inputs: ['practice'], title: 'Retention by topic 
 dash.calc('speaking', { inputs: ['practice'], title: 'Speaking summary', description: 'Recordings from ./english speak: count, minutes, and the latest words per minute.', fn: (practice) => practice.filter((r) => r.section === 'speaking') });
 dash.calc('talks', { inputs: ['practice'], title: 'Speaking recordings', description: 'The last 20 recordings: length, words per minute, long pauses and fillers per minute.', fn: (practice) => practice.filter((r) => r.section === 'talk') });
 dash.calc('game', { inputs: ['practice'], title: 'XP and level', description: 'Total XP, practice level, streaks, this week against last, badge counts and speaking pace against native speech.', fn: (practice) => practice.filter((r) => r.section === 'game') });
-dash.calc('xp_days', { inputs: ['practice'], title: 'XP per day', description: 'XP on each of the last 14 days, split into Anki, writing, speaking and the complete-day bonus.', fn: (practice) => practice.filter((r) => r.section === 'xp_day') });
+dash.calc('xp_days', { inputs: ['practice'], title: 'XP per day', description: 'XP on each of the last 14 days, split into Anki, writing, speaking, practice activities and bonuses (complete day, quests, unit chests).', fn: (practice) => practice.filter((r) => r.section === 'xp_day') });
+dash.calc('units', { inputs: ['practice'], title: 'Path units', description: 'Every unit on the path in order: finished, current and locked, with stars and lessons done.', fn: (practice) => practice.filter((r) => r.section === 'unit') });
+dash.calc('current_unit', { inputs: ['units'], title: 'Current unit', description: 'The first unfinished unit on the path.', fn: (units) => units.filter((u) => u.state === 'current') });
+dash.calc('upcoming_units', { inputs: ['units'], title: 'Coming up', description: 'The next three locked units after the current one.', fn: (units) => units.filter((u) => u.state === 'locked').slice(0, 3) });
+dash.calc('lessons', { inputs: ['practice'], title: 'Lessons', description: "The current unit's four lessons, whether each is done, and how to do it.", fn: (practice) => practice.filter((r) => r.section === 'lesson') });
+dash.calc('next_step', { inputs: ['practice'], title: 'Next step', description: 'The one thing to do next: the daily loop first, then the path.', fn: (practice) => practice.filter((r) => r.section === 'next') });
+dash.calc('quests', { inputs: ['practice'], title: 'Daily quests', description: "Today's three quests and progress on each.", fn: (practice) => practice.filter((r) => r.section === 'quest') });
+dash.calc('activities', { inputs: ['practice'], title: 'Practice activities', description: 'Every practice activity with its command, XP, a count where there is one, and whether it was done today.', fn: (practice) => practice.filter((r) => r.section === 'activity') });
 dash.calc('goals', { inputs: ['practice'], title: 'Weekly goals', description: "This week's four goals, with progress so far.", fn: (practice) => practice.filter((r) => r.section === 'goal') });
 dash.calc('badges', { inputs: ['practice'], title: 'Badges', description: 'Every badge: tier earned, current value, the next tier and its rule.', fn: (practice) => practice.filter((r) => r.section === 'badge') });
 dash.calc('xp_rules', { inputs: ['practice'], title: 'XP rules', description: 'How much XP each part of the loop earns.', fn: (practice) => practice.filter((r) => r.section === 'xp_rule') });
@@ -525,6 +616,15 @@ dash.calc('checklist', {
     feather: 'M20 4C11.5 4 6.5 9 6.5 17.5L4 20 M6.5 17.5c7.5 0 12-4.5 13.5-13.5 M9.5 14.5h6',
     mountain: 'M3 20l6.5-11 4 6.5 2.5-3.5L21 20z',
     lock: 'M7.5 11V8a4.5 4.5 0 0 1 9 0v3 M5.5 11h13v9h-13z',
+    chat: 'M4 5h16v10H10l-5 4.5V5z',
+    repeat: 'M4.5 11a7 7 0 0 1 12.2-4.2L19 9 M19 4v5h-5 M19.5 13a7 7 0 0 1-12.2 4.2L5 15 M5 20v-5h5',
+    book: 'M4 5.5c3-1.2 5.8-1 8 1v13c-2.2-2-5-2.2-8-1z M20 5.5c-3-1.2-5.8-1-8 1v13c2.2-2 5-2.2 8-1z',
+    headphones: 'M4 15v-3a8 8 0 0 1 16 0v3 M4 14.5h3.5v5.5H4z M16.5 14.5H20v5.5h-3.5z',
+    map: 'M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z M9 4v13.5 M15 6.5V20',
+    video: 'M3 7h12v10H3z M15 10.5 21 7v10l-6-3.5',
+    chest: 'M4 11h16v9H4z M4 11a8 5.5 0 0 1 16 0 M4 14h16 M10.5 12.5h3v3.5h-3z',
+    play: 'M8.5 5.5 18.5 12l-10 6.5z',
+    bolt: 'M13.5 3 5 13.5h6.5L10.5 21 19 10.5h-6.5z',
   };
   function icon(name, size) {
     const s = document.createElementNS(SVGNS, 'svg');
@@ -745,7 +845,7 @@ dash.calc('checklist', {
     drawBadges();
   }));
 
-  const XP_PARTS = [['anki', 'Anki'], ['writing', 'Writing'], ['speaking', 'Speaking'], ['bonus', 'Complete-day bonus']];
+  const XP_PARTS = [['anki', 'Anki'], ['writing', 'Writing'], ['speaking', 'Speaking'], ['practice', 'Practice'], ['bonus', 'Bonuses (day, quests, chests)']];
   function drawXpDays() {
     const box = document.getElementById('xp-days');
     if (status('xp_days') === 'error') return fail(box);
@@ -1104,8 +1204,160 @@ dash.calc('checklist', {
     });
   }
 
+  // ---- home: path, next step, quests, practice hub ----
+  const runnable = (text) => /^(\/|\.\/)/.test(text);
+  function copyButton(text) {
+    const b = el('button', 'ep-copy', 'Copy');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Copy ${text}`);
+    b.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        b.textContent = 'Copied';
+      } catch (err) {
+        const sel = getSelection(), range = document.createRange();
+        range.selectNodeContents(b.previousElementSibling);
+        sel.removeAllRanges(); sel.addRange(range);
+        b.textContent = 'Selected: press ⌘C';
+      }
+      setTimeout(() => { b.textContent = 'Copy'; }, 2000);
+    });
+    return b;
+  }
+  // "/journal "X", then /check" copies the first command; the rest is a reminder
+  function cmdParts(text) {
+    const code = el('code', 'ep-code', text);
+    return runnable(text) ? [code, copyButton(text.split(', then')[0].split('  (')[0])] : [code];
+  }
+
+  const ZIG = [0, 46, 70, 46, 0, -46, -70, -46];
+  function drawPath() {
+    const box = document.getElementById('path');
+    if (status('lessons') === 'error') return fail(box);
+    const rows = ok('lessons');
+    const cu = ok('current_unit');
+    if (!rows) return;
+    const stars = document.getElementById('unit-stars');
+    stars.replaceChildren();
+    if (cu && cu[0]) {
+      const n = Number(cu[0].stars);
+      for (let i = 1; i <= 3; i++) stars.append(el('span', i <= n ? 'on' : null, i <= n ? '★' : '☆'));
+      stars.setAttribute('aria-label', `${n} of 3 stars`);
+    }
+    if (!rows.length) {
+      box.style.minHeight = '0';
+      box.replaceChildren(el('p', 'ep-note', 'Every unit on the path is finished. Pick anything from Practice below.'));
+      return;
+    }
+    const scale = Math.min(1, (box.clientWidth || 320) / 360);
+    const shift = (i) => `${Math.round(ZIG[i % ZIG.length] * scale)}px`;
+    const nodes = rows.map((l, i) => {
+      const state = l.done ? 'done' : l.is_next ? 'next' : 'locked';
+      const n = el('div', `ep-node ${state}`);
+      n.style.setProperty('--x', shift(i));
+      if (state === 'next') n.append(el('span', 'ep-start', 'Start'));
+      const disc = el('div', 'ep-disc');
+      disc.appendChild(icon(l.done ? 'check' : state === 'next' ? l.icon : 'lock'));
+      disc.setAttribute('role', 'img');
+      disc.setAttribute('aria-label', `${l.name}: ${l.done ? 'done' : state === 'next' ? 'next' : 'not yet'}`);
+      n.append(disc, el('span', 'nm', l.name));
+      if (state === 'next') {
+        const c = el('div', 'ep-cmd');
+        c.style.justifyContent = 'center';
+        c.append(...cmdParts(l.how));
+        n.append(c);
+      } else if (l.done && l.done_on) {
+        n.append(el('span', 'ep-sub', 'done ' + dayFmt(parseDay(l.done_on))));
+      }
+      return n;
+    });
+    const open = rows.every((l) => l.done);
+    const chest = el('div', 'ep-node chest' + (open ? ' open' : ''));
+    chest.style.setProperty('--x', shift(rows.length));
+    const cd = el('div', 'ep-disc');
+    cd.appendChild(icon('chest'));
+    chest.append(cd, el('span', 'nm', open ? 'Chest opened: +50 XP' : 'Chest: +50 XP when all four are done'));
+    box.replaceChildren(...nodes, chest);
+  }
+
+  function drawUpnext() {
+    const box = document.getElementById('upnext');
+    if (status('upcoming_units') === 'error') return fail(box);
+    const rows = ok('upcoming_units');
+    if (!rows) return;
+    if (!rows.length) { box.replaceChildren(el('li', null, 'Nothing locked: this is the last unit.')); return; }
+    box.replaceChildren(...rows.map((u) => {
+      const li = el('li');
+      const errs = Number(u.errors_recent);
+      li.append(icon('lock'), el('span', null, `${u.number}. ${u.point}`),
+        el('span', null, errs ? `· ${fmt(errs)} error${errs === 1 ? '' : 's'} lately` : ''));
+      return li;
+    }));
+  }
+
+  function drawNextStep() {
+    const box = document.getElementById('next-cmd');
+    box.querySelectorAll('.ep-copy').forEach((n) => n.remove());
+    const rows = ok('next_step');
+    if (rows && rows[0] && runnable(rows[0].command)) box.append(copyButton(rows[0].command.split('  (')[0]));
+  }
+
+  function drawQuests() {
+    const box = document.getElementById('quests');
+    if (status('quests') === 'error') return fail(box);
+    const rows = ok('quests');
+    if (!rows) return;
+    if (!rows.length) { box.replaceChildren(el('p', 'ep-note', 'No quests today.')); return; }
+    const val = (q) => (q.unit === 'min' ? one(Number(q.value)) : fmt(Number(q.value)));
+    box.replaceChildren(...rows.map((q) => {
+      const d = el('div', 'ep-quest' + (q.done ? ' done' : ''));
+      const qi = el('span', 'qi');
+      qi.appendChild(icon(q.done ? 'check' : 'bolt'));
+      const qn = el('div', 'qn');
+      qn.append(el('b', null, q.name), el('span', null, q.done ? 'done · +10 XP' : `${val(q)} / ${fmt(Number(q.target))} ${q.unit}`.trim()));
+      const b = el('div', 'ep-bar thin');
+      bar(b, q.progress, q.done ? 'var(--color-ok)' : 'var(--ep-gold)');
+      d.append(qi, qn, b);
+      return d;
+    }));
+  }
+
+  function drawPractice() {
+    const box = document.getElementById('hub');
+    if (status('activities') === 'error') return fail(box);
+    const rows = ok('activities');
+    if (!rows) return;
+    const card = (a, i) => {
+      const c = el('div', 'ep-act');
+      c.style.setProperty('--act', dash.colors[i % dash.colors.length]);
+      const ai = el('span', 'ai');
+      ai.appendChild(icon(a.icon));
+      const an = el('div', 'an');
+      an.append(el('b', null, a.name), el('span', 'xp', a.xp_label));
+      if (a.done_today) an.append(el('span', 'tick', '✓ today'));
+      const cmd = el('div', 'ep-cmd');
+      cmd.append(...cmdParts(a.command));
+      c.append(ai, an, el('p', 'bl', a.blurb), cmd);
+      if (Number(a.count) > 0) c.append(el('span', 'cnt', `${fmt(Number(a.count))} ${a.count_label}`));
+      return c;
+    };
+    box.replaceChildren(...Array.from(d3.group(rows, (r) => r.group), ([group, acts]) => {
+      const sec = el('div', 'ep-hub-group');
+      const grid = el('div', 'ep-acts');
+      grid.append(...acts.map((a) => card(a, rows.indexOf(a))));
+      sec.append(el('h3', 'ep-h3', group), grid);
+      return sec;
+    }));
+  }
+
   function drawAll() {
+    root.style.setProperty('--ep-accent', dash.colors[0]);
     fillValues();
+    drawPath();
+    drawUpnext();
+    drawNextStep();
+    drawQuests();
+    drawPractice();
     drawHero();
     drawToday();
     drawGoals();

@@ -1,7 +1,7 @@
 ---
 description: Role-play a real situation from your life, with a goal to achieve
 argument-hint: [a situation, e.g. "returning a faulty phone", or omit to pick from your profile]
-allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(./english log:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Run a role-play of: $1
@@ -68,6 +68,13 @@ Step out of character and give:
 Append the genuine errors to `me/errors.md` in the format `/check` uses, dated today
 and tagged with the grammar point. Append `DATE<TAB>SCENE<TAB>achieved|partly|not`
 to `me/roleplay.log`. If the same error came up twice or more, suggest `/mine`.
+
+Record the session for XP (`--goal yes` only when the goal was achieved in
+full; `--minutes` is a rough length of the scene):
+
+```
+./english log roleplay --goal yes --minutes 12 --note "SCENE"
+```
 
 ## Dashboard
 

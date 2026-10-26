@@ -1,7 +1,7 @@
 ---
 description: Create today's journal entry with a prompt aimed at your current weak point
 argument-hint: [optional topic, or "free" for an unprompted entry]
-allowed-tools: Read, Write, Glob, Grep, Bash(date:*), Bash(./english vocab:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+allowed-tools: Read, Write, Glob, Grep, Bash(date:*), Bash(./english vocab:*), Bash(./english home:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Create today's journal entry at `me/journal/YYYY-MM-DD.md` (get the date with `date +%F`).
@@ -17,8 +17,12 @@ is the fallback target.
 If $1 names a topic, use it. If $1 is "free", see *Free entries* below. Otherwise
 pick the target yourself:
 
-1. Read `me/errors.md`. The grammar point with the most entries in the last two
-   weeks is the default target — that's demonstrated weakness, not guesswork.
+1. Run `./english home --json`. The path's current unit (`unit.point`) is the
+   default target: unfinished units are ranked by errors in the last 60 days,
+   so it's demonstrated weakness, not guesswork, and writing about it ticks the
+   unit's "Write about it" lesson once the entry is checked. If that unit's
+   write lesson is already done, or there's no unit, take the grammar point
+   with the most entries in `me/errors.md` in the last two weeks.
 2. If `me/errors.md` is thin (under ~5 entries), fall back to the profile's
    `weak_areas`, and failing that to the most recently added `content/` topic
    at or below the learner's level.
@@ -60,7 +64,9 @@ one regardless of what $1 says, and explain why.
 ## Recording what you chose
 
 Append one `DATE<TAB>TARGET` line to `me/journal/.prompts.log` every time, using
-`free` for untargeted entries. **Read that file, not the journal entries, to
+`free` for untargeted entries. Start TARGET with the exact `point:` value of the
+topic (`6B Conditionals — why you chose it`): that is how the path knows which
+unit the entry belongs to. **Read that file, not the journal entries, to
 decide whether a free entry is due** — the prompt text is deleted when the entry
 is written, so a free entry leaves no trace in the file itself.
 

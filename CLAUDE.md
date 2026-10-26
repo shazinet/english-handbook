@@ -37,7 +37,11 @@ and what to write about — are in their profile:
 ./english stats                 # cards per topic, and what the learner's level leaves out
 ./english build                 # audio + english.apkg
 ./english deck                  # import into Anki, FSRS, new/day from the profile
+./english                       # home screen: path, next step, quests, practice (home.py; --json)
 ./english status                # today's three checkboxes + streak (status.py --json)
+./english log KIND ...          # record a practice session in me/activity.log
+./english mistakes --next 10    # open errors for /mistakes (--mark KEY ok|miss, --stats)
+./english listen MIN / say TEXT # log listening; read text aloud in the card voice
 ./english level                 # level history and signals; --efset N / --record LVL
 ./english report                # shareable progress page in me/reports/
 ./english remind --dry-run      # the push that would fire now; sends nothing
@@ -192,6 +196,21 @@ gap: Anki reps → daily writing in `me/journal/` → `/check` corrects it and l
 to `me/errors.md` → `/mine` turns recurring errors into new cards in
 `me/my-cards/`. When adding features, preserve that loop.
 
+**Practice and the path** sit on top of the loop and never redefine a day.
+`/drill`, `/roleplay`, `/call`, `/mistakes`, `/story` and `./english listen`
+each append one line to `me/activity.log` (`build/activity.py`), because they
+leave no other trace; everything else is still read from its own evidence.
+`build/gamify.py` turns that into XP, three daily quests and badges.
+`build/learning_path.py` makes one unit per topic, ordered by recent errors,
+and ticks four lessons per unit from evidence: no new cards left, a logged
+drill, a checked journal entry whose `.prompts.log` target names the point,
+and a mistakes round. So `/journal` must start each target with the exact
+`point:`. `/mistakes` marks answers in `me/mistakes.log` (`build/mistakes.py`):
+a row of `errors.md` counts as resolved after it's fixed on two different days,
+and misses are never re-logged to `errors.md`. `./english` with no arguments
+(`build/home.py`) and the dashboard both render `dashboard.gather()`, so they
+can't disagree.
+
 **Level** sits beside the loop, not in it. `/level` runs a short adaptive
 placement and records it through `./english level --record`, which also updates
 the profile's `level`, `deck.max_level` (one step above, capped at C1 where the
@@ -208,7 +227,7 @@ step with the learner's data. `./english dashboard` (`build/dashboard.py`)
 writes `me/dashboard/data.json` and the flat `practice.json` the page loads;
 the page itself is `build/dashboard.html`, app code with no learner data in it.
 The artifact's link, the current data file's id and the page's hash live in
-`me/dashboard/`, and the loop commands (`/journal`, `/check`, `/drill`, `/roleplay`, `/mine`, `/level`) refresh it as their last step when
+`me/dashboard/`, and the loop commands (`/journal`, `/check`, `/drill`, `/roleplay`, `/call`, `/mistakes`, `/story`, `/mine`, `/level`) refresh it as their last step when
 `me/dashboard/artifact-url` exists. Anki reviews alone can't trigger a refresh;
 they appear on the next one.
 

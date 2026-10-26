@@ -376,6 +376,9 @@ PASSTHROUGH = {
     "level": ("level.py", [], "your level history; --efset N records a test score"),
     "report": ("report.py", [], "a shareable progress page (no journal text)"),
     "dashboard": ("dashboard.py", [], "data for your private dashboard (/dashboard publishes it)"),
+    "home": ("home.py", [], "your path, next step, daily quests and practice menu"),
+    "log": ("activity.py", [], "record a practice session (/drill, /roleplay … do this)"),
+    "mistakes": ("mistakes.py", [], "your logged errors to re-correct (/mistakes uses it)"),
 }
 
 
@@ -393,6 +396,22 @@ def cmd_speak(args: list[str]) -> int:
     return subprocess.call([str(SPEECH_PYTHON), str(BUILD / "speak.py"), *args], cwd=ROOT)
 
 
+def cmd_listen(args: list[str]) -> int:
+    """./english listen 25 [--what "a podcast"] -> an activity.log line."""
+    if not args or not args[0].isdigit():
+        print('usage: ./english listen MINUTES [--what "what you listened to"]')
+        return 2
+    rest = args[1:]
+    if rest[:1] == ["--what"]:
+        rest = ["--note", *rest[1:]]
+    return run_script("activity.py", "listen", "--minutes", args[0], *rest)
+
+
+def cmd_say(args: list[str]) -> int:
+    """Read text (or a file) aloud in the profile's voice; /story and /call use it."""
+    return run_script("audio.py", "--say", *args)
+
+
 def cmd_reminders(args: list[str]) -> int:
     return subprocess.call([str(ROOT / "automation/install_reminders.sh"), *args])
 
@@ -403,6 +422,8 @@ COMMANDS = {
     "doctor": (cmd_doctor, "check the whole install and how to fix it"),
     "build": (cmd_build, "generate audio and build english.apkg"),
     "speak": (cmd_speak, "record yourself; the transcript joins today's journal"),
+    "listen": (cmd_listen, "log listening time (podcasts, series) for XP"),
+    "say": (cmd_say, "read text or a file aloud in your card voice"),
     "reminders": (cmd_reminders, "install evening reminders (--uninstall)"),
 }
 
@@ -413,11 +434,14 @@ def usage() -> None:
     rows += [(n, d) for n, (_, _, d) in PASSTHROUGH.items()]
     for name, desc in rows:
         print(f"  {name:<10} {desc}")
-    print("\nIn Claude Code (run `claude` here): /level /journal /check /drill /roleplay /mine")
+    print("\nIn Claude Code (run `claude` here): /practice /journal /check /drill /roleplay\n"
+          "  /call /mistakes /story /mine /level")
 
 
 def main() -> int:
-    if len(sys.argv) < 2 or sys.argv[1] in ("help", "-h", "--help"):
+    if len(sys.argv) < 2:
+        return run_script("home.py")
+    if sys.argv[1] in ("help", "-h", "--help"):
         usage()
         return 0
     name, args = sys.argv[1], sys.argv[2:]

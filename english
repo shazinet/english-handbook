@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# The one entry point: ./english <command>. Run with no arguments for the list.
+# The one entry point: ./english <command>. No arguments shows the home screen;
+# ./english help lists the commands.
 #
 # Prefers the isolated Python that install.sh builds in .venv/, where the anki
 # library is pinned to the installed Anki app's version. Falls back to python3 so

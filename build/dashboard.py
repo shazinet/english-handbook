@@ -19,7 +19,10 @@ import sys
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 
+import activity
 import gamify
+import mistakes
+import learning_path
 from build_anki import included
 from paths import JOURNAL, ME, content_files, load_profile
 from progress import (
@@ -179,6 +182,13 @@ def gather() -> dict:
         for k in ("new", "learning", "young", "mature", "suspended"):
             totals[k] += t[k]
 
+    sessions = activity.read()
+    mist = mistakes.state(today)
+    route = learning_path.build(
+        today, lib, cards["topics"],
+        {p: {"retention": r["retention"], "reviews": r["reviews"]} for p, r in retention.items()},
+        errors, prompts, {e["date"] for e in entries if e["checked"]}, sessions, mist)
+
     meter = writing_level()
     game = gamify.build({
         "today": today, "status": status, "min_words": min_words, "daily": daily,
@@ -186,6 +196,7 @@ def gather() -> dict:
         "mature": totals["mature"], "retention_30": stats["retention"],
         "reviews_30": stats["reviews"], "own_cards": sum(r["own"] for r in lib.values()),
         "free_entries": len(free), "recorded_level": (meter["recorded"] or {}).get("overall"),
+        "activities": sessions, "mistakes": mist, "path": route,
     })
 
     return {
@@ -219,6 +230,10 @@ def gather() -> dict:
         },
         "level_meter": meter,
         "game": game,
+        "path": route,
+        "next": learning_path.next_step(status, route),
+        "mistakes": {k: mist[k] for k in ("open", "resolved")},
+        "sessions": sessions[-20:],
         "heatmap": heat,
         "topics": topics,
         "journal": {
@@ -278,8 +293,24 @@ def rows(d: dict) -> list[dict]:
     })
     out += [{"section": "talk", "at": f"{t['date']} {t['time']}", **t} for t in sp["recent"]]
     g = d["game"]
+    route = d["path"]
     out.append({"section": "game", **{k: v for k, v in g.items()
-                                       if k not in ("days", "goals", "badges", "rules")}})
+                                       if k not in ("days", "goals", "badges", "rules", "quests", "activities")},
+                "units_done": route["units_done"], "units_total": route["units_total"],
+                "stars": route["stars"], "stars_total": route["stars_total"],
+                "mistakes_open": d["mistakes"]["open"], "mistakes_resolved": d["mistakes"]["resolved"]})
+    out.append({"section": "next", **d["next"]})
+    for u in route["units"]:
+        out.append({"section": "unit", **{k: u[k] for k in (
+            "number", "point", "level", "kind", "state", "stars", "lessons_done", "lessons_total",
+            "errors_recent", "retention_30", "completed_on")}})
+    if route["current"]:
+        nxt = route["next_lesson"]
+        out += [{"section": "lesson", "unit": route["current"]["point"], "number": i, **l,
+                 "is_next": bool(nxt and l["id"] == nxt["id"])}
+                for i, l in enumerate(route["current"]["lessons"], 1)]
+    out += [{"section": "quest", **q} for q in g["quests"]]
+    out += [{"section": "activity", **a} for a in g["activities"]]
     out += [{"section": "xp_rule", **x} for x in g["rules"]]
     out += [{"section": "xp_day", **x} for x in g["days"]]
     out += [{"section": "goal", **x} for x in g["goals"]]
@@ -349,6 +380,10 @@ def changes(old: dict | None, new: dict) -> str:
     delta("speaking sessions", (old.get("speaking") or {}).get("sessions"), new["speaking"]["sessions"])
     delta("streak", old.get("today", {}).get("streak"), new["today"]["streak"])
     delta("XP", (old.get("game") or {}).get("xp"), new["game"]["xp"])
+    delta("path units finished", (old.get("path") or {}).get("units_done"), new["path"]["units_done"])
+    delta("mistakes resolved", (old.get("mistakes") or {}).get("resolved"), new["mistakes"]["resolved"])
+    if old.get("date") == new["date"]:
+        delta("quests done today", (old.get("game") or {}).get("quests_done"), new["game"]["quests_done"])
     old_tiers = {b["id"]: b["tier"] for b in (old.get("game") or {}).get("badges", [])}
     if old_tiers:
         for b in new["game"]["badges"]:

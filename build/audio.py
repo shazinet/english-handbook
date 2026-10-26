@@ -15,6 +15,12 @@ Output is cached by card id and a hash of voice and text: unchanged cards are
 not regenerated, so re-running is cheap. Clips from voices other than the
 original `say` Samantha are named `<id>-<voice>.m4a`, so switching voice gives
 Anki a new file name rather than a same-named file with different sound.
+
+`--say` reads text aloud instead, in the same voice: /story reads its story
+with it and /call speaks the other person's lines (`./english say`).
+
+    ./english say "Hi, how can I help?"        speak a line
+    ./english say me/stories/x.md --save x.m4a  speak a file's prose, keep the audio
 """
 
 import argparse
@@ -116,12 +122,41 @@ def synth_kokoro(todo: list[tuple], voice: str, accent: str) -> None:
                 print(f"  [{i}/{len(todo)}] {cid}")
 
 
+def prose(text: str) -> str:
+    """A markdown file's readable lines: no headings, comments or rules."""
+    keep = [line for line in text.splitlines()
+            if line.strip() and not line.lstrip().startswith(("#", "<!--", "---", "|"))]
+    return " ".join(line.strip().lstrip("-*> ").replace("*", "").replace("_", " ") for line in keep)
+
+
+def say_aloud(text: str, engine: str, accent: str, voice: str, save: Path | None = None) -> None:
+    """Speak text now (afplay), optionally keeping the audio as .m4a."""
+    with tempfile.TemporaryDirectory() as tmp:
+        if engine == "kokoro":
+            wav = Path(tmp) / "say.wav"
+            job = {"voice": voice, "lang": KOKORO_LANG[accent], "items": [{"text": text, "out": str(wav)}]}
+            worker = subprocess.run([str(SPEECH_PYTHON), str(Path(__file__).with_name("tts_kokoro.py"))],
+                                    input=json.dumps(job), text=True, capture_output=True)
+            if worker.returncode != 0:
+                sys.exit("Kokoro failed:\n" + worker.stderr.strip()[-1500:])
+        else:
+            wav = Path(tmp) / "say.aiff"
+            subprocess.run(["say", "-v", voice, "-o", str(wav), text], check=True)
+        if save:
+            save.parent.mkdir(parents=True, exist_ok=True)
+            to_m4a(wav, save)
+        subprocess.run(["afplay", str(wav)], check=False)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--engine", choices=("say", "kokoro"), help="override audio.engine")
     ap.add_argument("--voice", help="override the voice (say -v '?' lists them)")
     ap.add_argument("--force", action="store_true", help="regenerate everything")
+    ap.add_argument("--say", action="store_true", help="read the text (or a file) given aloud")
+    ap.add_argument("text", nargs="*", help="with --say: the words, or one file")
+    ap.add_argument("--save", type=Path, help="with --say: also keep the audio here (.m4a)")
     args = ap.parse_args()
 
     if sys.platform != "darwin":
@@ -132,6 +167,16 @@ def main() -> None:
         profile["audio"] = {**profile["audio"], "engine": args.engine}
     engine, accent, voice = settings(profile, quiet=False)
     voice = args.voice or voice
+
+    if args.text and not args.say:
+        ap.error("text is only read with --say")
+    if args.say:
+        source = Path(args.text[0]) if args.text else None
+        text = prose(source.read_text()) if len(args.text) == 1 and source.is_file() else " ".join(args.text)
+        if not text.strip():
+            sys.exit("nothing to say")
+        say_aloud(text, engine, accent, voice, args.save)
+        return
 
     MEDIA.mkdir(parents=True, exist_ok=True)
     cache = {} if args.force else load_cache()

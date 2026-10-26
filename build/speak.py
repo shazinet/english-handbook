@@ -8,6 +8,9 @@
     ./english speak --model mlx-community/whisper-small.en-mlx
                                        a smaller, faster model (default: large-v3-turbo)
     ./english speak --list-mics        the microphones this Mac can record from
+    ./english speak --turn             one conversational turn for /call: starts
+                                       when you speak, stops when you go quiet,
+                                       prints the words, touches no journal
 
 The microphone is `speech.microphone` in the profile (part of its name, e.g.
 "USB-C"), or the Mac's current input when that's empty or not plugged in.
@@ -27,6 +30,7 @@ Runs with .venv-speech's Python (`./install.sh --speech`); cli.py switches to it
 """
 
 import argparse
+import json
 import re
 import subprocess
 import sys
@@ -49,6 +53,10 @@ VERBATIM_PROMPT = ("Um, so yesterday I- I go to the, uh, the gym and, er, I meet
                    "my friend there. He say me that, hmm, we should to go together.")
 FILLERS = {"um", "uh", "er", "erm", "hmm", "mm", "ah", "eh"}
 PAUSE = 1.0  # seconds of silence between words that counts as a long pause
+# --turn: how long to wait for the first word, the silence that ends a turn,
+# and the longest turn. Thinking pauses mid-answer are normal for a learner,
+# so the end-of-turn silence is generous.
+TURN_WAIT, TURN_SILENCE, TURN_MAX = 20, 2.5, 90
 
 
 def input_devices() -> list[tuple[int, str]]:
@@ -98,6 +106,41 @@ def record(seconds: int | None, mic: int | None = None) -> np.ndarray:
     audio = np.concatenate(chunks)[:, 0] if chunks else np.zeros(0, dtype="float32")
     print(f"Recorded {len(audio) / RATE:.0f}s.")
     return audio
+
+
+def record_turn(mic: int | None = None) -> np.ndarray:
+    """Record one turn with no key press: wait for speech, stop after
+    TURN_SILENCE seconds of quiet. The threshold is set from the first half
+    second of room noise, so a noise-cancelling mic and a laptop mic both work."""
+    import queue
+
+    import sounddevice as sd
+
+    block = RATE // 10                    # 100 ms
+    q: queue.Queue = queue.Queue()
+    chunks: list[np.ndarray] = []
+    with sd.InputStream(samplerate=RATE, channels=1, dtype="float32", blocksize=block,
+                        callback=lambda indata, *_: q.put(indata[:, 0].copy()), device=mic):
+        noise = [float(np.sqrt(np.mean(q.get() ** 2))) for _ in range(5)]
+        threshold = max(0.008, 3.5 * float(np.median(noise)))
+        print("● Listening… speak when you're ready.", flush=True)
+        started, quiet, waited = False, 0.0, 0.0
+        while True:
+            chunk = q.get()
+            loud = float(np.sqrt(np.mean(chunk ** 2))) > threshold
+            if not started:
+                waited += 0.1
+                if loud:
+                    started = True
+                    chunks.extend([np.zeros(block, dtype="float32"), chunk])
+                elif waited >= TURN_WAIT:
+                    break
+                continue
+            chunks.append(chunk)
+            quiet = 0.0 if loud else quiet + 0.1
+            if quiet >= TURN_SILENCE or len(chunks) * 0.1 >= TURN_MAX:
+                break
+    return np.concatenate(chunks) if chunks else np.zeros(0, dtype="float32")
 
 
 def load_file(path: Path) -> np.ndarray:
@@ -194,6 +237,8 @@ def main() -> int:
                                   "speech.microphone)")
     ap.add_argument("--list-mics", action="store_true", help="list microphones and exit")
     ap.add_argument("--dry-run", action="store_true", help="print, don't touch the journal")
+    ap.add_argument("--turn", action="store_true",
+                    help="one /call turn: record until you go quiet, print, touch nothing")
     args = ap.parse_args()
 
     speech = load_profile().get("speech") or {}
@@ -203,6 +248,8 @@ def main() -> int:
             print(f"{'→' if index == mic else ' '} {name}")
         return 0
 
+    if args.turn:
+        return turn(args, speech)
     if not args.file and not args.seconds and not sys.stdin.isatty():
         sys.exit("No terminal to press Enter in: use --seconds N, or --file.")
     model = args.model or speech.get("model") or DEFAULT_MODEL
@@ -230,6 +277,20 @@ def main() -> int:
     path = append_entry(text, stats, recording, now)
     print(f"\nAdded to {path.relative_to(ME.parent) if path.is_relative_to(ME.parent) else path}. "
           f"Now run /check in Claude Code.")
+    return 0
+
+
+def turn(args, speech: dict) -> int:
+    """Print the turn's words, then one `TURN {json}` line for /call to total."""
+    audio = record_turn(pick_microphone(args.mic or speech.get("microphone") or ""))
+    if len(audio) < RATE:
+        print("(no answer heard)")
+        print("TURN " + json.dumps({"seconds": 0, "words": 0, "wpm": 0, "fillers": 0}))
+        return 0
+    result = transcribe(audio, args.model or speech.get("model") or DEFAULT_MODEL)
+    stats = fluency(result)
+    print(f"\n{paragraphs(result) or '(no words recognised)'}\n")
+    print("TURN " + json.dumps({k: stats[k] for k in ("seconds", "words", "wpm", "fillers")}))
     return 0
 
 

@@ -1,13 +1,16 @@
 ---
 description: Run a spoken-style conversation drill targeting a weak grammar point
 argument-hint: [grammar point, e.g. "conditionals" — or omit to pick from me/errors.md]
-allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(./english log:*), Bash(./english home:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
 Run a conversation drill on: $1
 
-If no topic was given, read `me/errors.md` and pick the grammar point that appears
-most often in the last month. Say which one you picked and why.
+If no topic was given, drill the current unit on the learner's path: run
+`./english home --json` and take `unit.point`. The path ranks unfinished units
+by recent errors, so this is the point `me/errors.md` says is weakest. Say
+which one you picked and why. (If there's no unit, pick the grammar point that
+appears most often in `me/errors.md` in the last month.)
 
 ## How to run the drill
 
@@ -39,6 +42,14 @@ and which I got wrong.
 Append genuine errors to `me/errors.md` in the same format `/check` uses, tagged
 with the grammar point. Then suggest whether this topic needs new cards — and if
 so, run `/mine` yourself rather than telling me to.
+
+Record the session, which is what earns its XP and ticks the path's drill
+lesson. `--point` is the exact `point:` value, `--items` the turns where the
+target structure was called for, `--correct` how many of those I got right:
+
+```
+./english log drill --point "6B Conditionals" --items 9 --correct 7
+```
 
 ## Dashboard
 

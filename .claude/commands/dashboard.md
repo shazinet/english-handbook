@@ -28,7 +28,7 @@ The state that ties the two together lives in `me/dashboard/`:
    `get` `datasets/practice` and `update` it, pinned with `if_version`, setting
    `source.url` to the new `/_blob/<id>` and `updated: {at: <now, ISO>, by: "Claude (/dashboard)"}`.
    On the first run, `set` it instead:
-   `{title: "Practice data from your Mac", description: "Exported by ./english dashboard from your Anki collection, me/journal and me/errors.md, then uploaded by Claude.", source: {kind: "file", url, name: "practice.json", format: "json"}, updated, schedule: "Refreshed by /dashboard, and at the end of /journal, /check, /mine, /drill and /level", staleAfterHours: 48}`,
+   `{title: "Practice data from your Mac", description: "Exported by ./english dashboard from your Anki collection, me/journal and me/errors.md, then uploaded by Claude.", source: {kind: "file", url, name: "practice.json", format: "json"}, updated, schedule: "Refreshed by /dashboard, and at the end of /journal, /check, /mine, /drill, /roleplay, /call, /mistakes, /story and /level", staleAfterHours: 48}`,
    plus `dash/meta` `{title: "English Practice"}`.
    Then delete the previous data file (`Artifact` delete, `url`, `path`: the old
    `asset-id`) and write the new id to `me/dashboard/asset-id`.

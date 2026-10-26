@@ -160,6 +160,34 @@ reps  →  journal  →  /check  →  me/errors.md  →  /mine  →  new cards
 That loop is the whole point. Flashcards alone teach rules you can recite but
 can't use; the writing and drilling are what convert them into speech.
 
+### Home, path and practice
+
+Run `./english` on its own (or `/practice` in Claude Code) for the home screen:
+
+- **Next step.** The daily loop always comes first; after that, the next lesson
+  on your path.
+- **The path.** One unit per topic, ordered by how often each shows up in your
+  error log lately. Each unit has four lessons: learn its cards, a `/drill`, a
+  journal entry about it, and a `/mistakes` round. Every lesson is ticked from
+  what you actually did. Finishing a unit opens a chest worth 50 XP, and stars
+  come from retention and from staying error-free.
+- **Daily quests.** Three a day, worth 10 XP each, plus 20 for all three.
+- **Practice menu:**
+
+  | Activity | Command | XP |
+  |---|---|---|
+  | Video call | `/call` | 20, +10 a minute |
+  | Roleplay | `/roleplay` | 30, +20 if you win |
+  | Drill | `/drill` | 30, +2 per correct form |
+  | Mistakes | `/mistakes` | 3 per fix |
+  | Words | Anki | 1 per review |
+  | Story | `/story` | 25, +10 for the retell |
+  | Speak | `./english speak` | 10 a minute |
+  | Radio | `./english listen 20` | 1 a minute, up to 60 a day |
+
+The dashboard shows the same path, quests and practice menu. None of it changes
+what counts as a day: that's still reps, a journal entry and `/check`.
+
 ### Not forgetting
 
 `./english reminders` installs an evening job that checks whether today's loop
@@ -206,6 +234,10 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `/drill` | none (picks from your errors), or a topic | Once a week |
 | `/roleplay` | none (picks from your life), or a situation | Once a week |
 | `/mine` | none, a topic to limit to, or `vocab` | Every 2–4 weeks, **not** daily |
+| `/practice` | none, or an activity (`call`, `mistakes`, `story`…) | Whenever you want something to do |
+| `/mistakes` | none, or a topic | Any day: re-correct your own logged errors; two good days resolves one |
+| `/story` | none, or a situation | A story about your life read aloud, questions, then a retell |
+| `/call` | none, or who to call | A spoken call: Claude talks, you answer into the mic (needs `--speech`) |
 
 ### In Terminal
 
@@ -214,7 +246,10 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `./install.sh` | Installs everything and sets you up; safe to re-run |
 | `./english update` | Gets the newest app version and applies it |
 | `./english doctor` | Checks the whole install and says how to fix problems |
+| `./english` | The home screen: path, next step, daily quests, practice menu (`./english help` lists commands) |
 | `./english status` | Today's three checkboxes, the streak, and time left |
+| `./english listen 25 --what "…"` | Logs listening time (podcasts, series) for XP and quests |
+| `./english say "…"` | Reads text, or a file, aloud in your card voice |
 | `./english speak` | Talk instead of writing: records you, transcribes on this Mac, adds it to today's journal for `/check` (`--file memo.m4a` for a phone recording) |
 | `./english build` | Generates audio and builds the deck file |
 | `./install.sh --speech` | Optional: Kokoro voices for card audio and Whisper for `speak` (~1.5 GB) |

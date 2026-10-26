@@ -24,7 +24,7 @@ import gamify
 import mistakes
 import learning_path
 from build_anki import included
-from paths import JOURNAL, ME, content_files, load_profile
+from paths import JOURNAL, ME, STATE, content_files, load_profile
 from progress import (
     anki_stats, current_level, error_details, errors_per_100_by_month, journal_words,
     load_history, speaking_sessions, topic_cards, writing_level,
@@ -77,6 +77,23 @@ def prompt_log() -> list[dict]:
         day, target = line.split("\t", 1)
         out.append({"date": day.strip(), "target": target.strip()})
     return out
+
+
+PATH_UNIT = STATE / "path-unit"
+
+
+def pinned_unit() -> str | None:
+    """The path unit that was current last time: it stays current until done."""
+    try:
+        return PATH_UNIT.read_text().strip() or None
+    except OSError:
+        return None
+
+
+def pin_unit(point: str) -> None:
+    if point != pinned_unit():
+        STATE.mkdir(parents=True, exist_ok=True)
+        PATH_UNIT.write_text(point + "\n")
 
 
 def week_start(d: date) -> date:
@@ -188,7 +205,9 @@ def gather() -> dict:
         today, lib, cards["topics"],
         {p: {"retention": r["retention"], "reviews": r["reviews"]} for p, r in retention.items()},
         errors, prompts, {e["date"] for e in entries if e["checked"]}, sessions, mist,
-        cards["first_seen"], profile["deck"].get("new_per_day") or 6)
+        cards["first_seen"], profile["deck"].get("new_per_day") or 6, pinned_unit())
+    if route["current"]:
+        pin_unit(route["current"]["point"])
 
     meter = writing_level()
     game = gamify.build({

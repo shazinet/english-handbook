@@ -6,6 +6,10 @@ have finished stay where you finished them, and the rest are ranked by how
 often their point shows up in me/errors.md lately, then by level. The path
 therefore leads to the same place /journal's target choice does.
 
+Once a unit becomes current it stays current until its four lessons are done
+(the caller keeps it in `pinned`), so a day's new errors can reorder what comes
+after it but never swap out the unit you're halfway through.
+
 Each lesson is ticked from evidence that already exists, never from a
 "lesson done" button:
 
@@ -56,8 +60,8 @@ def next_step(today: dict, route: dict) -> dict:
         return {"kind": "loop", "text": f"Clear your Anki reviews ({due} due)" if due else
                 "Do your Anki reviews", "command": "Anki"}
     if not today["journal_done"]:
-        return {"kind": "loop", "text": "Write today's journal entry, or speak it",
-                "command": "/journal  (or ./english speak)"}
+        return {"kind": "loop", "text": "Get today's prompt, then write your entry or speak it",
+                "command": "/journal, then write below it or run ./english speak"}
     if not today["checked"]:
         return {"kind": "loop", "text": "Correct today's entry", "command": "/check"}
     lesson = route["next_lesson"]
@@ -84,12 +88,13 @@ def matches(point: str, target: str) -> bool:
 
 def build(today: date, lib: dict, anki_topics: dict, retention: dict, errors: list[dict],
           prompts: list[dict], checked_days: set[str], activities: list[dict],
-          mistakes: dict, first_seen: dict, batch: int) -> dict:
+          mistakes: dict, first_seen: dict, batch: int, pinned: str | None = None) -> dict:
     """lib: dashboard.library(); anki_topics: progress.topic_cards()["topics"];
     first_seen: topic_cards()["first_seen"]; batch: the profile's new cards a day;
     retention: point → {retention, reviews}; errors: progress.error_details();
     prompts: dashboard.prompt_log(); checked_days: dates whose entry has the
-    /check marker; activities: activity.read(); mistakes: mistakes.state()."""
+    /check marker; activities: activity.read(); mistakes: mistakes.state();
+    pinned: the point that was current last time, kept until it's finished."""
     since_rank = (today - timedelta(days=RANK_DAYS)).isoformat()
     since_clean = (today - timedelta(days=STAR3_CLEAN_DAYS)).isoformat()
     recent = Counter(e["point"] for e in errors if e["date"] >= since_rank)
@@ -155,6 +160,7 @@ def build(today: date, lib: dict, anki_topics: dict, retention: dict, errors: li
     ahead = sorted((u for u in units if not u["complete"]),
                    key=lambda u: (-u["errors_recent"], -u["lessons_done"],
                                   level_index(u["level"]), u["file_order"]))
+    ahead.sort(key=lambda u: u["point"] != pinned)   # stable: the rest keep their rank
     ordered = finished + ahead
     for i, u in enumerate(ordered, 1):
         u["number"] = i

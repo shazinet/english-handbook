@@ -212,8 +212,9 @@ to `me/errors.md` → `/mine` turns recurring errors into new cards in
 each append one line to `me/activity.log` (`build/activity.py`), because they
 leave no other trace; everything else is still read from its own evidence.
 `build/gamify.py` turns that into XP, three daily quests and badges.
-`build/learning_path.py` makes one unit per topic, ordered by recent errors,
-and ticks four lessons per unit from evidence: a day's batch of the topic's
+`build/learning_path.py` makes one unit per topic, ordered by recent errors
+(the current unit is pinned in `me/.state/path-unit` until it's finished, so a
+day's new errors never swap it out mid-way), and ticks four lessons per unit from evidence: a day's batch of the topic's
 cards studied (first-review dates from the revlog), a logged
 drill, a checked journal entry whose `.prompts.log` target names the point,
 and a mistakes round. So `/journal` must start each target with the exact

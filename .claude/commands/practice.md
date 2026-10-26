@@ -13,8 +13,9 @@ Then:
 - **$1 names an activity**: start it right away by following that command's
   file in `.claude/commands/` exactly as if I had typed it: `call.md`,
   `roleplay.md`, `drill.md`, `mistakes.md`, `story.md`, `journal.md`,
-  `check.md`. For `speak`, tell me to run `./english speak` myself (it waits
-  for Enter, which only works in my terminal), then `/check`. For `listen`,
+  `check.md`. For `speak`, offer `/journal` first for a prompt (the
+  recording lands under it), then tell me to run `./english speak` myself (it
+  waits for Enter, which only works in my terminal), then `/check`. For `listen`,
   ask how many minutes and what, and run `./english listen MINUTES --what "…"`.
 - **No $1**: recommend one in a line, using `./english home --json`:
   1. The `next` step, if its kind is `loop`: the daily loop comes first,

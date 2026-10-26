@@ -305,11 +305,17 @@ def build(ctx: dict) -> dict:
         by_day.setdefault(a["date"], []).append(a)
     fixed = mist["fixed_by_date"]
 
-    available = {"anki", "xp", "words", "speak", "listen", "talk"}
-    if mist["open"] >= 5:
-        available.add("mistakes")
-    if route["current"]:
-        available.add("lesson")
+    def available(day: str) -> set[str]:
+        """Quests that could be done on `day`, judged from how things stood when
+        it began, so the day's three never change as it goes on."""
+        out = {"anki", "xp", "words", "speak", "listen", "talk"}
+        open_then = sum(1 for it in mist["items"] if it["date"] < day
+                        and not (it["resolved_on"] and it["resolved_on"] < day))
+        if open_then >= 5:
+            out.add("mistakes")
+        if route["current"]:
+            out.add("lesson")
+        return out
 
     starts = [date.fromisoformat(d) for d in
               list(daily) + list(entries) + list(speak_secs) + list(by_day) + list(fixed)]
@@ -341,7 +347,7 @@ def build(ctx: dict) -> dict:
         quests = [{"id": qid, "name": name, "target": target, "unit": unit,
                    "value": progress[qid], "progress": round(min(1.0, progress[qid] / target), 3),
                    "done": progress[qid] >= target}
-                  for qid, name, target, unit in quests_for(d, available)]
+                  for qid, name, target, unit in quests_for(d, available(iso))]
         quests_done = sum(q["done"] for q in quests)
         xp["bonus"] += (XP_QUEST * quests_done
                         + (XP_QUEST_CHEST if quests and quests_done == len(quests) else 0)

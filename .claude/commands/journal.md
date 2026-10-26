@@ -48,7 +48,11 @@ Produce a file with:
   and `life_context`, which the writer hasn't used yet (Grep `me/journal/`).
   Using a word in your own sentence is the step between knowing it and owning
   it. `/check` notes which ones were used, and whether correctly.
-- A line telling the writer to delete the prompts and write below, then run `/check`.
+- A last line telling the writer to write below it, or to answer out loud with
+  `./english speak` (the transcript lands under the prompt, so keep the prompt
+  then), and then run `/check`. Keep the words "then run `/check`" in that line:
+  `status.py` counts only what comes after it, so a kept prompt is never
+  mistaken for writing. Writers who type can delete the prompt as before.
 
 Aim for 5–8 sentences of output. Enough to show a pattern, short enough to
 finish in ten minutes.

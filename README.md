@@ -141,8 +141,9 @@ you rarely need them, because you can ask Claude to rebuild and it will.
 | — | **Anki** | Press `Y` to sync, so your phone matches |
 | 20:00 → | **Your phone** | If any of the above is still undone, a reminder arrives (optional, see below) |
 
-On days you'd rather talk, `./english speak` replaces the writing step: speak
-for two or three minutes about your day, and the transcript lands in today's
+On days you'd rather talk, `./english speak` replaces the writing step. Run
+`/journal` first if you want a prompt, then speak for two or three minutes
+about it or about your day, and the transcript lands in today's
 journal for `/check`, with words per minute, long pauses and fillers tracked in
 `./english level`. It needs `./install.sh --speech` once. It records from the
 Mac's current input unless `speech.microphone` in your profile names one
@@ -167,13 +168,15 @@ Run `./english` on its own (or `/practice` in Claude Code) for the home screen:
 - **Next step.** The daily loop always comes first; after that, the next lesson
   on your path.
 - **The path.** One unit per topic, ordered by how often each shows up in your
-  error log lately. Each unit has four lessons: learn a day's batch of its cards
+  error log lately. The unit you're on stays current until you finish it; new
+  errors only reorder the units after it. Each unit has four lessons: learn a day's batch of its cards
   (`./english deck` puts the current unit's new cards first in your normal
   Anki session, so there's no subdeck to open), a `/drill`, a
   journal entry about it, and a `/mistakes` round. Every lesson is ticked from
   what you actually did. Finishing a unit opens a chest worth 50 XP, and stars
   come from retention and from staying error-free.
-- **Daily quests.** Three a day, worth 10 XP each, plus 20 for all three.
+- **Daily quests.** Three a day, fixed for the whole day, worth 10 XP each,
+  plus 20 for all three.
 - **Practice menu:**
 
   | Activity | Command | XP |

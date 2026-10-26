@@ -233,7 +233,7 @@ def topic_cards() -> dict:
     anki library's deck tree when it can open the copy, as status.deck_due
     does, and are left as None when it can't.
     """
-    out = {"topics": {}, "daily_reviews": {}, "error": None}
+    out = {"topics": {}, "daily_reviews": {}, "first_seen": {}, "error": None}
     try:
         with snapshot() as copy:
             con = sqlite3.connect(copy)
@@ -250,6 +250,11 @@ def topic_cards() -> dict:
                 out["daily_reviews"] = dict(con.execute(
                     "select date(id/1000, 'unixepoch', 'localtime') as d, count() from revlog group by d"
                 ).fetchall())
+                # the day each card was first studied, for "learned N cards of a topic"
+                firsts = con.execute(
+                    "select c.did, date(min(r.id)/1000, 'unixepoch', 'localtime') from revlog r "
+                    f"join cards c on c.id = r.cid where c.did in ({marks}) group by r.cid", list(ours)
+                ).fetchall()
             finally:
                 con.close()
             due = _due_by_topic(copy)
@@ -273,6 +278,11 @@ def topic_cards() -> dict:
             t["young"] += 1
     for topic, n in (due or {}).items():
         out["topics"].setdefault(topic, dict(blank))["due"] = n
+    for did, day in firsts:
+        topic = ours[did][1] if len(ours[did]) > 1 else DECK_PREFIX
+        out["first_seen"].setdefault(topic, []).append(day)
+    for days in out["first_seen"].values():
+        days.sort()
     return out
 
 

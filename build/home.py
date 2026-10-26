@@ -90,6 +90,8 @@ def render(s: dict, ink: Ink) -> str:
                 out.append(pad + ink.yellow(ink.bold("( ▶ )")) + ink.bold(f"  {lesson['name']}")
                            + ink.yellow("   ← start here"))
                 out.append(pad + "       " + ink.dim(lesson["how"]))
+                if lesson["detail"]:
+                    out.append(pad + "       " + ink.dim(lesson["detail"]))
                 first_open = False
             else:
                 out.append(pad + ink.dim("( · )") + f"  {lesson['name']}")

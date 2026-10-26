@@ -5,6 +5,12 @@ Does what you would otherwise do by hand in the Anki GUI: import the package,
 turn on FSRS, and cap new cards per day (deck.new_per_day in me/profile.yml). Safe to re-run — the import updates
 notes in place (GUIDs are stable, see build_anki.py) rather than duplicating.
 
+It also puts new cards in the learning path's order (learning_path.py): the
+current unit's new cards first, then the next units'. The preset gathers new
+cards by position rather than deck by deck, so the daily session from the top
+deck brings the current unit's cards without opening its subdeck. Only new
+cards move; nothing already studied is touched. --no-path-order skips it.
+
 ANKI MUST BE CLOSED when this runs; the collection is a SQLite database and
 opening it from two processes will corrupt it.
 """
@@ -27,6 +33,7 @@ from ankidb import COLLECTION, DECK_PREFIX, LEGACY_PREFIX, ours
 from paths import APKG, content_files, load_profile
 
 CONFIG_NAME = DECK_PREFIX
+GATHER_BY_DECK, GATHER_BY_POSITION = 0, 1   # DeckConfig.Config.NewCardGatherPriority
 UPDATE_ALWAYS = IMPORT_ANKI_PACKAGE_UPDATE_CONDITION_ALWAYS
 
 
@@ -62,6 +69,42 @@ def migrate_deck_name(col: Collection) -> None:
     print(f"Renamed deck {LEGACY_PREFIX!r} → {DECK_PREFIX!r} (history kept)")
 
 
+def path_order() -> list[str] | None:
+    """Topic names in learning-path order, unfinished units first."""
+    try:
+        from dashboard import gather
+        units = gather()["path"]["units"]
+    except Exception as exc:  # the import matters more than the order
+        print(f"Path order skipped: {type(exc).__name__}: {exc}")
+        return None
+    return [u["point"] for u in units if not u["complete"]] + [u["point"] for u in units if u["complete"]]
+
+
+def reorder_new(col: Collection, order: list[str]) -> str:
+    """Give our new cards positions 0, 1, 2… in path order, unit by unit,
+    keeping each unit's cards in their existing order."""
+    ids, counts = [], []
+    placed = set()
+    names = [f"{DECK_PREFIX}::{p}" for p in order]
+    rest = [d.name for d in col.decks.all_names_and_ids() if ours(d.name) and d.name not in names]
+    for name in names + rest:
+        did = col.decks.id_for_name(name)
+        if not did:
+            continue
+        cards = [col.get_card(c) for c in col.find_cards(f"did:{did} is:new")]
+        cards = [c for c in cards if c.id not in placed]
+        cards.sort(key=lambda c: (c.due, c.id))
+        ids += [c.id for c in cards]
+        placed.update(c.id for c in cards)
+        if cards:
+            counts.append((name.split("::", 1)[-1], len(cards)))
+    if not ids:
+        return "No new cards to order."
+    col.sched.reposition_new_cards(ids, starting_from=0, step_size=1, randomize=False, shift_existing=False)
+    head = ", then ".join(f"{p} ({n})" for p, n in counts[:3])
+    return f"New cards follow your path: {head}…"
+
+
 def backup(path: Path) -> Path:
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     dest = path.with_name(f"collection-backup-{stamp}.anki2")
@@ -75,6 +118,8 @@ def main() -> None:
                     help="another collection file, e.g. a copy to try an import on")
     ap.add_argument("--new-per-day", type=int,
                     default=load_profile()["deck"].get("new_per_day") or 6)
+    ap.add_argument("--no-path-order", action="store_true",
+                    help="leave new cards in deck order instead of the learning path's")
     args = ap.parse_args()
 
     target = args.collection.resolve()
@@ -86,6 +131,8 @@ def main() -> None:
         sys.exit(f"no Anki collection at {target}\nLaunch Anki once to create it.")
 
     print(f"Backup: {backup(target).name}")
+    # Read before opening the collection: gather() snapshots it on its own.
+    order = None if args.no_path_order else path_order()
 
     col = Collection(str(target))
     try:
@@ -119,6 +166,9 @@ def main() -> None:
         if conf is None:
             conf = col.decks.add_config(CONFIG_NAME)
         conf["new"]["perDay"] = args.new_per_day
+        # Lowest position first, across every subdeck, so the path order below
+        # holds; Anki's default gathers subdeck by subdeck in name order.
+        conf["newGatherPriority"] = GATHER_BY_POSITION if order else GATHER_BY_DECK
         col.decks.update_config(conf)
 
         n = 0
@@ -131,6 +181,8 @@ def main() -> None:
 
         print(f"FSRS enabled; preset {CONFIG_NAME!r} set to "
               f"{args.new_per_day} new cards/day, applied to {n} deck(s)")
+        if order:
+            print(reorder_new(col, order))
 
         # Renaming a `point:` does NOT move cards that were already imported —
         # Anki updates note content in place but leaves each card in the deck it

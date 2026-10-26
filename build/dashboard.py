@@ -187,7 +187,8 @@ def gather() -> dict:
     route = learning_path.build(
         today, lib, cards["topics"],
         {p: {"retention": r["retention"], "reviews": r["reviews"]} for p, r in retention.items()},
-        errors, prompts, {e["date"] for e in entries if e["checked"]}, sessions, mist)
+        errors, prompts, {e["date"] for e in entries if e["checked"]}, sessions, mist,
+        cards["first_seen"], profile["deck"].get("new_per_day") or 6)
 
     meter = writing_level()
     game = gamify.build({

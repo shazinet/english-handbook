@@ -1266,6 +1266,7 @@ dash.calc('checklist', {
         c.style.justifyContent = 'center';
         c.append(...cmdParts(l.how));
         n.append(c);
+        if (l.detail) n.append(el('span', 'ep-sub', l.detail));
       } else if (l.done && l.done_on) {
         n.append(el('span', 'ep-sub', 'done ' + dayFmt(parseDay(l.done_on))));
       }

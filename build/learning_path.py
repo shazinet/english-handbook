@@ -9,7 +9,9 @@ therefore leads to the same place /journal's target choice does.
 Each lesson is ticked from evidence that already exists, never from a
 "lesson done" button:
 
-    cards     the topic has no new cards left in Anki
+    cards     a day's batch of the topic's cards studied in Anki (deck.new_per_day,
+              or all of them if the topic is smaller); `./english deck` puts
+              the current unit's new cards first, so the daily session brings them
     drill     a /drill on this point in me/activity.log
     write     a /journal entry targeted at this point (.prompts.log), checked
     mistakes  a /mistakes round on this point, or none of its mistakes open
@@ -38,7 +40,7 @@ UPCOMING = 3            # locked units shown after the current one
 
 LESSONS = (
     # id, name, icon, how to do it ({point} is filled in)
-    ("cards", "Learn the cards", "cards", "Anki: study English Practice::{point}"),
+    ("cards", "Learn the cards", "cards", "Anki: your daily session"),
     ("drill", "Conversation drill", "chat", '/drill "{point}"'),
     ("write", "Write about it", "pen", '/journal "{point}", then /check'),
     ("mistakes", "Fix your mistakes", "repeat", '/mistakes "{point}"'),
@@ -60,8 +62,10 @@ def next_step(today: dict, route: dict) -> dict:
         return {"kind": "loop", "text": "Correct today's entry", "command": "/check"}
     lesson = route["next_lesson"]
     if lesson:
-        return {"kind": "lesson", "text": f"Unit {route['current']['number']} · {lesson['name']}",
-                "command": lesson["how"]}
+        text = f"Unit {route['current']['number']} · {lesson['name']}"
+        if lesson["detail"]:
+            text += f" ({lesson['detail']})"
+        return {"kind": "lesson", "text": text, "command": lesson["how"]}
     return {"kind": "free", "text": "Today's loop and the path are done: pick anything to practise",
             "command": "/practice"}
 
@@ -80,8 +84,9 @@ def matches(point: str, target: str) -> bool:
 
 def build(today: date, lib: dict, anki_topics: dict, retention: dict, errors: list[dict],
           prompts: list[dict], checked_days: set[str], activities: list[dict],
-          mistakes: dict) -> dict:
+          mistakes: dict, first_seen: dict, batch: int) -> dict:
     """lib: dashboard.library(); anki_topics: progress.topic_cards()["topics"];
+    first_seen: topic_cards()["first_seen"]; batch: the profile's new cards a day;
     retention: point → {retention, reviews}; errors: progress.error_details();
     prompts: dashboard.prompt_log(); checked_days: dates whose entry has the
     /check marker; activities: activity.read(); mistakes: mistakes.state()."""
@@ -99,8 +104,14 @@ def build(today: date, lib: dict, anki_topics: dict, retention: dict, errors: li
         anki = anki_topics.get(point)
         total = sum(anki[k] for k in ("new", "learning", "young", "mature")) if anki else 0
         done: dict[str, str | bool] = {}   # lesson id → date done, or True when undated
-        if anki and total and not anki["new"]:
-            done["cards"] = True
+        seen = first_seen.get(point, [])
+        need = min(batch, total)
+        if total and len(seen) >= need:
+            done["cards"] = seen[need - 1]
+        elif anki and total and not anki["new"]:
+            done["cards"] = True       # studied before the review log goes back
+        cards_detail = (f"{min(len(seen), need)} of {need} learned · {anki['new']} new left"
+                        if anki and total else "not in Anki yet: run ./english deck")
         drills = [a["date"] for a in activities if a["kind"] == "drill" and a["point"] == point]
         if drills:
             done["drill"] = drills[0]
@@ -133,6 +144,7 @@ def build(today: date, lib: dict, anki_topics: dict, retention: dict, errors: li
             "completed_on": max(dated) if complete and dated else None,
             "stars": stars, "retention_30": r.get("retention"),
             "lessons": [{"id": lid, "name": name, "icon": icon, "how": how.format(point=point),
+                         "detail": cards_detail if lid == "cards" else None,
                          "done": lid in done,
                          "done_on": done[lid] if isinstance(done.get(lid), str) else None}
                         for lid, name, icon, how in LESSONS],

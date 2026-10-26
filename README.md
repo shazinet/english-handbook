@@ -167,7 +167,9 @@ Run `./english` on its own (or `/practice` in Claude Code) for the home screen:
 - **Next step.** The daily loop always comes first; after that, the next lesson
   on your path.
 - **The path.** One unit per topic, ordered by how often each shows up in your
-  error log lately. Each unit has four lessons: learn its cards, a `/drill`, a
+  error log lately. Each unit has four lessons: learn a day's batch of its cards
+  (`./english deck` puts the current unit's new cards first in your normal
+  Anki session, so there's no subdeck to open), a `/drill`, a
   journal entry about it, and a `/mistakes` round. Every lesson is ticked from
   what you actually did. Finishing a unit opens a chest worth 50 XP, and stars
   come from retention and from staying error-free.

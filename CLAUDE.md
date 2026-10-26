@@ -213,7 +213,8 @@ each append one line to `me/activity.log` (`build/activity.py`), because they
 leave no other trace; everything else is still read from its own evidence.
 `build/gamify.py` turns that into XP, three daily quests and badges.
 `build/learning_path.py` makes one unit per topic, ordered by recent errors,
-and ticks four lessons per unit from evidence: no new cards left, a logged
+and ticks four lessons per unit from evidence: a day's batch of the topic's
+cards studied (first-review dates from the revlog), a logged
 drill, a checked journal entry whose `.prompts.log` target names the point,
 and a mistakes round. So `/journal` must start each target with the exact
 `point:`. `/mistakes` marks answers in `me/mistakes.log` (`build/mistakes.py`):
@@ -277,4 +278,7 @@ Reads of the Anki collection go through `build/ankidb.snapshot()`, which copies
 the database before opening it. Never point a read at the live file: it's
 WAL-mode SQLite, so `mode=ro` fails outright and `immutable=1` quietly returns
 stale data. `install_deck.py` is the only thing that opens the real collection,
-and only with Anki closed.
+and only with Anki closed. Besides importing, it sets the preset to gather new
+cards by position and renumbers our new cards in learning-path order, so the
+daily session from the top deck starts on the current unit. The order only
+changes on an import; `--no-path-order` leaves deck order.

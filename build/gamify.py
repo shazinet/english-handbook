@@ -203,7 +203,8 @@ def pace(talks: list[dict]) -> dict:
 CEFR = ("A1", "A2", "B1", "B2", "C1", "C2")
 
 # id, name, icon, unit, thresholds (Bronze, Silver, Gold), higher_is_better, rule.
-# `{n}` in the rule is the next tier's threshold.
+# `{n}` in the rule is a tier's threshold: the next one for `rule`, the one
+# reached for `earned`.
 BADGES = [
     ("streak", "On a roll", "flame", "days", (3, 7, 30), True,
      "Complete every part of the loop {n} days in a row"),
@@ -276,6 +277,8 @@ def badge(spec: tuple, value: float | None) -> dict:
         "progress": round(progress, 3),
         "rule": rule.format(n=show(nxt)) if nxt is not None else
                 rule.format(n=show(thresholds[-1])) + " — every tier earned",
+        # what the tier you hold was earned for, so an unlocked badge explains itself
+        "earned": rule.format(n=show(thresholds[tier - 1])) if tier else None,
         "bronze": show(thresholds[0]), "silver": show(thresholds[1]), "gold": show(thresholds[2]),
         "lower_is_better": not higher,
     }

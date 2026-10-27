@@ -117,6 +117,9 @@
 .ep-badge .rule { font-size: var(--cds-font-size-caption); color: var(--color-fg); margin: 0; }
 .ep-badge .prog { display: grid; grid-template-columns: 1fr auto; gap: var(--cds-gap-sm); align-items: center; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
 .ep-badge.maxed .rule { color: var(--color-fg-muted); }
+.ep-badge .rule.earned { display: flex; gap: .3rem; align-items: baseline; }
+.ep-badge .rule.earned svg { flex: none; width: 12px; height: 12px; transform: translateY(1px); }
+.ep-badge .rule.next { color: var(--color-fg-muted); }
 .ep-next { display: grid; gap: var(--cds-gap-md); }
 .ep-filter { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); }
 .ep-filter button { all: unset; cursor: pointer; font-size: var(--cds-font-size-caption); padding: 2px .7rem; border-radius: 999px; border: 1px solid var(--color-border-line); color: var(--color-fg-muted); }
@@ -305,7 +308,7 @@
         <button type="button" data-show="locked" aria-pressed="false">Locked</button>
       </div>
     </div>
-    <p class="ep-note">Each badge has three tiers: Bronze, Silver and Gold. Locked badges show the rule to unlock them, and every badge shows the rule for its next tier and how far you are.</p>
+    <p class="ep-note">Each badge has three tiers: Bronze, Silver and Gold. Unlocked badges say what earned them, locked badges show the rule to unlock them, and every badge below Gold shows the rule for its next tier and how far you are.</p>
     <div class="ep-badges" id="badge-grid" data-source="badges"></div>
   </div>
   <div class="ep-card" id="xp-rules-card">
@@ -795,8 +798,12 @@ dash.calc('checklist', {
     const head = el('div', 'bn');
     head.append(el('b', null, b.name), el('span', `ep-tier t${tier}`, b.tier_name));
     body.append(head);
-    const next = tier < 3 ? `${tier ? 'Next, ' + b.next_tier : 'To unlock'}: ${b.rule}` : b.rule;
-    body.append(el('p', 'rule', next));
+    if (tier && b.earned) {
+      const why = el('p', 'rule earned');
+      why.append(icon('check'), el('span', null, `Earned ${b.tier_name}: ${b.earned}`));
+      body.append(why);
+    }
+    if (tier < 3) body.append(el('p', tier ? 'rule next' : 'rule', `${tier ? 'Next, ' + b.next_tier : 'To unlock'}: ${b.rule}`));
     if (tier < 3) {
       const prog = el('div', 'prog');
       const bb = el('div', 'ep-bar thin');

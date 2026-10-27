@@ -230,6 +230,189 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 - `/level quick` once a month; `./english report` to see or share the trend.
 - [EF SET](https://www.efset.org/) once a quarter, recorded with `./english level --efset <score>`.
 
+## How it works
+
+Nothing in the app has a "mark as done" button. Every tick, streak, XP point
+and badge is worked out from evidence you leave anyway: Anki's review log,
+the files in `me/journal/`, `me/errors.md`, and one line per practice session
+in `me/activity.log`. So the home screen, the dashboard and the reminders
+can't disagree, and none of them can be gamed by clicking.
+
+### The cards
+
+- **Cloze only.** Every card hides part of a sentence you have to *produce*,
+  never a word to recognise. A hint in place of `[...]` tells you what kind of
+  answer goes there (the base verb for a tense gap, the meaning for a word
+  gap) whenever the sentence alone wouldn't.
+- **Your deck is cut to you.** `./english build` collects the shared cards in
+  `content/` up to your profile's `deck.max_level` (minus anything in
+  `deck.skip`), plus your own cards in `me/my-cards/`, generates the audio,
+  and writes `english.apkg`.
+- **Importing keeps your history.** `./english deck` backs up your collection,
+  then imports. Each card's identity comes from its permanent `id`, so an
+  edited card updates in place and keeps its reviews. It refuses to run while
+  Anki is open, or when a card file is newer than the last build.
+- **Scheduling is Anki's.** The import turns on FSRS and sets the "English
+  Practice" preset to your `deck.new_per_day` (6 by default). It also puts new
+  cards in path order, so your normal daily session brings the current unit's
+  cards first; there's no subdeck to pick.
+
+### A day, and the streak
+
+A day counts only when all three happened:
+
+1. **Reps:** you answered cards today *and* nothing is left due.
+2. **Writing:** today's journal has at least 30 words of your own. Only text
+   after the prompt's last line ("…then run `/check`") counts, so a kept
+   prompt is never mistaken for writing. A spoken section counts the same.
+3. **`/check`:** the entry carries the `<!-- checked: … -->` marker `/check`
+   writes, even for a perfect entry.
+
+The streak is the number of complete days in a row. If reminders are
+installed, a job checks every half hour through the evening and sends one
+push per tier, getting more insistent (20:00, 22:00, 23:00, 23:30), only while
+the day is still incomplete.
+
+### `/journal`: today's prompt
+
+It picks one target structure and writes a prompt about your real life
+(`life_context` in your profile) with 4–6 situations that each need a
+different form of it, without naming the form. How it picks:
+
+1. The current unit on your path. If you've already written about that unit,
+   the grammar point with the most errors in the last two weeks.
+2. A structure you have *never* produced in recent entries beats both,
+   because avoidance never shows up in the error log.
+3. Once a week it gives a free entry with no target instead, which is the only
+   way to see what you avoid when nothing steers you.
+
+It also offers three frequent words at your level that you haven't used yet,
+and records its choice in `me/journal/.prompts.log`. That record is how the
+path knows which unit an entry belongs to.
+
+### `./english speak`: the entry, out loud
+
+It records from your profile's microphone until you press Enter (5 minutes at
+most), then transcribes on this Mac with Whisper; nothing is uploaded.
+Whisper is asked for a verbatim transcript, so it keeps "um"s and restarts,
+but it still tends to tidy grammar. The text goes under a `## spoken` heading
+in today's entry, with a marker carrying the numbers: speaking time, words
+per minute, pauses over a second, and fillers. The recording is kept in
+`me/recordings/`.
+
+### `/check`: corrections
+
+Every error gets a row: what you wrote, the correction, the grammar point
+(named exactly like the deck topic it belongs to), and the rule in one
+sentence. Style notes are listed separately and never logged. In a spoken
+section, punctuation, spelling, fillers and self-corrections are never errors.
+Grammar, word choice and prepositions count as they would in writing. Each
+error is appended to `me/errors.md`, which everything else reads: the path's
+order, the next `/journal` target, `/mine`, `/mistakes` and your level
+signals. If one point clearly dominates and isn't in your profile's
+`weak_areas`, it's added there.
+
+### `/mine`: errors become cards
+
+It reads all of `me/errors.md` and keeps only errors that are worth a card:
+ones you've made two or more times, or one that shows you don't know the
+rule. It skips anything an existing card already tests. Each new card is built
+from your own sentence, corrected, and goes into `me/my-cards/` under the same
+topic as the shared cards, so it joins that subdeck. Then
+`./english build && ./english deck` brings them into Anki.
+
+### The path
+
+- **Units:** one per topic in your deck, ordered by how often each shows up in
+  your errors over the last 60 days. Once a unit becomes current, it stays
+  current until you finish it (it's kept in `me/.state/path-unit`).
+- **Lessons:** each is ticked from evidence, never by hand:
+  - **Learn the cards:** one day's batch of the unit's new cards studied in
+    Anki
+  - **Conversation drill:** a `/drill` on that point
+  - **Write about it:** a checked journal entry whose target was that point
+  - **Fix your mistakes:** a `/mistakes` round on that point, or no open
+    mistakes on it
+- **Finishing a unit** opens a chest (50 XP) and earns ★. ★★ needs 85% recall
+  on the unit's cards; ★★★ needs no error on the point for 30 days and 80% of
+  its cards mature.
+
+Lessons aren't daily tasks: a unit can take several days.
+
+### Home and the next step
+
+`./english` (or `/practice`) shows one next step. While today isn't complete,
+it's the missing part of the day, in order: Anki, then the journal, then
+`/check`. After that, it's the next lesson of the current unit, with the
+exact command to run.
+
+### XP, levels, quests and badges
+
+- **XP** rewards production over clicking: 1 per Anki review, but 20 for a
+  journal entry, +1 per 10 words, 10 for `/check`, 10 per minute spoken, and 30
+  for a complete day. Practice sessions, quests and chests add more (the
+  practice menu above lists each).
+- **Levels** get slowly more expensive (level *n* needs 150 × (*n*−1)^1.5 XP).
+  Titles change at levels 5, 10, 15, 20 and 30.
+- **Quests:** three a day, picked from the date, so they stay the same all day.
+  A quest is offered only if it can be done, judged from how things stood when
+  the day began.
+- **Weekly goals:** 5 complete days, 600 words, 10 minutes spoken, 1,000 XP.
+- **Badges:** 19 badges, each with Bronze, Silver and Gold. An unlocked badge
+  shows what earned it, and every badge below Gold shows the rule for its next
+  tier and how far you are.
+
+None of this changes what counts as a day.
+
+### Practice activities
+
+Each one writes a line to `me/activity.log` when it ends, which is what earns
+its XP and ticks path lessons. Errors are logged to `me/errors.md` exactly as
+`/check` logs them.
+
+- **`/drill`:** 8–10 questions whose natural answers need one structure,
+  without naming it, getting harder as you get them right. You get one line of
+  feedback after each answer. `/drill speak` asks out loud and records your
+  answers. Because Whisper can tidy grammar, a spoken answer that looks
+  suspiciously perfect gets asked again.
+- **`/roleplay`:** a typed scene from your life with a concrete goal the other
+  person won't simply give you. No corrections until the end.
+- **`/call`:** the same idea, spoken both ways. Claude's lines are read aloud;
+  your answer records automatically from when you start speaking until 2.5
+  seconds of silence, which is short on purpose, to keep you talking. A turn
+  waits 20 seconds for you to start, lasts 90 seconds at most, and every
+  turn's audio is saved. Corrections and your words per minute come after the
+  call, which is saved in `me/calls/`.
+- **`/mistakes`:** your own logged errors, shown one at a time for you to
+  rewrite. An error is *resolved* once you've fixed it on two different days.
+  A miss isn't logged again, so it doesn't inflate your error counts.
+- **`/story`:** a short story about your life, carrying the current unit's
+  structure, read aloud and saved in `me/stories/`. Then comprehension
+  questions and a retell, typed or spoken.
+- **`./english listen 25 --what "…"`:** logs listening time (podcasts,
+  series). `./english say "…"` reads any text aloud in your card voice.
+
+### Level and reports
+
+`/level` is an adaptive placement: grammar items that get harder or easier
+with your answers, plus a short piece of writing. Recording a level updates
+your profile: `level`, `deck.max_level` (one step above, capped at C1) and
+`weak_areas`. Between placements, `./english level` shows signals that update
+by themselves: errors per 100 words, Anki recall by topic, and speaking pace.
+`./english report` makes a shareable page with numbers and topic names only:
+no journal text and no corrected sentences.
+
+### The dashboard
+
+`/dashboard` keeps a private page on claude.ai with all of the above in charts:
+the path, quests, badges, XP, Anki recall, errors by topic and your recent
+corrections. The loop commands (`/journal`, `/check`, `/drill`, `/call`,
+`/mine`…) refresh it as their last step. Anki reviews alone can't trigger a
+refresh, so they appear the next time one of those runs.
+
+It contains your corrected sentences, which is fine only because it's private.
+Share `./english report` instead.
+
 ## Command reference
 
 ### In Claude Code

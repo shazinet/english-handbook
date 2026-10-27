@@ -1,12 +1,13 @@
 ---
 description: Run a spoken-style conversation drill targeting a weak grammar point
-argument-hint: [grammar point, e.g. "conditionals" — or omit to pick from me/errors.md]
-allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(./english log:*), Bash(./english home:*), Bash(shasum:*), Artifact, ArtifactData
+argument-hint: [grammar point, e.g. "conditionals", or omit] [speak]
+allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(./english log:*), Bash(./english home:*), Bash(./english say:*), Bash(./english speak:*), Bash(shasum:*), Artifact, ArtifactData
 ---
 
-Run a conversation drill on: $1
+Run a conversation drill on: $ARGUMENTS
 
-If no topic was given, drill the current unit on the learner's path: run
+If the arguments include the word `speak`, it's a **spoken drill** (see below)
+and the rest, if anything, is the topic. If no topic was given, drill the current unit on the learner's path: run
 `./english home --json` and take `unit.point`. The path ranks unfinished units
 by recent errors, so this is the point `me/errors.md` says is weakest. Say
 which one you picked and why. (If there's no unit, pick the grammar point that
@@ -33,6 +34,31 @@ Then run **eight to ten turns** of realistic conversation. Rules:
 - Push difficulty up as I get things right. If I'm getting everything correct,
   say so and move to a harder variation of the structure.
 
+## Spoken drills
+
+Same drill, same questions and feedback, but both sides are spoken, the way
+`/call` works. The point is producing the structure fast, with no time to
+compose. Each turn:
+
+1. Show the question, then say it: `./english say --engine say "QUESTION"`.
+2. Run `./english speak --turn` and read the transcript and its `TURN {...}`
+   line. Feedback goes in text, a line or two, as in a typed drill.
+
+The 2.5 s end-of-turn silence is deliberate. Never offer to lengthen it; if a
+turn ends mid-sentence, say so in a line, suggest filling the pause ("let me
+think…"), and ask the question again.
+
+Whisper writes what I meant more than what I said, and that hides exactly the
+errors a drill is for: a dropped *'d*, *would have been stayed* heard as
+*would have stayed*. So never praise a form as correct when the transcript
+could have smoothed it; say "sounded right" instead. When an answer is
+suspiciously clean on the target form, ask me to say just that sentence again,
+slowly. Punctuation, capitals, fillers and restarts are never errors. Each
+turn's audio is saved (`audio` in the TURN line); list the paths of any turn
+you were unsure about in the summary so I can listen back.
+
+If nothing is heard twice in a row, offer to continue typed.
+
 ## At the end
 
 Summarise: which forms I produced correctly, which I avoided (avoidance is a
@@ -50,6 +76,8 @@ target structure was called for, `--correct` how many of those I got right:
 ```
 ./english log drill --point "6B Conditionals" --items 9 --correct 7
 ```
+
+For a spoken drill, add `--note "spoken"`.
 
 ## Dashboard
 

@@ -210,6 +210,9 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 ### Weekly
 
 - `/drill`: a conversation drill on your weakest point. Takes 10–15 min.
+  `/drill speak` asks out loud and you answer into the mic: better for speed,
+  while typed drills catch more errors, because speech-to-text tends to tidy
+  up grammar.
 - `/roleplay`: a real situation from your life (viewing a flat, an office
   appointment, a work meeting) with a goal to win, like a lower deposit or an
   earlier date. No corrections until the end, then a debrief with the phrases
@@ -236,7 +239,7 @@ Setup, escalation tiers, and troubleshooting: [`automation/README.md`](automatio
 | `/level` | none, or `quick` | First day, then monthly |
 | `/journal` | none, a topic (`/journal conditionals`), or `free` | Start of your writing session |
 | `/check` | none (uses today's), or a path | Right after you finish writing |
-| `/drill` | none (picks from your errors), or a topic | Once a week |
+| `/drill` | none (picks from your errors), or a topic; add `speak` to answer out loud | Once a week |
 | `/roleplay` | none (picks from your life), or a situation | Once a week |
 | `/mine` | none, a topic to limit to, or `vocab` | Every 2–4 weeks, **not** daily |
 | `/practice` | none, or an activity (`call`, `mistakes`, `story`…) | Whenever you want something to do |

@@ -2,6 +2,7 @@
 description: Turn recurring errors from me/errors.md into new cloze cards
 argument-hint: [optional grammar point to limit to, or "vocab"]
 allowed-tools: Read, Edit, Write, Glob, Grep, Bash(./english check:*), Bash(./english vocab:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: high
 ---
 
 Read `me/errors.md` and turn my recurring errors into new cards.

@@ -2,6 +2,7 @@
 description: Run a spoken-style conversation drill targeting a weak grammar point
 argument-hint: [grammar point, e.g. "conditionals", or omit] [speak]
 allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(./english log:*), Bash(./english home:*), Bash(./english say:*), Bash(./english speak:*), Bash(shasum:*), Artifact, ArtifactData
+effort: medium
 ---
 
 Run a conversation drill on: $ARGUMENTS

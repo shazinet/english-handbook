@@ -2,6 +2,7 @@
 description: Correct a journal entry, explain each error by grammar point, and log it
 argument-hint: [path to journal file, or omit for today's]
 allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: high
 ---
 
 Correct the writing in: $1

@@ -2,6 +2,7 @@
 description: Role-play a real situation from your life, with a goal to achieve
 argument-hint: [a situation, e.g. "returning a faulty phone", or omit to pick from your profile]
 allowed-tools: Read, Edit, Write, Bash(date:*), Glob, Grep, Bash(./english dashboard:*), Bash(./english log:*), Bash(shasum:*), Artifact, ArtifactData
+effort: medium
 ---
 
 Run a role-play of: $1

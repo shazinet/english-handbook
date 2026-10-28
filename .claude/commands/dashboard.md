@@ -1,6 +1,7 @@
 ---
 description: Refresh my private progress dashboard (Anki, journal, errors)
 allowed-tools: Read, Write, Bash(./english dashboard:*), Bash(shasum:*), Bash(cat:*), Artifact, ArtifactData
+effort: low
 ---
 Refresh the learner's private dashboard on claude.ai.
 

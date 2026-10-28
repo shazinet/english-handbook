@@ -2,6 +2,7 @@
 description: Estimate my CEFR level with a short adaptive placement, and record it
 argument-hint: [omit for the full placement (~15 min), or "quick" for a monthly re-check]
 allowed-tools: Read, Glob, Grep, Bash(date:*), Bash(./english level:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: high
 ---
 
 Estimate my English level: $1

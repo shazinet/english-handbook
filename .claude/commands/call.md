@@ -2,6 +2,7 @@
 description: A voice call with a character: Claude speaks, you answer out loud
 argument-hint: [who to call or the situation, or omit to pick one]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash(date:*), Bash(mkdir:*), Bash(./english say:*), Bash(./english speak:*), Bash(./english log:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: low
 ---
 
 Start a voice call: $1

@@ -2,6 +2,7 @@
 description: Your home screen: path, next step, quests, and a practice activity to start
 argument-hint: [activity: call, roleplay, drill, mistakes, story, speak, listen — or omit]
 allowed-tools: Read, Edit, Write, Glob, Grep, Bash(date:*), Bash(mkdir:*), Bash(./english:*), Bash(shasum:*), Artifact, ArtifactData
+effort: medium
 ---
 
 Open the practice home: $1

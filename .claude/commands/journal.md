@@ -2,6 +2,7 @@
 description: Create today's journal entry with a prompt aimed at your current weak point
 argument-hint: [optional topic, or "free" for an unprompted entry]
 allowed-tools: Read, Write, Glob, Grep, Bash(date:*), Bash(./english vocab:*), Bash(./english home:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: medium
 ---
 
 Create today's journal entry at `me/journal/YYYY-MM-DD.md` (get the date with `date +%F`).

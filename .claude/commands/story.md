@@ -2,6 +2,7 @@
 description: A short story about your life, read aloud, then questions and a retell
 argument-hint: [a situation or theme, or omit to pick one]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash(date:*), Bash(mkdir:*), Bash(./english say:*), Bash(./english speak:*), Bash(./english vocab:*), Bash(./english home:*), Bash(./english log:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: medium
 ---
 
 Tell me a story about: $1

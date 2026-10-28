@@ -2,6 +2,7 @@
 description: Re-correct your own logged errors, one at a time, until they're resolved
 argument-hint: [grammar point to limit to, or omit for the most recurring ones]
 allowed-tools: Read, Glob, Grep, Bash(date:*), Bash(./english mistakes:*), Bash(./english log:*), Bash(./english home:*), Bash(./english dashboard:*), Bash(shasum:*), Artifact, ArtifactData
+effort: medium
 ---
 
 Run a mistakes round on: $1

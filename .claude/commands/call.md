@@ -56,7 +56,9 @@ evidence. 6–10 turns, then end the call naturally.
 
 Save the call to `me/calls/YYYY-MM-DD-HHMM.md`: the setup, then each turn as
 `**Name:** …` / `**Me:** …` (mark a cut-off or unheard turn, with its `audio`
-path so I can listen back), then the debrief. Then log it, with the minutes I
+path so I can listen back), then the debrief. Append the **Say it like this**
+lines to `me/say-aloud.md` too, under `## YYYY-MM-DD · /call (who / why)`, in
+the format `.claude/commands/check.md` describes. Then log it, with the minutes I
 spoke, rounded up:
 
 ```

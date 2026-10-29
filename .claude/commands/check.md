@@ -63,6 +63,14 @@ Append to `me/errors.md`, one line per genuine error (not style notes), in this 
 
 Create `me/errors.md` with that table header if it doesn't exist yet.
 
+If you gave natural spoken versions (a `## spoken` entry), append them to
+`me/say-aloud.md` under a `## YYYY-MM-DD · /check` heading, each as a
+`<!-- said: "…" -->` line quoting what the speaker said, then a `- ` line with
+the natural version. `./english say me/say-aloud.md` skips headings and
+comments, so it reads only the natural versions, for listening and repeating.
+Create the file with a `# Say it aloud` heading if it doesn't exist. Never put
+these sentences in the journal file: progress counts the words written there.
+
 Then append this marker as the last line of the journal file you corrected:
 
 ```

@@ -68,7 +68,11 @@ Step out of character and give:
 
 Append the genuine errors to `me/errors.md` in the format `/check` uses, dated today
 and tagged with the grammar point. Append `DATE<TAB>SCENE<TAB>achieved|partly|not`
-to `me/roleplay.log`. If the same error came up twice or more, suggest `/mine`.
+to `me/roleplay.log`. Append the **Phrases you could have used** sentences to
+`me/say-aloud.md` under `## YYYY-MM-DD · /roleplay (SCENE)`, in the format
+`.claude/commands/check.md` describes; the `said:` comment quotes my line each
+one improves on, or names the moment it fits if I said nothing there. If the
+same error came up twice or more, suggest `/mine`.
 
 Record the session for XP (`--goal yes` only when the goal was achieved in
 full; `--minutes` is a rough length of the scene):

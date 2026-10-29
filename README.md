@@ -312,6 +312,13 @@ order, the next `/journal` target, `/mine`, `/mistakes` and your level
 signals. If one point clearly dominates and isn't in your profile's
 `weak_areas`, it's added there.
 
+For a spoken entry, `/check` also gives two or three of your sentences the way
+a native speaker would say them, and saves them in `me/say-aloud.md`. `/call`
+adds its "Say it like this" lines there, and `/roleplay` adds its "Phrases you
+could have used". Each sentence sits under a comment holding what you actually
+said, and `./english say me/say-aloud.md` reads only the natural versions, so
+you can listen and repeat them.
+
 ### `/mine`: errors become cards
 
 It reads all of `me/errors.md` and keeps only errors that are worth a card:

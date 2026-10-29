@@ -13,7 +13,7 @@ FSRS scheduler handles spacing. The repo owns authorship; Anki owns scheduling.
 code, slash commands, and the card library in `content/`. Everything belonging
 to one learner lives in `me/`, which is gitignored and usually its own private
 git repo: `profile.yml`, `journal/`, `errors.md`, `my-cards/`,
-`level-history.yml`, reminder config and state. `./english update` is a git pull,
+`say-aloud.md`, `level-history.yml`, reminder config and state. `./english update` is a git pull,
 and it can only stay conflict-free if learner data never lands in app files —
 so never write a learner's journal, errors or own cards outside `me/`, and never
 put one learner's specifics (name, weak areas, life details) into app code,
